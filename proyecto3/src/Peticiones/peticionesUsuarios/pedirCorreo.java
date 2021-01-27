@@ -5,7 +5,7 @@
  */
 package Peticiones.peticionesUsuarios;
 
-import Peticiones.ErrorDeDatoException;
+import Excepciones.ErrorDeDatoException;
 import Usuarios.Persona;
 import java.util.Scanner;
 

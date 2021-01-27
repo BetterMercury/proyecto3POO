@@ -5,19 +5,18 @@
  */
 package Peticiones.peticionesArticulos;
 
-import Peticiones.ErrorDeDatoException;
+import Excepciones.ErrorDeDatoException;
 import articulo.Articulo;
 
 /**
- *
+ * 
  * @author ribel
  */
-public class pedirAutores implements PeticionArticulo{
-
+public class pedirAutores{
+    /*
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
          
-    }
-    
-    
+    }    
+    */
 }

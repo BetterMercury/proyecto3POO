@@ -5,16 +5,15 @@
  */
 package Peticiones.peticionesArticulos;
 
-import Peticiones.ErrorDeDatoException;
+import Excepciones.ErrorDeDatoException;
 import articulo.Articulo;
 
 /**
  *
  * @author ribel
  */
-public class pedirTitulo implements PeticionArticulo{
+public class pedirTitulo{
 
-    @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -7,17 +7,19 @@ package articulo;
  */
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
+import Usuarios.empleados.Revisor;
 
 /**
  *
  * @author ribel
  */
 public class Articulo {
-ArrayList<Persona> autores; //Cambiar por autores
+ArrayList<Persona> autores; //Sólo se puede tener un máximo de 3 autores, revisar esto
+int maxAutores = 3;
 String Titulo;
 String Snopsis;
 Categoria categoria;
-Persona revisor; //Debe cambiarse por revisor cuando este
+Revisor revisor; 
 int calificion;
 
     public ArrayList<Persona> getAutores() {
@@ -25,6 +27,9 @@ int calificion;
     }
 
     public void setAutores(ArrayList<Persona> autores) {
+        if(autores.size() == maxAutores){
+            
+        }
         this.autores = autores;
     }
 
@@ -56,7 +61,7 @@ int calificion;
         return revisor;
     }
 
-    public void setRevisor(Persona revisor) {
+    public void setRevisor(Revisor revisor) {
         this.revisor = revisor;
     }
 

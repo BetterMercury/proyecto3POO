@@ -1,16 +1,16 @@
 
 package Usuarios;
+import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.PedirApellidoMaterno;
 import Peticiones.peticionesUsuarios.PeticionPersona;
 import Peticiones.peticionesUsuarios.PedirApellidoPaterno;
 import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
-import Peticiones.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Persona {    
     ArrayList<Operacion> operacionesDisponible;
-    ArrayList<PeticionPersona> peticonesNecesarias;
+    ArrayList<PeticionPersona> peticionesNecesarias;
     String nombre;
     String apellidoPaterno;
     String apellidoMaterno;
@@ -18,12 +18,12 @@ public class Persona {
 
     public Persona(){
         operacionesDisponible = new ArrayList<>();
-        peticonesNecesarias = new ArrayList<>();
+        peticionesNecesarias = new ArrayList<>();
         operacionesDisponible.add(new Operacion1());
         operacionesDisponible.add(new Operacion2());
-        peticonesNecesarias.add(new PedirNombre());
-        peticonesNecesarias.add(new PedirApellidoPaterno());
-        peticonesNecesarias.add(new PedirApellidoMaterno());
+        peticionesNecesarias.add(new PedirNombre());
+        peticionesNecesarias.add(new PedirApellidoPaterno());
+        peticionesNecesarias.add(new PedirApellidoMaterno());
     }
 
     public void mostrarMenu(){
@@ -44,7 +44,7 @@ public class Persona {
 
     public void pedirDatos(){
         System.out.println("Por favor ingresa los datos que se te piden \n");
-        for(PeticionPersona peticion: peticonesNecesarias){
+        for(PeticionPersona peticion: peticionesNecesarias){
             while(true){
                 try{
                     peticion.realizarPeticion(this);
