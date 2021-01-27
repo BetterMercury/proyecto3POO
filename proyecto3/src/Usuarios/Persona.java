@@ -1,5 +1,9 @@
 
 package Usuarios;
+import Peticiones.peticionesUsuarios.PedirApellidoMaterno;
+import Peticiones.peticionesUsuarios.PeticionPersona;
+import Peticiones.peticionesUsuarios.PedirApellidoPaterno;
+import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
 import Peticiones.*;
 import java.util.ArrayList;

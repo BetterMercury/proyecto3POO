@@ -12,5 +12,4 @@ public class Operacion2 implements Operacion {
     public void realizarOperacion(Persona operador) {
         System.out.println(" realizando Operacion2");
     }
-    
 }

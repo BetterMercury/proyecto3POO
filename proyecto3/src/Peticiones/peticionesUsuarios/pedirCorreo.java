@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Peticiones;
+package Peticiones.peticionesUsuarios;
 
+import Peticiones.ErrorDeDatoException;
 import Usuarios.Persona;
 import java.util.Scanner;
 

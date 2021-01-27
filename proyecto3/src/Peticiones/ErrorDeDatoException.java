@@ -1,7 +1,7 @@
 package Peticiones;
 
 public class ErrorDeDatoException extends Exception{
-    ErrorDeDatoException(String mensaje) {
+    public ErrorDeDatoException(String mensaje) {
         super(mensaje);
     }
 }
