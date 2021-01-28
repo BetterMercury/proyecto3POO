@@ -7,24 +7,25 @@ package articulo;
  */
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
+import Usuarios.empleados.Autor;
 
 /**
  *
  * @author ribel
  */
 public class Articulo {
-ArrayList<Persona> autores; //Cambiar por autores
+ArrayList<Autor> autores; //Cambiar por autores
 String Titulo;
 String Snopsis;
 Categoria categoria;
 Persona revisor; //Debe cambiarse por revisor cuando este
 int calificion;
 
-    public ArrayList<Persona> getAutores() {
+    public ArrayList<Autor> getAutores() {
         return autores;
     }
 
-    public void setAutores(ArrayList<Persona> autores) {
+    public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
     }
 

@@ -5,10 +5,11 @@ import Peticiones.peticionesUsuarios.PeticionPersona;
 import Peticiones.peticionesUsuarios.PedirApellidoPaterno;
 import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
-import Peticiones.*;
 import Peticiones.peticionesUsuarios.PedirCorreo;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Excepciones.ErrorDeDatoException;
+
 public abstract class Persona {    
     protected ArrayList<Operacion> operacionesDisponible;
     protected ArrayList<PeticionPersona> peticonesNecesarias;

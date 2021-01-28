@@ -5,19 +5,29 @@
  */
 package Peticiones.peticionesArticulos;
 
-import Peticiones.ErrorDeDatoException;
+import Excepciones.TresAutoresException;
+import Usuarios.empleados.Autor;
 import articulo.Articulo;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
- *
+ * 
  * @author ribel
  */
-public class pedirAutores implements PeticionArticulo{
+public class pedirAutores extends PeticionesArticulo {
 
     @Override
-    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
-         
+    public void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores) {
+        try{
+        if(autores.size()>3){ //Solo pueden existir un máximo de tres autores por artículo
+            throw new TresAutoresException();
+        } else {
+            objetivo.setAutores(autores);
+        }        
+        } catch(TresAutoresException e){
+            System.out.println(e.getMessage());
+        }
+        
     }
-    
-    
 }
