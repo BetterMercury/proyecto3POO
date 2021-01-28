@@ -9,22 +9,16 @@ import Estado.Estado;
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
-<<<<<<< HEAD
-=======
+
 import Usuarios.empleados.Revisor;
->>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
+
 
 /**
  *
  * @author ribel
  */
-<<<<<<< HEAD
-public class Articulo {
-ArrayList<Autor> autores; //Cambiar por autores
-=======
 public class Articulo implements Estado{
 ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
->>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
 String Titulo;
 String Snopsis;
 Categoria categoria;

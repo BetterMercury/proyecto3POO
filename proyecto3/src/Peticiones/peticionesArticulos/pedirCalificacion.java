@@ -17,14 +17,12 @@ public class pedirCalificacion extends PeticionesArticulo {
     public void realizarPeticion(Articulo objetivo) {
         
     }
-<<<<<<< HEAD
+
     /*FALTA DETERMINAR MECANISMO DE CALIFICADOR, ESTO ESTA RELACIONADO CON LA SIGUIENTE SITUACIÓN:
     1. En caso de que el articulo haya sido revisado deben guardarse los datos de al menos un empleado de 
     tipo "Revisor". El artículo puede ser revisado mas de una vez, por lo que deben aguardarse los datos de todos
     los empleados que realicen esta accion, asi como la calificacion que estos le dieron al
     articulo en una escala de 0 a 10
     */
-=======
-    
->>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
+
 }

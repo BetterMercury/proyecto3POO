@@ -16,9 +16,7 @@ public class pedirCategoría extends PeticionesArticulo{
     @Override
     public void realizarPeticion(Articulo objetivo) {
     }
-<<<<<<< HEAD
+
     //FALTA DETERMINAR DONDE SE COLOCARÁ LA LISTA DE CATEGORIAS
-=======
-    
->>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
+
 }

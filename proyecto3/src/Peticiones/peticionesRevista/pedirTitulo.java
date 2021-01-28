@@ -10,12 +10,8 @@ import Revista.Revista;
 import java.util.Scanner;
 
 /**
-<<<<<<< HEAD
  * Clase que permite asociar un título principal a una revista,
  * dicho título debe ser mayor a 4 caracteres.
-=======
- *
->>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
  * @author Dante
  */
 public class pedirTitulo {
