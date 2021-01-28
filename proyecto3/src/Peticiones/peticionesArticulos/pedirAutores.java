@@ -15,10 +15,11 @@ import java.util.LinkedList;
  * Clase que permite asociar una lista de maximo 3 autores a un Articulo.
  * @author ribel
  */
-public class pedirAutores extends PeticionesArticulo {
+public class pedirAutores implements PeticionesArticulo {
 
     @Override
-    public void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores) {
+    public void realizarPeticion(Articulo objetivo) {
+        ArrayList<Autor> autores = null;
         try{
         if(autores.size()>3){ //Solo pueden existir un máximo de tres autores por artículo
             throw new TresAutoresException();

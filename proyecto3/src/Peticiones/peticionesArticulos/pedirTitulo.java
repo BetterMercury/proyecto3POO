@@ -13,9 +13,11 @@ import java.util.Scanner;
  *  Esta clase permite asociar un Título a un Articulo.
  * @author ribel
  */
-public class pedirTitulo{
+public class pedirTitulo implements PeticionesArticulo{
 
-    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
+    @Override
+    public void realizarPeticion(Articulo objetivo){
+        
         String title;
         Scanner sc = new Scanner(System.in);
         

@@ -14,8 +14,7 @@ import java.util.ArrayList;
  *
  * @author Dante
  */
-public abstract class PeticionesArticulo {
-    void realizarPeticion(Articulo objetivo){};
+public interface PeticionesArticulo {
+    void realizarPeticion(Articulo objetivo);
     
-    void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores){};
 }

@@ -10,11 +10,11 @@ import articulo.Articulo;
 import java.util.Scanner;
 
 /**
- * Esta clase permite aladire una sinopsis de no mas de 160 caracteres
+ * Esta clase permite aniadir una sinopsis de no mas de 160 caracteres
  * a un Articulo.
  * @author Dante
  */
-public class pedirSinopsis extends PeticionesArticulo{
+public class pedirSinopsis implements PeticionesArticulo{
 
     @Override
     public void realizarPeticion(Articulo objetivo) {

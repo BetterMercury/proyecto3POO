@@ -16,8 +16,8 @@ import Usuarios.empleados.Editor;
  */
 public class pedirEditor extends PeticionesRevista{
 
-    void realizarPeticion(Revista objetivo, Editor ed) {
-        
+    void realizarPeticion(Revista objetivo) {
+        Editor ed = null;
         if(objetivo.getEstado().equals(Revista.STATER1)){
             objetivo.setEditor(ed);
         } else {

@@ -15,6 +15,7 @@ import java.util.Scanner;
  * @author Dante
  */
 public class pedirTitulo {
+    
     public void realizarPeticion(Revista objetivo){
         String title;
         Scanner sc = new Scanner(System.in);

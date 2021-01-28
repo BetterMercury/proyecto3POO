@@ -11,7 +11,7 @@ import articulo.Articulo;
  *
  * @author Dante
  */
-public class pedirCalificacion extends PeticionesArticulo {
+public class pedirCalificacion implements PeticionesArticulo {
 
     @Override
     public void realizarPeticion(Articulo objetivo) {
