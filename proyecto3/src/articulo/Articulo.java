@@ -5,26 +5,29 @@ package articulo;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Estado.Estado;
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
+import Usuarios.empleados.Autor;
+import Usuarios.empleados.Revisor;
 
 /**
  *
  * @author ribel
  */
-public class Articulo {
-ArrayList<Persona> autores; //Cambiar por autores
+public class Articulo implements Estado{
+ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
 String Titulo;
 String Snopsis;
 Categoria categoria;
-Persona revisor; //Debe cambiarse por revisor cuando este
+Revisor revisor; 
 int calificion;
 
-    public ArrayList<Persona> getAutores() {
+    public ArrayList<Autor> getAutores() {
         return autores;
     }
 
-    public void setAutores(ArrayList<Persona> autores) {
+    public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
     }
 
@@ -56,7 +59,7 @@ int calificion;
         return revisor;
     }
 
-    public void setRevisor(Persona revisor) {
+    public void setRevisor(Revisor revisor) {
         this.revisor = revisor;
     }
 

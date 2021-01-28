@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Peticiones.peticionesArticulos;
+package Peticiones.peticionesRevista;
 
 import Excepciones.ErrorDeDatoException;
-import articulo.Articulo;
+import Revista.Revista;
 import java.util.Scanner;
 
 /**
- *  Esta clase permite asociar un Título a un Articulo.
- * @author ribel
+ *
+ * @author Dante
  */
-public class pedirTitulo{
-
-    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
+public class pedirTitulo {
+    public void realizarPeticion(Revista objetivo){
         String title;
         Scanner sc = new Scanner(System.in);
         
         while(true){        
-            System.out.print("Título del Articulo \n(Mayor a 4 caracteres): ");
+            System.out.print("Título de Revista \n(Mayor a 4 caracteres): ");
             try{
                 title = sc.nextLine();
                 if(title.length()<4)
@@ -31,8 +30,5 @@ public class pedirTitulo{
             }
         }
         objetivo.setTitulo(title);
-    }   
-        
+    }    
 }
-    
-

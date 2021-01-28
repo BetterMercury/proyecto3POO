@@ -1,7 +1,8 @@
 package Peticiones.peticionesUsuarios;
-import Peticiones.ErrorDeDatoException;
+import Excepciones.ErrorDeDatoException;
 import java.util.Scanner;
 import Usuarios.Persona;
+
 public class PedirApellidoMaterno implements PeticionPersona{
 
     @Override
