@@ -20,7 +20,11 @@ public class pedirAutores extends PeticionesArticulo {
     @Override
     public void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores) {
         try{
+<<<<<<< HEAD
         if(autores.size()>3){ //Solo pueden existir un máximo de tres autores por artículo
+=======
+        if(autores.size()>3){
+>>>>>>> 09be6ed3e2690ba3033879065d931359e44edd75
             throw new TresAutoresException();
         } else {
             objetivo.setAutores(autores);
