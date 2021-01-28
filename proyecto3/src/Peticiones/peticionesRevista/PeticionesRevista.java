@@ -8,13 +8,14 @@ package Peticiones.peticionesRevista;
 import Revista.Revista;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  *
  * @author Dante
  */
-public abstract class PeticionesRevista {
+public abstract class PeticionesRevista implements Serializable {
     void realizarPeticion(Revista objetivo){};
     
    void realizarPeticion(Revista objetivo, LinkedList<Articulo> articulos){};    

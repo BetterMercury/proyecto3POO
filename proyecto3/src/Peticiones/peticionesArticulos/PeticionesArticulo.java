@@ -7,6 +7,7 @@ package Peticiones.peticionesArticulos;
 
 import Usuarios.empleados.Autor;
 import articulo.Articulo;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author Dante
  */
-public abstract class PeticionesArticulo {
+public abstract class PeticionesArticulo implements Serializable{
     void realizarPeticion(Articulo objetivo){};
     
     void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores){};

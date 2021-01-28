@@ -32,15 +32,8 @@ public class Revista implements Estado{
     Editor editor; //Solo puede contener editor si es publicado
     int numRevista;
     String Estado;
-    String Folio; //CLAVE ALFANUMERICA DE 8 DIGITOS
+    //String Folio; //CLAVE ALFANUMERICA DE 8 DIGITOS
 
-    public String getFolio() {
-        return Folio;
-    }
-
-    public void setFolio(String Folio) {
-        this.Folio = Folio;
-    }
 
 
     @Override

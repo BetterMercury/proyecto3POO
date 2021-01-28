@@ -23,7 +23,9 @@ String Titulo;
 String Snopsis;
 Categoria categoria;
 Revisor revisor; 
+String estado;
 int calificion;
+int folio;
 
     public ArrayList<Autor> getAutores() {
         return autores;
@@ -73,4 +75,21 @@ int calificion;
         this.calificion = calificion;
     }
 
+    public int getFolio() {
+        return folio;
+    }
+
+    public void setFolio(int folio) {
+        this.folio = folio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
 }

@@ -9,8 +9,9 @@ import Peticiones.peticionesUsuarios.PedirCorreo;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Excepciones.ErrorDeDatoException;
+import java.io.Serializable;
 
-public abstract class Persona {    
+public abstract class Persona implements Serializable {    
     protected ArrayList<Operacion> operacionesDisponible;
     protected ArrayList<PeticionPersona> peticonesNecesarias;
     String nombre;

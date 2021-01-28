@@ -1,32 +1,56 @@
 package datos;
 
+import Estado.Estado;
+import Revista.Revista;
 import java.util.HashMap; 
 import java.util.Map;
 import Usuarios.empleados.*;
 import Usuarios.suscriptor.Suscriptor;
+import articulo.Articulo;
 import java.util.TreeSet;
 
-public class Dato {
+public class Dato implements Estado {
     
     public static Dato instance;
     
     private final HashMap <Integer,Empleado> mapaEmpleados;
     private final HashMap <Integer, Suscriptor> mapaSuscriptores;
+    private final HashMap <Integer, Revista> mapaRevistas;
+    private final HashMap <Integer, Articulo> mapaArticulos;
+    //Conjunto especifios de tipos de Empleados
     private final TreeSet <Autor> setAutores;
     private final TreeSet <Editor> setEditores;
     private final TreeSet <Revisor> setRevisores;
-    private TreeSet<Administrador> setAdministradores;
+    private final TreeSet<Administrador> setAdministradores;
     private Director directorGeneral;
+    //Conjuntos espeficios de tipos de Articulos;
+    private final TreeSet<Articulo> setArticulosAceptados;
+    private final TreeSet<Articulo> setArticulosPendientes;
+    private final TreeSet<Articulo> setArticulosRechazados;
+    //Conjuntos especificos de tipos de Revistas
+    private final TreeSet<Revista> setRevistasPublicadas;
+    private final TreeSet<Revista> setRevistasNoPublicadas;
     
-    
-    
-    private Dato(){
+    private Dato()  {
+        //Mapas de usuarios
         mapaEmpleados = new HashMap<>();
         mapaSuscriptores = new HashMap<>();
+        //mapas de productos
+        mapaRevistas = new HashMap<>();
+        mapaArticulos = new HashMap<>(); 
+        
+        //Conjuntos de empleados 
         setAutores = new TreeSet<>();
         setEditores = new TreeSet<>();
         setRevisores = new TreeSet<>();
         setAdministradores = new TreeSet<>();
+        //conjuntos de Articulos
+        setArticulosAceptados = new TreeSet<>();
+        setArticulosPendientes = new TreeSet<>();
+        setArticulosRechazados = new TreeSet <> ();
+        //conjuntos de revistas
+        setRevistasPublicadas = new TreeSet<>();
+        setRevistasNoPublicadas = new TreeSet<>();
     }
     
     public static Dato getInstance(){
@@ -131,6 +155,110 @@ public class Dato {
     public TreeSet<Administrador> getSetAdministradores(){
         return setAdministradores;
     }
+
+    //Metodos de revistas 
+    
+    public boolean aniadirArticulo(Articulo nuevoArticulo){
+        int numeroArticulo = nuevoArticulo.getFolio();
+        if(mapaRevistas.containsKey(numeroArticulo)){
+            this.mapaArticulos.put(numeroArticulo,nuevoArticulo);
+            conjuntoEspecificoArticulo(nuevoArticulo);
+            return true;
+        }else{
+            System.out.println("De alguna manera el articulo tienen el "
+                    + "mismo numero, esto no debio pasar");
+        }
+        return false;
+    }
+    
+    private boolean conjuntoEspecificoArticulo(Articulo nuevoArticulo){
+        switch (nuevoArticulo.getEstado()) {
+            case STATER3:
+                return this.setArticulosAceptados.add(nuevoArticulo);
+            case STATER4:
+                return this.setArticulosPendientes.add(nuevoArticulo);
+            case STATER5:
+                return this.setArticulosRechazados.add(nuevoArticulo);
+            default:
+                System.out.println("Error, la revista probablemente tiene un estado"
+                        + "invalido o no tiene uno asignado");
+                return false;
+        }
+    }
     
 
+    private boolean quitarDeConjuntoEspecificoArticulo(Articulo articulo){
+        boolean resultado;
+        
+        if (setArticulosAceptados.remove(articulo)){return true;}
+        
+        if (setArticulosPendientes.remove(articulo)){return true;}
+        
+        return setArticulosRechazados.remove(articulo);
+    }
+    
+    public boolean actualizarEstadoArticulo(Articulo articulo){
+        boolean a = this.quitarDeConjuntoEspecificoArticulo(articulo);
+        boolean b = this.conjuntoEspecificoArticulo(articulo);
+        return a && b ;
+    }
+    public TreeSet<Articulo> getSetArticulosAceptados() {
+        return setArticulosAceptados;
+    }
+
+    public TreeSet<Articulo> getSetArticulosPendientes() {
+        return setArticulosPendientes;
+    }
+
+    public TreeSet<Articulo> getSetArticulosRechazados() {
+        return setArticulosRechazados;
+    }
+    
+
+    //Métodos de revistas
+    public TreeSet<Revista> getSetRevistasPublicadas() {
+        return setRevistasPublicadas;
+    }
+
+    public TreeSet<Revista> getSetRevistasNoPublicadas() {
+        return setRevistasNoPublicadas;
+    }
+
+    public boolean aniadirRevista(Revista nuevaRevista){
+        int numeroRevista = nuevaRevista.getNumRevista();
+        if(mapaRevistas.containsKey(numeroRevista)){
+            this.mapaRevistas.put(numeroRevista,nuevaRevista);
+            conjuntoEspecificoRevista(nuevaRevista);
+            return true;
+        }else{
+            System.out.println("De alguna manera dos revistas tienen el "
+                    + "mismo numero, esto no debio pasar");
+        }
+        return false;
+    }
+    
+    private boolean conjuntoEspecificoRevista(Revista nuevaRevista){
+        switch (nuevaRevista.getEstado()) {
+            case STATER1:
+                return this.setRevistasPublicadas.add(nuevaRevista);
+            case STATER2:
+                return this.setRevistasNoPublicadas.add(nuevaRevista);
+            default:
+                System.out.println("Error, la revista probablemente tiene un estado"
+                        + "invalido o no tiene uno asignado");
+                return false;
+        }
+    }
+    private boolean quitarDeConjuntoEspecificoRevista(Revista revista){
+        boolean resultado;
+        
+        if (setRevistasNoPublicadas.remove(revista)){return true;}
+        return setRevistasPublicadas.remove(revista);
+    }
+    
+    public boolean actualizarEstadoRevista(Revista revista){
+        boolean a = this.quitarDeConjuntoEspecificoRevista(revista);
+        boolean b = this.conjuntoEspecificoRevista(revista);
+        return a && b ;
+    }
 }
