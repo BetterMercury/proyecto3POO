@@ -3,24 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/pedirCorreo.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirApellidoMaterno.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirNombre.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/operaciones/Operacion.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/operaciones/Operacion1.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/articulo/Categoria.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Usuarios/Empleado.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Usuarios/Persona.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/datos/datos.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/operaciones/Operacion2.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/ErrorDeDatoException.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesArticulos/pedirAutores.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirApellidoPaterno.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesArticulos/PeticionArticulo.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/articulo/Articulo.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesArticulos/pedirTitulo.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/operaciones/MostrarInfoEmpleado.java</file>
-            <file>file:/D:/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PeticionPersona.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/empleados/Autor.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/datos/datos.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/articulo/Categoria.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PeticionPersona.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/empleados/Editor.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/empleados/Empleado.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirNombre.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/empleados/Revisor.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirApellidoMaterno.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesArticulos/pedirTitulo.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/suscriptor/Suscriptor.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/pedirCorreo.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesUsuarios/PedirApellidoPaterno.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/articulo/Articulo.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/operaciones/Operacion.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/operaciones/Operacion1.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Usuarios/Persona.java</file>
+            <file>file:/C:/Users/Dante/Documents/GitHub/proyecto3POO/proyecto3/src/Peticiones/peticionesArticulos/pedirAutores.java</file>
         </group>
     </open-files>
 </project-private>
