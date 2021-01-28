@@ -1,12 +1,13 @@
 
 package Usuarios;
+import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.PedirApellidoMaterno;
 import Peticiones.peticionesUsuarios.PeticionPersona;
 import Peticiones.peticionesUsuarios.PedirApellidoPaterno;
 import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
 import Peticiones.*;
-import Peticiones.peticionesUsuarios.PedirCorreo;
+import Peticiones.peticionesUsuarios.pedirCorreo;
 import java.util.ArrayList;
 import java.util.Scanner;
 public abstract class Persona {    
@@ -26,7 +27,7 @@ public abstract class Persona {
         peticonesNecesarias.add(new PedirNombre());
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());
-        peticonesNecesarias.add(new PedirCorreo());
+        peticonesNecesarias.add(new pedirCorreo());
     }
 
     public void mostrarMenu(){
