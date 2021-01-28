@@ -6,21 +6,34 @@ import Usuarios.empleados.*;
 import Usuarios.suscriptor.Suscriptor;
 import java.util.TreeSet;
 
-public class datos {
-    HashMap <Integer,Empleado> mapaEmpleados;
-    HashMap <Integer, Suscriptor> mapaSuscriptores;
-    TreeSet <Autor> setAutores;
-    TreeSet <Editor> setEditores;
-    TreeSet <Revisor> setRevisores;
+public class Dato {
+    
+    public static Dato instance;
+    
+    private final HashMap <Integer,Empleado> mapaEmpleados;
+    private final HashMap <Integer, Suscriptor> mapaSuscriptores;
+    private final TreeSet <Autor> setAutores;
+    private final TreeSet <Editor> setEditores;
+    private final TreeSet <Revisor> setRevisores;
+    private TreeSet<Administrador> setAdministradores;
+    private Director directorGeneral;
     
     
     
-    public datos(){
+    private Dato(){
         mapaEmpleados = new HashMap<>();
         mapaSuscriptores = new HashMap<>();
         setAutores = new TreeSet<>();
         setEditores = new TreeSet<>();
         setRevisores = new TreeSet<>();
+        setAdministradores = new TreeSet<>();
+    }
+    
+    public static Dato getInstance(){
+        if(Dato.instance == null){
+            instance = new Dato();
+        }
+        return instance;
     }
     /**
      * 
@@ -63,6 +76,10 @@ public class datos {
             setEditores.add((Editor)empleado);
         }else if (empleado instanceof Revisor){
             setRevisores.add((Revisor)empleado);
+        }else if (empleado instanceof Administrador){
+            setAdministradores.add((Administrador)empleado);
+        }else if (empleado instanceof Director){
+            directorGeneral = (Director)empleado;
         }else{
             System.out.println("Esto no deberia de pasar \n aniadirListaEspecifica"
                     + " en la clase dato del paquete dato xd");
@@ -110,5 +127,10 @@ public class datos {
     public TreeSet<Revisor> getSetDeRevisores(){
         return setRevisores;
     } 
+    
+    public TreeSet<Administrador> getSetAdministradores(){
+        return setAdministradores;
+    }
+    
 
 }

@@ -5,6 +5,7 @@
  */
 package Usuarios.suscriptor;
 
+import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Usuarios.Persona;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -16,12 +17,11 @@ public class Suscriptor extends Persona{
     
     public Suscriptor(){
         super();
+        this.peticonesNecesarias.add(new GenerarIdentificador());
     }
     
     //formateador para la fecha ingresada
     DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
-    
-    private String contrasena;
     LocalDate fechaSuscripcion;
     int numeroSuscriptor;
 
@@ -32,15 +32,6 @@ public class Suscriptor extends Persona{
     public void setNumeroSuscriptor(int numeroSuscriptor) {
         this.numeroSuscriptor = numeroSuscriptor;
     }
-    
-    public String getContrasena(){  //solo para los admins o para el sistema de inicio de sesion
-        return contrasena;
-    }
-    
-    public void setContrasena(String contrasena){   //solo para el usuario en el registro, admin o el usuario si quiere cambiar
-        this.contrasena = contrasena;
-    }
-    
     public String getFechaSuscripcion() {
         return formateador.format(fechaSuscripcion);    //regresa la cadena con fecha establecida por LocalDate
     }

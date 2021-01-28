@@ -6,24 +6,27 @@ import Peticiones.peticionesUsuarios.PedirApellidoPaterno;
 import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
 import Peticiones.*;
+import Peticiones.peticionesUsuarios.PedirCorreo;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Persona {    
-    ArrayList<Operacion> operacionesDisponible;
-    ArrayList<PeticionPersona> peticonesNecesarias;
+public abstract class Persona {    
+    protected ArrayList<Operacion> operacionesDisponible;
+    protected ArrayList<PeticionPersona> peticonesNecesarias;
     String nombre;
     String apellidoPaterno;
     String apellidoMaterno;
     String email;
+    protected String cadenaTodoJunto;
+    String contrasena;
 
     public Persona(){
         operacionesDisponible = new ArrayList<>();
         peticonesNecesarias = new ArrayList<>();
-        operacionesDisponible.add(new Operacion1());
-        operacionesDisponible.add(new Operacion2());
+        operacionesDisponible.add(new regresarMenuAnterior());
         peticonesNecesarias.add(new PedirNombre());
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());
+        peticonesNecesarias.add(new PedirCorreo());
     }
 
     public void mostrarMenu(){
@@ -39,8 +42,9 @@ public class Persona {
         int op;
         System.out.print("Ingresa tu eleccion: ");
         op = sc.nextInt();
-        this.operacionesDisponible.get(op-1).realizarOperacion(this);
-        }
+        
+            this.operacionesDisponible.get(op-1).realizarOperacion(this);
+    }
 
     public void pedirDatos(){
         System.out.println("Por favor ingresa los datos que se te piden \n");
@@ -56,14 +60,8 @@ public class Persona {
             }
         }
     }
-
-    public static void main (String[] args){
-        Persona unaPersona = new Persona();
-        unaPersona.pedirDatos();
-        unaPersona.mostrarMenu();
-        unaPersona.elegirOperacion();
-    }
-
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -94,6 +92,22 @@ public class Persona {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCadenaTodoJunto() {
+        return cadenaTodoJunto;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public void setCadenaTodoJunto(String cadenaTodoJunto) {
+        this.cadenaTodoJunto = cadenaTodoJunto;
     }
     
 }
