@@ -23,6 +23,15 @@ public class Suscriptor extends Persona{
     
     private String contrasena;
     LocalDate fechaSuscripcion;
+    int numeroSuscriptor;
+
+    public int getNumeroSuscriptor() {
+        return numeroSuscriptor;
+    }
+
+    public void setNumeroSuscriptor(int numeroSuscriptor) {
+        this.numeroSuscriptor = numeroSuscriptor;
+    }
     
     public String getContrasena(){  //solo para los admins o para el sistema de inicio de sesion
         return contrasena;

@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Equiipo 9
  */
-public class Empleado extends Persona{
+public class Empleado extends Persona implements Comparable<Empleado>{
     
     public Empleado(){
         super();
@@ -22,15 +22,17 @@ public class Empleado extends Persona{
         //formateador para la fecha ingresada
     DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     
-    int numeroEmpleado;
+    Integer numeroEmpleado;
     LocalDate fechaIngreso;
     
-    public int getNumeroEmpleado(){
+    public Integer getNumeroEmpleado(){
         return numeroEmpleado;
     }
 
-    public void setNumeroEmpleado(int numeroEmpleado) {
-        int cifras = 0;
+    public void setNumeroEmpleado(Integer numeroEmpleado) {
+        
+        this.numeroEmpleado = numeroEmpleado;
+        /*
         int numEm = numeroEmpleado;
    
         cifras= 0;    //esta variable es el contador de cifras
@@ -45,6 +47,7 @@ public class Empleado extends Persona{
             System.out.println(" ");
             System.out.println("El numero de empleado no es de 8 digitos");
         }
+        */
         
     }
     
@@ -58,7 +61,15 @@ public class Empleado extends Persona{
         }else{
             System.out.println(" ");
             System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
-        }
-        
+        }  
+    }
+
+    
+    /**
+     * Hace que los sets de los tipos especificos aparescan ordenados automaticamente.
+     */
+    @Override
+    public int compareTo(Empleado arg0) {
+        return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
     }
 }
