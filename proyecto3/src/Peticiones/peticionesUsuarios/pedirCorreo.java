@@ -5,7 +5,7 @@
  */
 package Peticiones.peticionesUsuarios;
 
-import Excepciones.ErrorDeDatoException;
+import Peticiones.ErrorDeDatoException;
 import Usuarios.Persona;
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class pedirCorreo implements PeticionPersona{
+public class PedirCorreo implements PeticionPersona {
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         String nombre;
         Scanner sc = new Scanner(System.in);
