@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Peticiones.peticionesRevista;
+package Peticiones.peticionesArticulos;
+
+import articulo.Articulo;
 
 /**
  *
  * @author Dante
  */
-public class pedirFecha {
+public class pedirCategoría extends PeticionesArticulo{
+
+    @Override
+    public void realizarPeticion(Articulo objetivo) {
+    }
     
 }

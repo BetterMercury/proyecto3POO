@@ -8,6 +8,7 @@ import Peticiones.peticionesUsuarios.PedirNombre;
 import operaciones.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Persona {    
     ArrayList<Operacion> operacionesDisponible;
     ArrayList<PeticionPersona> peticionesNecesarias;

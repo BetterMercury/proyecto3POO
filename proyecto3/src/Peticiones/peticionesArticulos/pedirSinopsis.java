@@ -3,32 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Peticiones.peticionesRevista;
+package Peticiones.peticionesArticulos;
 
 import Excepciones.ErrorDeDatoException;
-import Revista.Revista;
+import articulo.Articulo;
 import java.util.Scanner;
 
 /**
- *
+ * Esta clase permite aladire una sinopsis de no mas de 160 caracteres
+ * a un Articulo.
  * @author Dante
  */
-public class pedirTitulo {
-    public void realizarPeticion(Revista objetivo){
-        String title;
+public class pedirSinopsis extends PeticionesArticulo{
+
+    @Override
+    public void realizarPeticion(Articulo objetivo) {
+        String sinopsis;
         Scanner sc = new Scanner(System.in);
         
         while(true){        
             System.out.print("Título de Revista \n(Mayor a 4 caracteres): ");
             try{
-                title = sc.nextLine();
-                if(title.length()<4)
-                    throw new ErrorDeDatoException("Error: La longitud del título debe ser mayor a 4 caracteres");            
+                sinopsis = sc.nextLine();
+                if(sinopsis.length()>160)
+                    throw new ErrorDeDatoException("Error: La sinopsis debe ser menor a 160 caracteres");            
                 break;
             } catch(ErrorDeDatoException e){
                 System.out.println(e.getMessage());
             }
         }
-        objetivo.setTitulo(title);
-    }    
+        objetivo.setSnopsis(sinopsis);
+    }           
 }
+    
+

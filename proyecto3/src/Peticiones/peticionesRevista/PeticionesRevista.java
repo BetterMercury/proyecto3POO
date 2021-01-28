@@ -5,10 +5,19 @@
  */
 package Peticiones.peticionesRevista;
 
+import Revista.Revista;
+import Usuarios.empleados.Editor;
+import articulo.Articulo;
+import java.util.LinkedList;
+
 /**
  *
  * @author Dante
  */
-public interface PeticionesRevista {
+public abstract class PeticionesRevista {
+    void realizarPeticion(Revista objetivo){};
     
+   void realizarPeticion(Revista objetivo, LinkedList<Articulo> articulos){};    
+   
+   void realizarPeticion(Revista objetivo, Editor ed){};     
 }
