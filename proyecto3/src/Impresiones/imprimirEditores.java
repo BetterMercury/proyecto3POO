@@ -11,7 +11,8 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
- *
+ * Clase que imprime todos los Editores existentes, se aprovecha su metodo
+ * toString() personalizado para la clase Editor
  * @author Dante
  */
 public class imprimirEditores extends Imprimir{

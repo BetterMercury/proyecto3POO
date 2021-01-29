@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Clase que recorre los Articulos disponibles, no hace uso del metodo
+ * toString()
  * @author Dante
  */
 public class imprimirArticulos extends Imprimir{

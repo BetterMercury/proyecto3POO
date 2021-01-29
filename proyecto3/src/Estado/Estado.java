@@ -17,6 +17,7 @@ public interface Estado {
     //Los siguientes estados son validos para Revista
     static String STATER1 = "Publicado";
     static String STATER2 = "No Publicado";
+    
     //Los siguientes estados son validos para Articulo
     static String STATER3 = "Aceptado";
     static String STATER4 = "Pendiente";

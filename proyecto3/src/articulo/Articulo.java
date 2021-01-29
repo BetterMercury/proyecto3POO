@@ -24,7 +24,7 @@ public class Articulo implements Estado, Categoria{
     private ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
     private String Titulo;
     private String Snopsis;
-    private Categoria categoria;
+    private String categoria;
     private Revisor revisor; 
     private String estado;
     private int calificion;
@@ -33,6 +33,12 @@ public class Articulo implements Estado, Categoria{
     HashMap <Integer, Integer> mapaCalificaciones;    //La clave es el número de cuenta del Revisor,
                                                       //el valor representa la calificacion puesta
     
+    /**
+     * Método para la obtención de una parte del Folio por medio
+     * de la generación de un HashCode que utiliza cada uno de los
+     * atributos de un Articulo
+     * @return 
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -62,6 +68,33 @@ public class Articulo implements Estado, Categoria{
         return true;
     }
 
+    //METODOS QUE OBTIENEN LAS CATEGORIAS DE LA INTERFAZ CATEGORIA
+    public static String getCAT1() {
+        return CAT1;
+    }
+    public static String getCAT2() {
+        return CAT2;
+    }
+    public static String getCAT3() {
+        return CAT3;
+    }
+    public static String getCAT4() {
+        return CAT4;
+    }
+     
+    //METODOS QUE OBTIENEN LOS ESTADOS DE LA INTERFAZ ESTADO
+    public static String getSTATER3() {
+        return STATER3;
+    }
+    public static String getSTATER4() {
+        return STATER4;
+    }
+    public static String getSTATER5() {
+        return STATER5;
+    }
+    
+    //MÉTODOS COMUNES PARA LA CLASE Articulo
+    
     public ArrayList<Autor> getAutores() {
         return autores;
     }
@@ -86,11 +119,11 @@ public class Articulo implements Estado, Categoria{
         this.Snopsis = Snopsis;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
