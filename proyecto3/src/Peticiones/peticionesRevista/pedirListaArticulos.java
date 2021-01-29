@@ -18,7 +18,8 @@ import java.util.LinkedList;
 public class pedirListaArticulos extends PeticionesRevista{
 
     
-    public void realizarPeticion(Revista objetivo, LinkedList<Articulo> articulos ) {
+    public void realizarPeticion(Revista objetivo) {
+        LinkedList<Articulo> articulos = null; //Adaptar, esto debe ser un TreeSet
         System.out.println("Se agregara la lista de articulos a la Revista");
         try{
             if(articulos.isEmpty()){

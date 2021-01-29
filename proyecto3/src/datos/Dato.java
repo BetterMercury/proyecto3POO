@@ -16,7 +16,7 @@ public class Dato implements Estado {
     private final HashMap <Integer,Empleado> mapaEmpleados;
     private final HashMap <Integer, Suscriptor> mapaSuscriptores;
     private final HashMap <Integer, Revista> mapaRevistas;
-    private final HashMap <Integer, Articulo> mapaArticulos;
+    private final HashMap <String, Articulo> mapaArticulos; //Se hizo la correcion, el Folio debia ser String... ok
     //Conjunto especifios de tipos de Empleados
     private final TreeSet <Autor> setAutores;
     private final TreeSet <Editor> setEditores;
@@ -159,7 +159,7 @@ public class Dato implements Estado {
     //Metodos de revistas 
     
     public boolean aniadirArticulo(Articulo nuevoArticulo){
-        int numeroArticulo = nuevoArticulo.getFolio();
+        String numeroArticulo = nuevoArticulo.getFolio();
         if(mapaRevistas.containsKey(numeroArticulo)){
             this.mapaArticulos.put(numeroArticulo,nuevoArticulo);
             conjuntoEspecificoArticulo(nuevoArticulo);

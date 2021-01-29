@@ -25,7 +25,7 @@ Categoria categoria;
 Revisor revisor; 
 String estado;
 int calificion;
-int folio;
+String folio; //Clave alfanumerica de 8 digitos
 
     public ArrayList<Autor> getAutores() {
         return autores;
@@ -75,13 +75,14 @@ int folio;
         this.calificion = calificion;
     }
 
-    public int getFolio() {
+    public String getFolio() {
         return folio;
     }
 
-    public void setFolio(int folio) {
+    public void setFolio(String folio) {
         this.folio = folio;
     }
+    
 
     public String getEstado() {
         return estado;

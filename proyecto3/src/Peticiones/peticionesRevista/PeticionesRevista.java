@@ -16,9 +16,6 @@ import java.util.LinkedList;
  * @author Dante
  */
 public abstract class PeticionesRevista implements Serializable {
-    void realizarPeticion(Revista objetivo){};
-    
-   void realizarPeticion(Revista objetivo, LinkedList<Articulo> articulos){};    
-   
-   void realizarPeticion(Revista objetivo, Editor ed){};     
+   void realizarPeticion(Revista objetivo){};
+ 
 }

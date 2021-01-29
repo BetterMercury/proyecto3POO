@@ -32,8 +32,6 @@ public class Revista implements Estado{
     Editor editor; //Solo puede contener editor si es publicado
     int numRevista;
     String Estado;
-    //String Folio; //CLAVE ALFANUMERICA DE 8 DIGITOS
-
 
 
     @Override
@@ -49,8 +47,7 @@ public class Revista implements Estado{
         }
         final Revista other = (Revista) obj;
         return true;
-    }
-    
+    }    
     
 
     public String getEstado() {
