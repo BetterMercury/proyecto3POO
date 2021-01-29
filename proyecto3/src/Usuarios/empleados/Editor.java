@@ -5,6 +5,9 @@
  */
 package Usuarios.empleados;
 
+import Peticiones.peticionesUsuarios.GenerarIdentificador;
+import Peticiones.peticionesUsuarios.PedirCedula;
+import Peticiones.peticionesUsuarios.PedirPosgrado;
 import Usuarios.empleados.Empleado;
 
 /**
@@ -15,6 +18,8 @@ public class Editor extends Empleado{
     
     public Editor(){
         super();
+        this.peticonesNecesarias.add(new PedirPosgrado());
+        this.peticonesNecesarias.add(new PedirCedula());    //falta pedir el numero de articulos, relacionado con la operacion asociada
     }
     
     String posgrado; //debe ser maestría o doctorado
@@ -26,14 +31,7 @@ public class Editor extends Empleado{
     }
 
     public void setPosgrado(String posgrado) {
-        if(posgrado.compareTo("Doctorado") == 0){       //condicion de solo colocar dos posgrados
             this.posgrado = posgrado;
-        }else if(posgrado.compareTo("Maestria") == 0){
-            this.posgrado = posgrado;
-        }else{
-            System.out.println(" ");
-            System.out.println("No se ha ingreso un posgrado valido");
-        }
     }
     
     public int getNumeroArticulosRevisados(){
@@ -55,22 +53,7 @@ public class Editor extends Empleado{
     }
 
     public void setNumeroCedula(int numeroCedula){
-        int cifras = 0;
-        int numCed = numeroCedula;
-   
-        cifras= 0;    //esta variable es el contador de cifras
-        while(numCed!=0){             //mientras a numCed le queden cifras
-            numCed = numCed/10;         //le quitamos el último dígito
-            cifras++;          //sumamos 1 al contador de cifras
-        }
-        
-        if((numCed == 5) ){   //se forza a tener 5 cifras en el numero de cedula
             this.numeroCedula = numeroCedula;
-        }else{
-            System.out.println(" ");
-            System.out.println("El numero de cedula no es de 5 digitos");
-        }
-        
     }
     
 }

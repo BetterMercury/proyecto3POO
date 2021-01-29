@@ -5,7 +5,8 @@
  */
 package Usuarios.empleados;
 
-import Usuarios.empleados.Empleado;
+import Peticiones.peticionesUsuarios.PedirInstitucion;
+import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
 /**
  *
  * @author Equipo 9
@@ -14,6 +15,8 @@ public class Autor extends Empleado{
     
     public Autor(){
         super();
+        this.peticonesNecesarias.add(new PedirInstitucion());
+        this.peticonesNecesarias.add(new PedirNumeroArticulosEscritosAutor());
     }
     
     String institucion;
@@ -32,13 +35,7 @@ public class Autor extends Empleado{
     }
 
     public void setNumeroArticulosEscritos(int numeroArticulosEscritos) {
-        
-        if( (numeroArticulosEscritos >= 0) && (numeroArticulosEscritos < 30) ){   //limite en articulos que se pueden colocar
             this.numeroArticulosEscritos = numeroArticulosEscritos;
-        }else{
-            System.out.println(" ");
-            System.out.println("Numero de articulos escritos invalido");
-        }
     }
     
 }

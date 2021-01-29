@@ -5,6 +5,9 @@
  */
 package Usuarios.empleados;
 
+import Peticiones.peticionesUsuarios.PedirInstitucion;
+import Peticiones.peticionesUsuarios.PedirInteresRevisor;
+import Peticiones.peticionesUsuarios.PedirNumeroArticulosRevisadosRevisor;
 import Usuarios.empleados.Empleado;
 
 import java.util.LinkedList;
@@ -18,6 +21,9 @@ public class Revisor extends Empleado{
     
     public Revisor(){
         super();
+        this.peticonesNecesarias.add(new PedirInstitucion());
+        this.peticonesNecesarias.add(new PedirInteresRevisor());
+        this.peticonesNecesarias.add(new PedirNumeroArticulosRevisadosRevisor());
     }
     
     String institucion;
@@ -53,12 +59,6 @@ public class Revisor extends Empleado{
     }
 
     public void setNumeroArticulosRevisados(int numeroArticulosRevisados) {
-        if( (numeroArticulosRevisados >= 0) && (numeroArticulosRevisados < 30) ){   //limite en articulos que se pueden colocar
             this.numeroArticulosRevisados = numeroArticulosRevisados;
-        }else{
-            System.out.println(" ");
-            System.out.println("Numero de articulos revisados invalido");
-        }
-        
     }
 }
