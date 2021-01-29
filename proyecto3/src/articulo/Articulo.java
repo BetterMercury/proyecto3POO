@@ -11,21 +11,56 @@ import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
 
 import Usuarios.empleados.Revisor;
+import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
  *
  * @author ribel
  */
-public class Articulo implements Estado{
-ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
-String Titulo;
-String Snopsis;
-Categoria categoria;
-Revisor revisor; 
-String estado;
-int calificion;
-String folio; //Clave alfanumerica de 8 digitos
+public class Articulo implements Estado, Categoria{
+    
+    private ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
+    private String Titulo;
+    private String Snopsis;
+    private Categoria categoria;
+    private Revisor revisor; 
+    private String estado;
+    private int calificion;
+    private String folio; //Clave alfanumerica de 8 digitos
+    
+    HashMap <Integer, Integer> mapaCalificaciones;    //La clave es el número de cuenta del Revisor,
+                                                      //el valor representa la calificacion puesta
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.autores);
+        hash = 83 * hash + Objects.hashCode(this.Titulo);
+        hash = 83 * hash + Objects.hashCode(this.Snopsis);
+        hash = 83 * hash + Objects.hashCode(this.categoria);
+        hash = 83 * hash + Objects.hashCode(this.revisor);
+        hash = 83 * hash + Objects.hashCode(this.estado);
+        hash = 83 * hash + this.calificion;
+        hash = 83 * hash + Objects.hashCode(this.folio);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Articulo other = (Articulo) obj;
+        return true;
+    }
 
     public ArrayList<Autor> getAutores() {
         return autores;
@@ -81,8 +116,7 @@ String folio; //Clave alfanumerica de 8 digitos
 
     public void setFolio(String folio) {
         this.folio = folio;
-    }
-    
+    }    
 
     public String getEstado() {
         return estado;
@@ -90,7 +124,7 @@ String folio; //Clave alfanumerica de 8 digitos
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
+    }   
     
     
 }

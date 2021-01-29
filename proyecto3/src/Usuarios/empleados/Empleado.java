@@ -56,4 +56,19 @@ public class Empleado extends Persona implements Comparable<Empleado>{
     public int compareTo(Empleado arg0) {
         return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     * Permite la impresion de los datos de Empleado
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return super.toString() + 
+                "Numero de empleado :" + numeroEmpleado + "\n";
+        //NOTA: Falta convertir la fecha de entrada a String para
+        //que tambien se pueda imprimir
+    }
+    
+
+    
 }

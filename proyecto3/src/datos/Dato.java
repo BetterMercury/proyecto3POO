@@ -13,10 +13,11 @@ public class Dato implements Estado {
     
     public static Dato instance;
     
-    private final HashMap <Integer,Empleado> mapaEmpleados;
+    private final HashMap <Integer, Empleado> mapaEmpleados;
     private final HashMap <Integer, Suscriptor> mapaSuscriptores;
     private final HashMap <Integer, Revista> mapaRevistas;
     private final HashMap <String, Articulo> mapaArticulos; //Se hizo la correcion, el Folio debia ser String... ok
+    
     //Conjunto especifios de tipos de Empleados
     private final TreeSet <Autor> setAutores;
     private final TreeSet <Editor> setEditores;
@@ -59,6 +60,7 @@ public class Dato implements Estado {
         }
         return instance;
     }
+    
     /**
      * 
      * @param numeroEmpleado 
@@ -159,16 +161,26 @@ public class Dato implements Estado {
     //Metodos de revistas 
     
     public boolean aniadirArticulo(Articulo nuevoArticulo){
-        String numeroArticulo = nuevoArticulo.getFolio();
-        if(mapaRevistas.containsKey(numeroArticulo)){
-            this.mapaArticulos.put(numeroArticulo,nuevoArticulo);
+        String folioArticulo = nuevoArticulo.getFolio();
+        if(mapaRevistas.containsKey(folioArticulo)){
+            this.mapaArticulos.put(folioArticulo,nuevoArticulo);
             conjuntoEspecificoArticulo(nuevoArticulo);
             return true;
         }else{
             System.out.println("De alguna manera el articulo tienen el "
-                    + "mismo numero, esto no debio pasar");
+                    + "mismo folio, esto no debio pasar");
         }
         return false;
+    }
+    
+    /**
+     * Método booleano que ayuda a determinar la existencia de un folio
+     * en el mapa de articulos.
+     * @param folio es el Folio a comprobar su existencia.
+     * @return true si existe, false si no existe.
+     */
+    public boolean existsFolioArticulo(String folio){
+        return (this.mapaArticulos.containsValue(folio));
     }
     
     private boolean conjuntoEspecificoArticulo(Articulo nuevoArticulo){
@@ -261,4 +273,14 @@ public class Dato implements Estado {
         boolean b = this.conjuntoEspecificoRevista(revista);
         return a && b ;
     }
+
+    public Director getDirectorGeneral() {
+        return directorGeneral;
+    }    
+
+    public HashMap<String, Articulo> getMapaArticulos() {
+        return mapaArticulos;
+    }
+    
+    
 }

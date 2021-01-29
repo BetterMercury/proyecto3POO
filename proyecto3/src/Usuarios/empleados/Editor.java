@@ -55,5 +55,13 @@ public class Editor extends Empleado{
     public void setNumeroCedula(int numeroCedula){
             this.numeroCedula = numeroCedula;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + 
+                "Posgrado : " + posgrado + 
+                "\nNumero de articulos revisados : " + numeroArticulosRevisados + 
+                "\nNumero de cedula profesional : " + numeroCedula;
+    }        
     
 }

@@ -37,5 +37,12 @@ public class Autor extends Empleado{
     public void setNumeroArticulosEscritos(int numeroArticulosEscritos) {
             this.numeroArticulosEscritos = numeroArticulosEscritos;
     }
+
+    @Override
+    public String toString() {
+        return "Institucion : " + institucion + 
+                "\nNumero de articulos escritos : " + numeroArticulosEscritos;
+    }
+    
     
 }

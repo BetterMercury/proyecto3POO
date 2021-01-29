@@ -6,15 +6,30 @@
 package Peticiones.peticionesArticulos;
 
 import articulo.Articulo;
+import datos.Dato;
+import Impresiones.imprimirRevisores;
+import java.util.Scanner;
 
 /**
  *
  * @author Dante
  */
-public class pedirCalificacion extends PeticionesArticulo {
+public class pedirCalificador extends PeticionesArticulo {
 
     @Override
     public void realizarPeticion(Articulo objetivo) {
+        Scanner sc = new Scanner(System.in);        
+        int nCuenta;
+        Dato datosGenerales = Dato.getInstance();
+        imprimirRevisores irev = new imprimirRevisores();
+        
+        irev.realizarImpresion(datosGenerales);        
+        System.out.println("Seleccionar el Numero de Cuenta del Revisor");
+        nCuenta = sc.nextInt();
+        
+        
+        
+        //Verificacion 0 a 10
         
     }
 
@@ -22,7 +37,7 @@ public class pedirCalificacion extends PeticionesArticulo {
     1. En caso de que el articulo haya sido revisado deben guardarse los datos de al menos un empleado de 
     tipo "Revisor". El artículo puede ser revisado mas de una vez, por lo que deben aguardarse los datos de todos
     los empleados que realicen esta accion, asi como la calificacion que estos le dieron al
-    articulo en una escala de 0 a 10
+    articulo en una escala de 0 a 10.    
     */
 
 }

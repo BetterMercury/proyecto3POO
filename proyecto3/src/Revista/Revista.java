@@ -25,13 +25,13 @@ public class Revista implements Estado{
     ArrayList<PeticionRevista> peticionesNecesarias;    
     */
     
-    static int conteoRevistas;
-    String titulo;
-    Date fechaPublicacion;
-    LinkedList<Articulo> articulos = new LinkedList<>();
-    Editor editor; //Solo puede contener editor si es publicado
-    int numRevista;
-    String Estado;
+    public static int conteoRevistas;
+    private String titulo;
+    private Date fechaPublicacion;
+    private LinkedList<Articulo> articulos = new LinkedList<>();
+    private Editor editor; //Solo puede contener editor si es publicado
+    private int numRevista;
+    private String Estado;
 
 
     @Override
