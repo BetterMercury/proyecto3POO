@@ -10,6 +10,8 @@ import datos.Dato;
 import InstanciadoresUsuarios.CrearCuentaAdministrativa;
 import Usuarios.empleados.Administrador;
 import InstanciadoresUsuarios.CrearDirector;
+import java.io.Console;
+import java.util.InputMismatchException;
 /**
  *
  * @author ribel
@@ -17,6 +19,7 @@ import InstanciadoresUsuarios.CrearDirector;
 public class init {
     public static void main (String [] args){
         Persona usuarioActual = new Administrador();
+        Dato referenciaDato = Dato.getInstance();
         String valorSalida = "4";
         String op = "";
         Scanner sc = new Scanner(System.in);
@@ -27,7 +30,7 @@ public class init {
             op = sc.nextLine();
             switch(op){
                 case "s":
-                    cargarDatos();
+                    referenciaDato.cargarDatos();
                     break;
                 case "n":
                     Dato.getInstance();
@@ -40,17 +43,23 @@ public class init {
         if(op.equals("n")){
             System.out.println("Primero, debes crear una cuanta administrativa");
             new CrearCuentaAdministrativa().realizarOperacion(usuarioActual);
+            System.out.println("Ahora, debes crear el perfil del director");
             new CrearDirector().realizarOperacion(usuarioActual);
         }
         do{
             System.out.println("\tMenu principal\n"
                     + "1.- Ingresar\n"
-                    + "2.- Crear cuenta\n"
+                    + "2.- Suscribirse\n"
                     + valorSalida +".- salir\n");
             op = sc.nextLine();
             switch(op){
                 case "1":
                     usuarioActual = ingresar();
+                    if(usuarioActual == null){
+                        System.out.println("Lo sentimos, tu numero de usuario o"
+                                + " contrasenia esta mal");
+                        break;
+                    }
                     usuarioActual.mostrarMenu();
                     usuarioActual.elegirOperacion();
                     break;
@@ -66,17 +75,71 @@ public class init {
             }
 
         }while(!valorSalida.equals(op));
-
-
-            
+        
     }
 
-    private static void cargarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     private static Persona ingresar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Dato accesoDatos = Dato.getInstance();
+        Scanner sc = new Scanner(System.in);
+        String op;
+        Persona usuario;
+        Console consola = System.console();
+       
+        System.out.println("Sabes tu numero de identificacion unico?[s/n]");
+        op = sc.nextLine();
+        try{
+            if("s".equalsIgnoreCase(op)){
+                int numeroUnico;
+                String contrasenia;
+                System.out.print("Ingresa tu numero unico: ");
+                numeroUnico = sc.nextInt();
+                System.out.println("Ingresa tu contrasenia: ");
+                contrasenia = new String(consola.readPassword());
+
+                usuario = accesoDatos.buscarNumeroEmpleado(numeroUnico);
+                //Si no hay un empleado busca un suscriptor
+                if(usuario == null){
+                    usuario = accesoDatos.buscarNumeroSuscriptor(numeroUnico);
+                //Si no existe devuelve null
+                }
+                if(contrasenia.equals(usuario.getContrasena())){
+                    return usuario;
+                }else{
+                    
+                    return null;
+                }
+
+            }else if ("n".equalsIgnoreCase(op)){
+                String correo;
+                String contrasenia;
+                System.out.print("Ingresa tu correo electronico: ");
+                correo = sc.nextLine();
+                System.out.println("Ingresa tu contrasenia: ");
+                contrasenia = new String(consola.readPassword());
+
+                usuario = accesoDatos.buscarEmpleado(correo);
+                //Si no hay un empleado busca un suscriptor
+                if(usuario == null){
+                    usuario = accesoDatos.buscarSuscriptor(correo);
+                //Si no existe devuelve null
+                }
+                if(contrasenia.equals(usuario.getContrasena())){
+                    return usuario;
+                }else{
+                    return null;
+                }
+
+            }else{
+                System.out.println("opcion no valida");
+            }
+        }catch(InputMismatchException e){
+            System.out.println("El numero unico solo contiene numeros enteros");
+        }finally{
+            return null;
+        }
+        
     }
 
     private static void crearUsuario() {
