@@ -5,7 +5,10 @@
  */
 package Usuarios.empleados;
 
+import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.GenerarIdentificador;
+import Peticiones.peticionesUsuarios.PedirFechaIngreso;
+import Peticiones.peticionesUsuarios.PeticionPersona;
 import Usuarios.Persona;
 
 import java.time.LocalDate;
@@ -17,27 +20,24 @@ import java.time.format.DateTimeFormatter;
 public class Empleado extends Persona implements Comparable<Empleado>{
     Integer numeroEmpleado;
     LocalDate fechaIngreso;
+    
     public Empleado(){
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
+        this.peticonesNecesarias.add(new PedirFechaIngreso());
     }
     
-        //formateador para la fecha ingresada
+       //formateador para la fecha ingresada
     DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
-    
-   
     
     public String getFechaIngreso() {
         return formateador.format(fechaIngreso);    //regresa la cadena con fecha establecida por LocalDate
     }
 
     public void setFechaIngreso(String fechaIngreso) {  //cadena en formato dd/MM/AAAA
-        if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') ){  //solo si se tiene el formato
-            this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
-        }else{
-            System.out.println(" ");
-            System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
-        }  
+ 
+        this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
+        
     }
 
     public Integer getNumeroEmpleado() {
@@ -56,4 +56,19 @@ public class Empleado extends Persona implements Comparable<Empleado>{
     public int compareTo(Empleado arg0) {
         return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     * Permite la impresion de los datos de Empleado
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return super.toString() + 
+                "Numero de empleado :" + numeroEmpleado + "\n";
+        //NOTA: Falta convertir la fecha de entrada a String para
+        //que tambien se pueda imprimir
+    }
+    
+
+    
 }

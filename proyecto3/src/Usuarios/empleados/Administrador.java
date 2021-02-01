@@ -15,5 +15,11 @@ public class Administrador extends Empleado {
     public Administrador(){
         super();
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nDATOS DEL ADMINISTRADOR";
+    }
+    
     
 }

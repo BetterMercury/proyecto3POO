@@ -25,15 +25,13 @@ public class Revista implements Estado{
     ArrayList<PeticionRevista> peticionesNecesarias;    
     */
     
-    static int conteoRevistas;
-    String titulo;
-    Date fechaPublicacion;
-    LinkedList<Articulo> articulos = new LinkedList<>();
-    Editor editor; //Solo puede contener editor si es publicado
-    int numRevista;
-    String Estado;
-    //String Folio; //CLAVE ALFANUMERICA DE 8 DIGITOS
-
+    public static int conteoRevistas;
+    private String titulo;
+    private Date fechaPublicacion;
+    private LinkedList<Articulo> articulos = new LinkedList<>();
+    private Editor editor; //Solo puede contener editor si es publicado
+    private int numRevista;
+    private String Estado;
 
 
     @Override
@@ -49,8 +47,7 @@ public class Revista implements Estado{
         }
         final Revista other = (Revista) obj;
         return true;
-    }
-    
+    }    
     
 
     public String getEstado() {

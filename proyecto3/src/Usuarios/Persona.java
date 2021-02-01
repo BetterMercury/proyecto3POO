@@ -111,5 +111,25 @@ public abstract class Persona implements Serializable {
     public void setCadenaTodoJunto(String cadenaTodoJunto) {
         this.cadenaTodoJunto = cadenaTodoJunto;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre : " + nombre + 
+                "\nApellido paterno : " + apellidoPaterno + 
+                "\nApellido materno=" + apellidoMaterno + 
+                "\nemail :" + email + 
+                "\ncontrasena : " + contrasena + "\n";
+        //NOTA: ¿LA CONTRASENIA DEBE SER IMPRESA? 
+        //SE TIENE QUE ANALIZAR QUIEN ES EL OBJETO Persona RESPONSABLE
+        //EN NUESTRO PROYECTO PARA REALIZAR LAS IMPRESIONES
+        //SI LAS REALIZA Administrador, NO EXISTE PROBLEMA SI SE IMPRIME
+        //LA CONTRASEÑA, EN CASO CONTRARIO SE PODRIA SOBREESCRIBIR
+        //ESTE METODO CON UNA VERSION QUE NO MUESTRE LA CONTRASEÑA,
+        //REALIZAR ESTO ULTIMO IMPLICA UNA SOBREESCRITURA EN TODAS LAS
+        //DEMAS CLASES HIJAS
+                
+    }
+    
+    
     
 }

@@ -18,7 +18,8 @@ import java.util.LinkedList;
 public class pedirAutores extends PeticionesArticulo {
 
     @Override
-    public void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores) {
+    public void realizarPeticion(Articulo objetivo) {
+        ArrayList<Autor> autores = null; //Adaptar el TreeSet que se tomará desde Datos
         try{
         if(autores.size()>3){ //Solo pueden existir un máximo de tres autores por artículo
             throw new TresAutoresException();

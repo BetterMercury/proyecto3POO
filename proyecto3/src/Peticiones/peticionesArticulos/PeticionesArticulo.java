@@ -17,6 +17,5 @@ import java.util.ArrayList;
  */
 public abstract class PeticionesArticulo implements Serializable{
     void realizarPeticion(Articulo objetivo){};
-    
-    void realizarPeticion(Articulo objetivo, ArrayList<Autor> autores){};
+
 }

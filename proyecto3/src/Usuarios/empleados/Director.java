@@ -15,5 +15,15 @@ public class Director extends Empleado {
         super();
     
     }
+
+    /**
+     * Este sera el metodo para imprimir al director
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return super.toString() + "\nDATOS DEL DIRECTOR";
+    }
+    
     
 }
