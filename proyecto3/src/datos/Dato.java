@@ -226,6 +226,10 @@ public class Dato implements Estado {
         return setArticulosRechazados;
     }
     
+    public Articulo buscarFolioArticulo(String folio){
+        return this.mapaArticulos.get(folio);
+    }
+    
 
     //Métodos de revistas
     public TreeSet<Revista> getSetRevistasPublicadas() {
@@ -272,6 +276,10 @@ public class Dato implements Estado {
         boolean a = this.quitarDeConjuntoEspecificoRevista(revista);
         boolean b = this.conjuntoEspecificoRevista(revista);
         return a && b ;
+    }
+    
+    public Revista buscarFolioNumeroRevista(int numero){
+        return this.mapaRevistas.get(numero); 
     }
 
     public Director getDirectorGeneral() {
