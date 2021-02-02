@@ -14,7 +14,7 @@ import datos.Dato;
  *
  * @author Equipo 9
  */
-public class CrearArticulo implements Operacion{
+public class CrearArticulo extends Operacion{
     
     public void realizarOperacion(Persona objetivo){
         
@@ -31,9 +31,17 @@ public class CrearArticulo implements Operacion{
         articuloNuevo.pedirDatos();
         
         //almacenaremos el articulo en Dato
+        System.out.println(" ");
+        System.out.println("Se almacenara el articulo en memoria");
         Dato datos = Dato.getInstance();
+        if(datos.aniadirArticulo(articuloNuevo)){
+            System.out.println(" ");
+            System.out.println("Se guardo el articulo exitosamente");
+        }else{
+            System.out.println(" ");
+            System.out.println("No se pudo almacenar el articulo");
+        }
         
-        datos.aniadirArticulo(articuloNuevo);
         
     }
 }

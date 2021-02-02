@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Hashtable; //es sincronizada, para multi hilos
 import java.util.Map;
 import java.util.stream.Collectors;
+import operaciones.RevisarArticulo;
 /**
  *
  * @author Equipo 9
@@ -27,6 +28,7 @@ public class Revisor extends Empleado{
         this.peticonesNecesarias.add(new PedirInstitucion());
         this.peticonesNecesarias.add(new PedirInteresRevisor());
         this.peticonesNecesarias.add(new PedirNumeroArticulosRevisadosRevisor());
+        this.operacionesDisponible.add(new RevisarArticulo());
     }
     
     String institucion;
