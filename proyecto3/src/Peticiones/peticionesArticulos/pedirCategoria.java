@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Dante
  */
-public class pedirCategoría extends PeticionesArticulo{
+public class pedirCategoria extends PeticionesArticulo{
 
     @Override
     public void realizarPeticion(Articulo objetivo) {

@@ -15,5 +15,8 @@ public class regresarMenuAnterior implements Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {}
-    
+    @Override
+    public String toString(){
+        return "Regresar al menu anterior";
+    }
 }

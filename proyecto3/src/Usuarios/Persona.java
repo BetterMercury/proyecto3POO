@@ -9,6 +9,7 @@ import Peticiones.peticionesUsuarios.PedirCorreo;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Excepciones.ErrorDeDatoException;
+import Peticiones.peticionesUsuarios.PedirContrasenia;
 import java.io.Serializable;
 
 public abstract class Persona implements Serializable {    
@@ -29,6 +30,7 @@ public abstract class Persona implements Serializable {
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());
         peticonesNecesarias.add(new PedirCorreo());
+        peticonesNecesarias.add(new PedirContrasenia());
     }
 
     public void mostrarMenu(){

@@ -10,6 +10,7 @@ import datos.Dato;
 import InstanciadoresUsuarios.CrearCuentaAdministrativa;
 import Usuarios.empleados.Administrador;
 import InstanciadoresUsuarios.CrearDirector;
+import InstanciadoresUsuarios.CrearSuscriptor;
 import java.io.Console;
 import java.util.InputMismatchException;
 /**
@@ -41,9 +42,9 @@ public class init {
         }
         
         if(op.equals("n")){
-            System.out.println("Primero, debes crear una cuanta administrativa");
+            System.out.println("\n\nPrimero, debes crear una cuanta administrativa");
             new CrearCuentaAdministrativa().realizarOperacion(usuarioActual);
-            System.out.println("Ahora, debes crear el perfil del director");
+            System.out.println("\n\nAhora, debes crear el perfil del director");
             new CrearDirector().realizarOperacion(usuarioActual);
         }
         do{
@@ -56,15 +57,13 @@ public class init {
                 case "1":
                     usuarioActual = ingresar();
                     if(usuarioActual == null){
-                        System.out.println("Lo sentimos, tu numero de usuario o"
-                                + " contrasenia esta mal");
                         break;
                     }
                     usuarioActual.mostrarMenu();
                     usuarioActual.elegirOperacion();
                     break;
                 case "2":
-                    crearUsuario();
+                    suscribir(usuarioActual);
                     break;
                 default:
                     if(op.equals(valorSalida)){
@@ -95,8 +94,13 @@ public class init {
                 String contrasenia;
                 System.out.print("Ingresa tu numero unico: ");
                 numeroUnico = sc.nextInt();
+                sc.nextLine();
                 System.out.println("Ingresa tu contrasenia: ");
-                contrasenia = new String(consola.readPassword());
+                if(consola != null){
+                    contrasenia = String.valueOf(consola.readPassword());
+                }else{
+                    contrasenia = sc.nextLine();
+                }
 
                 usuario = accesoDatos.buscarNumeroEmpleado(numeroUnico);
                 //Si no hay un empleado busca un suscriptor
@@ -104,10 +108,10 @@ public class init {
                     usuario = accesoDatos.buscarNumeroSuscriptor(numeroUnico);
                 //Si no existe devuelve null
                 }
-                if(contrasenia.equals(usuario.getContrasena())){
+                if(usuario!= null && contrasenia.equals(usuario.getContrasena())){
                     return usuario;
                 }else{
-                    
+                    System.out.println("Numero o contrasenia incorrecta");
                     return null;
                 }
 
@@ -117,7 +121,11 @@ public class init {
                 System.out.print("Ingresa tu correo electronico: ");
                 correo = sc.nextLine();
                 System.out.println("Ingresa tu contrasenia: ");
-                contrasenia = new String(consola.readPassword());
+                if(consola != null){
+                    contrasenia = String.valueOf(consola.readPassword());
+                }else{
+                    contrasenia = sc.nextLine();
+                }
 
                 usuario = accesoDatos.buscarEmpleado(correo);
                 //Si no hay un empleado busca un suscriptor
@@ -125,25 +133,26 @@ public class init {
                     usuario = accesoDatos.buscarSuscriptor(correo);
                 //Si no existe devuelve null
                 }
-                if(contrasenia.equals(usuario.getContrasena())){
+                if(usuario != null && contrasenia.equals(usuario.getContrasena())){
                     return usuario;
                 }else{
+                    System.out.println("Nombre o contrasenia incorrecta");
                     return null;
                 }
 
             }else{
                 System.out.println("opcion no valida");
+                return null;
             }
         }catch(InputMismatchException e){
-            System.out.println("El numero unico solo contiene numeros enteros");
-        }finally{
+            System.out.println("Formato incorrecto");
             return null;
         }
         
     }
 
-    private static void crearUsuario() {
-        
+    private static void suscribir(Persona usuarioActual) {
+        new CrearSuscriptor().realizarOperacion(usuarioActual); 
     }
     
 }
