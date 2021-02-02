@@ -14,7 +14,7 @@ import operaciones.Operacion;
  *
  * @author ribel
  */
-public class CrearSuscriptor implements Instanciador{
+public class CrearSuscriptor extends Instanciador{
 
     @Override
     public void realizarOperacion(Persona operador) {

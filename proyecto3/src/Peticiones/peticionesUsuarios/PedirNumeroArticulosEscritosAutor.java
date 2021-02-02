@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de pedir el numero de articulos escritos por autor
  */
-public class PedirNumeroArticulosEscritosAutor implements PeticionPersona{
+public class PedirNumeroArticulosEscritosAutor extends PeticionPersona{
     
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         

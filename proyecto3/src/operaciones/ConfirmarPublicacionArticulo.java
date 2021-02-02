@@ -12,7 +12,7 @@ import Usuarios.Persona;
  * @author Equipo 9
  * Clase que sirve para la confirmacion de los editores de publicar articulos
  */
-public class ConfirmarPublicacionArticulo implements Operacion{
+public class ConfirmarPublicacionArticulo extends Operacion{
     
     public void realizarOperacion(Persona operador){
         int i;

@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class PedirCorreo implements PeticionPersona {
+public class PedirCorreo extends PeticionPersona {
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         String nombre;
         Scanner sc = new Scanner(System.in);

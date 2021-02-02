@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Equipo 9
  */
-public class PedirInstitucion implements PeticionPersona{
+public class PedirInstitucion extends PeticionPersona{
     
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         String institucion;

@@ -1,7 +1,8 @@
 package operaciones;
 
 import Usuarios.Persona;
+import java.io.Serializable;
 
-public interface Operacion {
-    void realizarOperacion(Persona operador);
+public abstract class Operacion implements Serializable {
+    public abstract void realizarOperacion(Persona operador);
 }

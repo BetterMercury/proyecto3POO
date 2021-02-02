@@ -17,7 +17,7 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de recibir el posgrado
  */
-public class PedirPosgrado implements PeticionPersona {
+public class PedirPosgrado extends PeticionPersona {
     
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         

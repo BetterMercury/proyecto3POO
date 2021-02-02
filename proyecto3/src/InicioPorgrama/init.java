@@ -32,6 +32,7 @@ public class init {
             switch(op){
                 case "s":
                     referenciaDato.cargarDatos();
+                    referenciaDato = Dato.getInstance();
                     break;
                 case "n":
                     Dato.getInstance();
@@ -51,6 +52,7 @@ public class init {
             System.out.println("\tMenu principal\n"
                     + "1.- Ingresar\n"
                     + "2.- Suscribirse\n"
+                    + "3.-Salir y guardar\n"
                     + valorSalida +".- salir\n");
             op = sc.nextLine();
             switch(op){
@@ -64,6 +66,10 @@ public class init {
                     break;
                 case "2":
                     suscribir(usuarioActual);
+                    break;
+                case "3":
+                    referenciaDato.guardarDatos();
+                    op = valorSalida;
                     break;
                 default:
                     if(op.equals(valorSalida)){
@@ -154,5 +160,6 @@ public class init {
     private static void suscribir(Persona usuarioActual) {
         new CrearSuscriptor().realizarOperacion(usuarioActual); 
     }
+    
     
 }

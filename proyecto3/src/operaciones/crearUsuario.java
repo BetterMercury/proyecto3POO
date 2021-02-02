@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class crearUsuario implements Operacion{
+public class crearUsuario extends Operacion{
 
     ArrayList<Instanciador> tiposDeUsuario = new ArrayList<>();
     public crearUsuario(){

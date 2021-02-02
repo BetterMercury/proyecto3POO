@@ -6,12 +6,13 @@
 package Impresiones;
 
 import datos.Dato;
+import java.io.Serializable;
 
 /**
  *
  * @author Dante
  */
-public abstract class Imprimir {
+public abstract class Imprimir implements Serializable {
     
     public void realizarImpresion(Dato datosGenerales){};
     

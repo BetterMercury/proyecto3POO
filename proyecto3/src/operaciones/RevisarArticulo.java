@@ -15,7 +15,7 @@ import datos.Dato;
  * @author Equipo 9
  * Clase que se encarga de que los revisores puedan revisar articulos y calificarlos
  */
-public class RevisarArticulo implements Operacion{
+public class RevisarArticulo extends Operacion{
     
     public void realizarOperacion(Persona operador){
         Revisor revisor = (Revisor) operador;     

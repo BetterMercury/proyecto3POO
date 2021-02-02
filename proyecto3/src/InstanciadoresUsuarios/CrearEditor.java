@@ -16,7 +16,7 @@ import operaciones.Operacion;
  *
  * @author ribel
  */
-public class CrearEditor implements Instanciador{
+public class CrearEditor extends Instanciador{
         @Override
     public void realizarOperacion(Persona operador) {
         if(operador instanceof Director || operador instanceof Administrador){

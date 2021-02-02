@@ -14,7 +14,7 @@ import Usuarios.suscriptor.Suscriptor;
  *
  * @author ribel
  */
-public class GenerarIdentificador implements PeticionPersona{
+public class GenerarIdentificador extends PeticionPersona{
 
     @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {

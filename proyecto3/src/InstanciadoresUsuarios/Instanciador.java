@@ -6,11 +6,12 @@
 package InstanciadoresUsuarios;
 
 import Usuarios.Persona;
+import java.io.Serializable;
 
 /**
  *
  * @author ribel
  */
-public interface Instanciador {
-    public void realizarOperacion(Persona creador);
+public abstract class Instanciador implements Serializable {
+    public abstract void realizarOperacion(Persona creador);
 }

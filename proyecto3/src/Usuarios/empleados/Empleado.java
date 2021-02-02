@@ -18,6 +18,8 @@ import java.time.format.DateTimeFormatter;
  * @author Equiipo 9
  */
 public class Empleado extends Persona implements Comparable<Empleado>{
+    static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
+    
     Integer numeroEmpleado;
     LocalDate fechaIngreso;
     
@@ -28,7 +30,7 @@ public class Empleado extends Persona implements Comparable<Empleado>{
     }
     
        //formateador para la fecha ingresada
-    DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
+    
     
     public String getFechaIngreso() {
         return formateador.format(fechaIngreso);    //regresa la cadena con fecha establecida por LocalDate

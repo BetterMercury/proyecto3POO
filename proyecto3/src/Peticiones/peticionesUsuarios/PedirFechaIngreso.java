@@ -18,10 +18,10 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de recibir los datos de fecha de ingreso
  */
-public class PedirFechaIngreso implements PeticionPersona {
+public class PedirFechaIngreso extends PeticionPersona {
     
         //formateador para la fecha ingresada
-    DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
+    static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
             

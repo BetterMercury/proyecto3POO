@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de pedir el interes y la experiencia de los revisores
  */
-public class PedirInteresRevisor implements PeticionPersona{
+public class PedirInteresRevisor extends PeticionPersona{
     
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         String interes;

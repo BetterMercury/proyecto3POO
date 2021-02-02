@@ -16,7 +16,7 @@ import operaciones.Operacion;
  *
  * @author ribel
  */
-public class CrearAutor implements Instanciador{
+public class CrearAutor extends Instanciador{
         public void realizarOperacion(Persona operador) {
         if(operador instanceof Director || operador instanceof Administrador){
             Autor nuevaInstancia = new Autor();
