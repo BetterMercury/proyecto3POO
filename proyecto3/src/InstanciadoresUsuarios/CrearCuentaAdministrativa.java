@@ -16,7 +16,7 @@ import operaciones.Operacion;
  * @author ribel
  */
 
-public class CrearCuentaAdministrativa implements Instanciador{
+public class CrearCuentaAdministrativa extends Instanciador{
 
     @Override
     public void realizarOperacion(Persona operador) {

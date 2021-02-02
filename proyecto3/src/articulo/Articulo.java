@@ -14,6 +14,7 @@ import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
 
 import Usuarios.empleados.Revisor;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -22,7 +23,7 @@ import java.util.Objects;
  *
  * @author ribel
  */
-public class Articulo implements Estado, Categoria{
+public class Articulo implements Estado, Categoria, Serializable{
     
     private ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
     private String Titulo;

@@ -3,7 +3,7 @@ import Excepciones.ErrorDeDatoException;
 import java.util.Scanner;
 import Usuarios.Persona;
 
-public class PedirApellidoMaterno implements PeticionPersona{
+public class PedirApellidoMaterno extends PeticionPersona{
 
     @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {

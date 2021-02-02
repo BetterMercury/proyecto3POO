@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de recibir el numero de cedula de un editor
  */
-public class PedirCedula implements PeticionPersona {
+public class PedirCedula extends PeticionPersona {
     
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         

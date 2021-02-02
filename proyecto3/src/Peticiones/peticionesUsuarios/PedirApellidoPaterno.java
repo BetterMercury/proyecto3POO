@@ -2,7 +2,7 @@ package Peticiones.peticionesUsuarios;
 import Excepciones.ErrorDeDatoException;
 import java.util.Scanner;
 import Usuarios.Persona;
-public class PedirApellidoPaterno implements PeticionPersona{
+public class PedirApellidoPaterno extends PeticionPersona{
 
     @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {

@@ -8,11 +8,14 @@ import Usuarios.empleados.*;
 import Usuarios.suscriptor.Suscriptor;
 import articulo.Articulo;
 import java.util.TreeSet;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Dato implements Estado {
+public class Dato implements Estado, Serializable {
     
     public static Dato instance;
-    
+    private int numeroDeRevistas;
     private final HashMap <Integer, Empleado> mapaEmpleados;
     private final HashMap <Integer, Suscriptor> mapaSuscriptores;
     private final HashMap <Integer, Revista> mapaRevistas;
@@ -291,7 +294,39 @@ public class Dato implements Estado {
     }
 
     public void cargarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String nombreArchivo = "guardadoDeDatos.ser";
+        try{
+            FileInputStream flujoArchivo = new FileInputStream(nombreArchivo);
+            ObjectInputStream out = new ObjectInputStream(flujoArchivo);
+            Dato.instance = (Dato) out.readObject();
+            Revista.conteoRevistas = Dato.instance.numeroDeRevistas;
+            System.out.println("Cargado exitoso");
+        }catch (InvalidClassException e){
+            System.out.println("Clase incorrecta, probablemente la versión "
+                    + "del archivo no es compatible");
+        }catch (IOException e){
+            System.out.println("Ocurrio un error inesperado de I/O");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Dato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void guardarDatos() {
+        String nombreArchivo = "guardadoDeDatos.ser";
+        try{
+            FileOutputStream flujoArchivo = new FileOutputStream(nombreArchivo);
+            ObjectOutputStream out = new ObjectOutputStream(flujoArchivo);
+            out.writeObject(this);
+            System.out.println("Guardado exitoso");
+        }catch (InvalidClassException e){
+            System.out.println("Clase incorrecta, probablemente la versión "
+                    + "del archivo no es compatible");
+        }catch(NotSerializableException e){
+            System.out.println("No se pudo serializar: "+e.toString());
+            e.printStackTrace();
+        }catch (IOException e){
+            System.out.println("Ocurrio un error inesperado de I/O");
+        }
     }
     
     

@@ -11,7 +11,7 @@ import Usuarios.Persona;
  *
  * @author ribel
  */
-public class regresarMenuAnterior implements Operacion{
+public class regresarMenuAnterior extends Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {}

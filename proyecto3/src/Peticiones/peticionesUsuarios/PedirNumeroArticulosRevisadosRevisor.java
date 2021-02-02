@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de pedir el numero de articulos revisados por revisor
  */
-public class PedirNumeroArticulosRevisadosRevisor implements PeticionPersona{
+public class PedirNumeroArticulosRevisadosRevisor extends PeticionPersona{
     
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         

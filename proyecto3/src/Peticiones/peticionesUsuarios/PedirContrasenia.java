@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class PedirContrasenia implements PeticionPersona{
+public class PedirContrasenia extends PeticionPersona{
 
     @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
