@@ -5,6 +5,7 @@
  */
 package Peticiones.peticionesArticulos;
 
+import Excepciones.ErrorDeDatoException;
 import articulo.Articulo;
 import static articulo.Articulo.*;
 import static articulo.Categoria.CAT1;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 public class pedirCategoria extends PeticionesArticulo{
 
     @Override
-    public void realizarPeticion(Articulo objetivo) {
+    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{
         Scanner sc = new Scanner(System.in);
         int seleccion;
         System.out.println("Se asignara una categoria al articulo");
@@ -28,7 +29,12 @@ public class pedirCategoria extends PeticionesArticulo{
         System.out.println("4. " + CAT4);        
         System.out.print("Ingrese numero: ");
         
-        seleccion = sc.nextInt();
+        try{
+            seleccion = sc.nextInt();
+        }catch(IllegalArgumentException e){
+            throw new ErrorDeDatoException("Ingresa nuevamente el numero de categoria, pero ahora solo numero");
+        }
+        
         
         switch(seleccion){
             case 1:
@@ -43,9 +49,10 @@ public class pedirCategoria extends PeticionesArticulo{
             case 4: 
                 objetivo.setCategoria(CAT4);                
                 break;
+            default:
+                throw new ErrorDeDatoException("Ingresa nuevamente el numero de categoria, pero ahora un numero valido");
         }
         
-        //FALTAN ALGUNAS VERIFICACIONES EN ESTE METODO
     }
 
 

@@ -24,7 +24,7 @@ public class init {
         String valorSalida = "4";
         String op = "";
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bien venido al programa de administración\n");
+        System.out.println("Bienvenido al programa de administracion\n");
         
         while(!"s".equals(op) && !"n".equals(op)){
             System.out.println("Deseas cargar datos de una ejecución anterior?[s/n]");
@@ -42,7 +42,7 @@ public class init {
         }
         
         if(op.equals("n")){
-            System.out.println("\n\nPrimero, debes crear una cuanta administrativa");
+            System.out.println("\n\nPrimero, debes crear una cuenta administrativa");
             new CrearCuentaAdministrativa().realizarOperacion(usuarioActual);
             System.out.println("\n\nAhora, debes crear el perfil del director");
             new CrearDirector().realizarOperacion(usuarioActual);

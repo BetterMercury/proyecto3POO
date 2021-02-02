@@ -7,6 +7,7 @@ package Usuarios.empleados;
 
 import Peticiones.peticionesUsuarios.PedirInstitucion;
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
+import operaciones.CrearArticulo;
 /**
  *
  * @author Equipo 9
@@ -17,6 +18,7 @@ public class Autor extends Empleado{
         super();
         this.peticonesNecesarias.add(new PedirInstitucion());
         this.peticonesNecesarias.add(new PedirNumeroArticulosEscritosAutor());
+        this.operacionesDisponible.add(new CrearArticulo());
     }
     
     String institucion;

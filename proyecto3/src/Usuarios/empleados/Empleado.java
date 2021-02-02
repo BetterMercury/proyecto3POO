@@ -64,9 +64,9 @@ public class Empleado extends Persona implements Comparable<Empleado>{
     @Override
     public String toString() {
         return super.toString() + 
-                "Numero de empleado :" + numeroEmpleado + "\n";
-        //NOTA: Falta convertir la fecha de entrada a String para
-        //que tambien se pueda imprimir
+                "Numero de empleado :" + numeroEmpleado + "\n" +
+                "Fecha de ingreso: " + formateador.format(fechaIngreso) + "\n";
+        
     }
     
 

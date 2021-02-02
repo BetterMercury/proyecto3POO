@@ -8,7 +8,7 @@ package Peticiones.peticionesArticulos;
 import static Estado.Estado.*;
 import articulo.Articulo;
 import java.util.Scanner;
-
+import Excepciones.ErrorDeDatoException;
 /**
  *  Clase que permite asignarle un estado a un artículo, lo ideal
  * es que un Revisor sea el único con acceso a el método incluido.
@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class pedirEstado extends PeticionesArticulo{
     
     @Override
-    public void realizarPeticion(Articulo objetivo) {  //ESTE MÉTODO SOLO LO PUEDE HACER UN Revisor
+    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{  //ESTE MÉTODO SOLO LO PUEDE HACER UN Revisor
         Scanner sc = new Scanner(System.in);
         int seleccion;
         System.out.println("Se asignara un estado al Articulo");

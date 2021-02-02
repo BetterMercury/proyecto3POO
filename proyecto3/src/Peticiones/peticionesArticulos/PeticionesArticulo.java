@@ -5,6 +5,7 @@
  */
 package Peticiones.peticionesArticulos;
 
+import Excepciones.ErrorDeDatoException;
 import Usuarios.empleados.Autor;
 import articulo.Articulo;
 import java.io.Serializable;
@@ -16,6 +17,6 @@ import java.util.ArrayList;
  * @author Dante
  */
 public abstract class PeticionesArticulo implements Serializable{
-    void realizarPeticion(Articulo objetivo){};
+    public abstract void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException;
 
 }

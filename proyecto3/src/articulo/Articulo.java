@@ -6,6 +6,9 @@ package articulo;
  * and open the template in the editor.
  */
 import Estado.Estado;
+import Excepciones.ErrorDeDatoException;
+import Peticiones.peticionesArticulos.PeticionesArticulo;
+import Peticiones.peticionesArticulos.*;
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
@@ -30,6 +33,17 @@ public class Articulo implements Estado, Categoria{
     private int calificion;
     private String folio; //Clave alfanumerica de 8 digitos
     
+    private ArrayList<PeticionesArticulo> peticionesNecesarias;  //lista para hacer las peticiones de forma automática
+    
+    
+    public Articulo(){
+        peticionesNecesarias = new ArrayList<>();
+        peticionesNecesarias.add(new pedirTitulo());
+        peticionesNecesarias.add(new pedirSinopsis());
+        peticionesNecesarias.add(new pedirCategoria());
+        peticionesNecesarias.add(new GenerarFolio());
+    }
+    
     HashMap <Integer, Integer> mapaCalificaciones;    //La clave es el número de cuenta del Revisor,
                                                       //el valor representa la calificacion puesta
     
@@ -39,6 +53,23 @@ public class Articulo implements Estado, Categoria{
      * atributos de un Articulo
      * @return 
      */
+    
+    public void pedirDatos(){
+        System.out.println("Por favor ingresa los datos que se te piden \n");
+        for(PeticionesArticulo peticion: peticionesNecesarias){
+            while(true){
+                try{
+                    peticion.realizarPeticion(this);
+                }catch(ErrorDeDatoException e){
+                    System.out.println("Ocurrio un error: "+e.getMessage());
+                    continue;
+                }
+                break;
+            }
+        }
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -101,6 +132,19 @@ public class Articulo implements Estado, Categoria{
 
     public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
+    }
+    
+    public Autor getAutor() {
+        if(autores.isEmpty() == false){
+            return autores.get(0);
+        }else{
+            return null;
+        }
+        
+    }
+    
+    public void setAutor(Autor autor){
+        this.autores.add(autor);
     }
 
     public String getTitulo() {

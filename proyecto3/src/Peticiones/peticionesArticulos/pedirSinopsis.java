@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class pedirSinopsis extends PeticionesArticulo{
 
     @Override
-    public void realizarPeticion(Articulo objetivo) {
+    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{
         String sinopsis;
         Scanner sc = new Scanner(System.in);
         

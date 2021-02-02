@@ -7,6 +7,7 @@ package Peticiones.peticionesArticulos;
 
 import articulo.Articulo;
 import datos.Dato;
+import Excepciones.ErrorDeDatoException;
 
 /**
  *  Clase para la generación de una clave alfanumérica
@@ -15,7 +16,7 @@ import datos.Dato;
  */
 public class GenerarFolio extends PeticionesArticulo{
     @Override
-    public void realizarPeticion(Articulo objetivo) {  
+    public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{  
         Dato datosGenerales = Dato.getInstance();
         
         int hash = objetivo.hashCode();
