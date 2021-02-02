@@ -22,4 +22,5 @@ public interface Estado {
     static String STATER3 = "Aceptado";
     static String STATER4 = "Pendiente";
     static String STATER5 = "Rechazado";
+    static String STATER6 = "Revisado";
 }

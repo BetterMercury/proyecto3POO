@@ -28,9 +28,8 @@ public class Articulo implements Estado, Categoria{
     private String Titulo;
     private String Snopsis;
     private String categoria;
-    private Revisor revisor; 
+    private HashMap <Integer, Revisor> revisoresCalificaciones;
     private String estado;
-    private int calificion;
     private String folio; //Clave alfanumerica de 8 digitos
     
     private ArrayList<PeticionesArticulo> peticionesNecesarias;  //lista para hacer las peticiones de forma automática
@@ -42,6 +41,7 @@ public class Articulo implements Estado, Categoria{
         peticionesNecesarias.add(new pedirSinopsis());
         peticionesNecesarias.add(new pedirCategoria());
         peticionesNecesarias.add(new GenerarFolio());
+        this.estado = Estado.STATER4;   //se auto asigna como pendiente
     }
     
     HashMap <Integer, Integer> mapaCalificaciones;    //La clave es el número de cuenta del Revisor,
@@ -77,9 +77,8 @@ public class Articulo implements Estado, Categoria{
         hash = 83 * hash + Objects.hashCode(this.Titulo);
         hash = 83 * hash + Objects.hashCode(this.Snopsis);
         hash = 83 * hash + Objects.hashCode(this.categoria);
-        hash = 83 * hash + Objects.hashCode(this.revisor);
+        hash = 83 * hash + Objects.hashCode(this.revisoresCalificaciones);
         hash = 83 * hash + Objects.hashCode(this.estado);
-        hash = 83 * hash + this.calificion;
         hash = 83 * hash + Objects.hashCode(this.folio);
         return hash;
     }
@@ -144,7 +143,14 @@ public class Articulo implements Estado, Categoria{
     }
     
     public void setAutor(Autor autor){
-        this.autores.add(autor);
+        if(autores.size() < 3){
+            this.autores.add(autor);
+        }else{
+            System.out.println(" ");
+            System.out.println("Ya hay 3 autores asociados a este articulo");
+
+        }
+        
     }
 
     public String getTitulo() {
@@ -171,20 +177,12 @@ public class Articulo implements Estado, Categoria{
         this.categoria = categoria;
     }
 
-    public Persona getRevisor() {
-        return revisor;
+    public Persona getRevisor(int i) {
+        return revisoresCalificaciones.get(i);
     }
 
-    public void setRevisor(Revisor revisor) {
-        this.revisor = revisor;
-    }
-
-    public int getCalificion() {
-        return calificion;
-    }
-
-    public void setCalificion(int calificion) {
-        this.calificion = calificion;
+    public void setRevisor(Revisor revisor, int i) {
+        this.revisoresCalificaciones.put(i, revisor);
     }
 
     public String getFolio() {
