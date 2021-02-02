@@ -277,22 +277,4 @@ public class Dato implements Estado {
         boolean b = this.conjuntoEspecificoRevista(revista);
         return a && b ;
     }
-    
-    public Revista buscarFolioNumeroRevista(int numero){
-        return this.mapaRevistas.get(numero); 
-    }
-
-    public Director getDirectorGeneral() {
-        return directorGeneral;
-    }    
-
-    public HashMap<String, Articulo> getMapaArticulos() {
-        return mapaArticulos;
-    }
-
-    public void cargarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }
