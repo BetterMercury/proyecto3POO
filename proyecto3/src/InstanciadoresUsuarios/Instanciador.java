@@ -14,4 +14,5 @@ import java.io.Serializable;
  */
 public abstract class Instanciador implements Serializable {
     public abstract void realizarOperacion(Persona creador);
+    
 }

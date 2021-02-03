@@ -6,8 +6,13 @@
 package Revista;
 
 import Estado.Estado;
+import Excepciones.ErrorDeDatoException;
+import Peticiones.peticionesRevista.PeticionesRevista;
+import Peticiones.peticionesRevista.pedirNumero;
+import Peticiones.peticionesRevista.pedirTitulo;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -26,13 +31,38 @@ public class Revista implements Estado{
     */
     
     public static int conteoRevistas;
+    
     private String titulo;
     private Date fechaPublicacion;
     private LinkedList<Articulo> articulos = new LinkedList<>();
     private Editor editor; //Solo puede contener editor si es publicado
     private int numRevista;
     private String Estado;
+    
 
+    public ArrayList<PeticionesRevista> peticionesNecesarias;
+    
+    public Revista(){
+        peticionesNecesarias = new ArrayList<>();
+        peticionesNecesarias.add(new pedirTitulo());
+        conteoRevistas++;
+        this.Estado = STATER2;   //se auto asigna como NO PUBLICADO
+    }    
+    
+    public void pedirDatos(){
+        System.out.println("Por favor ingresa los datos que se te piden \n");
+        for(PeticionesRevista peticion: peticionesNecesarias){
+            while(true){
+                try{
+                    peticion.realizarPeticion(this);
+                }catch(ErrorDeDatoException e){
+                    System.out.println("Ocurrio un error: "+e.getMessage());
+                    continue;
+                }
+                break;
+            }
+        }
+    }    
 
     @Override
     public boolean equals(Object obj) {

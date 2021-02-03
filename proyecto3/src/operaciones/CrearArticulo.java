@@ -30,12 +30,10 @@ public class CrearArticulo extends Operacion{
         PedirNumeroArticulosEscritosAutor pedir = new PedirNumeroArticulosEscritosAutor();
         Dato datos = Dato.getInstance();
         
-        do{
-        
+        do{        
         
             Articulo articuloNuevo = new Articulo();
-        
-        
+                
             //asignamos el autor al articulo creado
             articuloNuevo.setAutor(autor);
             //se piden los datos del articulo

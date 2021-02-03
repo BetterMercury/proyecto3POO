@@ -14,7 +14,9 @@ import java.util.Scanner;
  * dicho título debe ser mayor a 4 caracteres.
  * @author Dante
  */
-public class pedirTitulo {
+public class pedirTitulo extends PeticionesRevista{
+    
+    @Override
     public void realizarPeticion(Revista objetivo){
         String title;
         Scanner sc = new Scanner(System.in);

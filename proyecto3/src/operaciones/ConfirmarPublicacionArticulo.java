@@ -112,6 +112,7 @@ public class ConfirmarPublicacionArticulo extends Operacion{
                     }
                     break;
                 }
+                
                 //en teoria se actualiza la referencia, entonces, deberia funcionar
                 revista = mapaRevistas.get(op);
                 revista.setArticulo(articulo);

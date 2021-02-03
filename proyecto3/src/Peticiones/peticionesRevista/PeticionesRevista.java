@@ -5,6 +5,7 @@
  */
 package Peticiones.peticionesRevista;
 
+import Excepciones.ErrorDeDatoException;
 import Revista.Revista;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
@@ -16,6 +17,7 @@ import java.util.LinkedList;
  * @author Dante
  */
 public abstract class PeticionesRevista implements Serializable {
-   void realizarPeticion(Revista objetivo){};
- 
+    
+   public abstract void realizarPeticion(Revista objetivo) throws ErrorDeDatoException;
+   
 }
