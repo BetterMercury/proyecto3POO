@@ -14,6 +14,7 @@ import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
 
 import Usuarios.empleados.Revisor;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 

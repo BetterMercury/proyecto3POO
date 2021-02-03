@@ -9,6 +9,7 @@ import Peticiones.peticionesUsuarios.PedirInstitucion;
 import Peticiones.peticionesUsuarios.PedirInteresRevisor;
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosRevisadosRevisor;
 import Usuarios.empleados.Empleado;
+import articulo.Articulo;
 import java.util.Enumeration;
 
 import java.util.LinkedList;
@@ -27,14 +28,15 @@ public class Revisor extends Empleado{
         super();
         this.peticonesNecesarias.add(new PedirInstitucion());
         this.peticonesNecesarias.add(new PedirInteresRevisor());
-        this.peticonesNecesarias.add(new PedirNumeroArticulosRevisadosRevisor());
+        //this.peticonesNecesarias.add(new PedirNumeroArticulosRevisadosRevisor());
         this.operacionesDisponible.add(new RevisarArticulo());
     }
     
     String institucion;
     List<String> listaAreasInteres = new LinkedList<String>();
     Hashtable<String,Integer> areaInteresExperiencia = new Hashtable<>();   //tabla hash que relaciona areas de interes con años de experiencia
-    int numeroArticulosRevisados;
+    int numeroArticulosRevisados = 0;
+    List<Articulo> articulosRevisados = new LinkedList<>(); //lista de articulos revisados
     
     public String getInstitucion(){
         return institucion;
@@ -65,6 +67,14 @@ public class Revisor extends Empleado{
 
     public void setNumeroArticulosRevisados(int numeroArticulosRevisados) {
             this.numeroArticulosRevisados = numeroArticulosRevisados;
+    }
+    
+    public Articulo getArticulosRevisados(int i){
+        return articulosRevisados.get(i);
+    }
+
+    public void setArticulosRevisados(Articulo art) {
+            this.articulosRevisados.add(art);
     }
     
     /**

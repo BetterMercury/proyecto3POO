@@ -292,6 +292,10 @@ public class Dato implements Estado, Serializable {
     public HashMap<String, Articulo> getMapaArticulos() {
         return mapaArticulos;
     }
+    
+    public HashMap<Integer, Revista> getMapaRevistas() {
+        return mapaRevistas;
+    }
 
     public void cargarDatos() {
         String nombreArchivo = "guardadoDeDatos.ser";

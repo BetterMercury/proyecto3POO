@@ -114,5 +114,8 @@ public class Revista implements Estado{
         this.numRevista = numRevista;
     }
     
+    public void setArticulo(Articulo art){
+        this.articulos.add(art);
+    }
     
 }

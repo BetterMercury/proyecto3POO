@@ -8,7 +8,7 @@ package Peticiones.peticionesUsuarios;
 import Excepciones.ErrorDeDatoException;
 import Usuarios.Persona;
 import Usuarios.empleados.Autor;
-import java.util.Scanner;
+import articulo.Articulo;
 
 /**
  *
@@ -16,24 +16,18 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de pedir el numero de articulos escritos por autor
  */
-public class PedirNumeroArticulosEscritosAutor extends PeticionPersona{
+public class PedirNumeroArticulosEscritosAutor{
     
-    public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
+    public void realizarPeticion(Autor aut, Articulo articulo) {
         
-        int numeroArticulosEscritos;
-        Scanner sc1 = new Scanner(System.in);
-        System.out.print("Ingrese el numero de articulos escritos (mayor que 0 y menor que 30): ");
-        try{
-            numeroArticulosEscritos = sc1.nextInt();
-        }catch(IllegalArgumentException e){
-            throw new ErrorDeDatoException("Ingresa el numero, pero ahora solo con numeros");
-        }
-        Autor au = (Autor)objetivo;
+        //incremento en el numero de articulos creados
+        int numeroArticulosEscritos = 0;
+       
+        numeroArticulosEscritos= aut.getNumeroArticulosEscritos() + 1;
         
-        if( (numeroArticulosEscritos >= 0) && (numeroArticulosEscritos < 30) ){   //limite en articulos que se pueden colocar
-            au.setNumeroArticulosEscritos(numeroArticulosEscritos);
-        }else{
-            throw new ErrorDeDatoException("Numero de articulos escritos invalido (debe ser mayor que 0 y menor que 30)");
-        }
+        aut.setNumeroArticulosEscritos(numeroArticulosEscritos);
+        
+        //asignacion del articulo creado al autor
+        aut.setArticulosEscritos(articulo);
     }
 }

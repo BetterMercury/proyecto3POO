@@ -9,6 +9,9 @@ import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirCedula;
 import Peticiones.peticionesUsuarios.PedirPosgrado;
 import Usuarios.empleados.Empleado;
+import articulo.Articulo;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -25,6 +28,7 @@ public class Editor extends Empleado{
     String posgrado; //debe ser maestría o doctorado
     int numeroArticulosRevisados;
     int numeroCedula;
+    List<Articulo> articulosRevisados = new LinkedList<>();
     
     public String getPosgrado(){
         return posgrado;
@@ -54,6 +58,14 @@ public class Editor extends Empleado{
 
     public void setNumeroCedula(int numeroCedula){
             this.numeroCedula = numeroCedula;
+    }
+    
+    public Articulo getArticulosRevisados(int i){
+        return articulosRevisados.get(i);
+    }
+
+    public void setArticulosRevisados(Articulo art) {
+            this.articulosRevisados.add(art);
     }
 
     @Override

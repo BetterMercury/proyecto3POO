@@ -7,6 +7,9 @@ package Usuarios.empleados;
 
 import Peticiones.peticionesUsuarios.PedirInstitucion;
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
+import articulo.Articulo;
+import java.util.LinkedList;
+import java.util.List;
 import operaciones.CrearArticulo;
 /**
  *
@@ -17,12 +20,13 @@ public class Autor extends Empleado{
     public Autor(){
         super();
         this.peticonesNecesarias.add(new PedirInstitucion());
-        this.peticonesNecesarias.add(new PedirNumeroArticulosEscritosAutor());
+        //this.peticonesNecesarias.add(new PedirNumeroArticulosEscritosAutor());
         this.operacionesDisponible.add(new CrearArticulo());
     }
     
     String institucion;
     int numeroArticulosEscritos;
+    List<Articulo> articulosEscritos = new LinkedList<>();
     
     public String getInstitucion(){
         return institucion;
@@ -38,6 +42,14 @@ public class Autor extends Empleado{
 
     public void setNumeroArticulosEscritos(int numeroArticulosEscritos) {
             this.numeroArticulosEscritos = numeroArticulosEscritos;
+    }
+    
+    public Articulo getArticulosEscritos(int i){
+        return articulosEscritos.get(i);
+    }
+
+    public void setArticulosEscritos(Articulo art) {
+            this.articulosEscritos.add(art);
     }
 
     @Override

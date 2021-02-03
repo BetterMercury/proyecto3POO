@@ -8,6 +8,7 @@ package Peticiones.peticionesUsuarios;
 import Excepciones.ErrorDeDatoException;
 import Usuarios.Persona;
 import Usuarios.empleados.Revisor;
+import articulo.Articulo;
 import java.util.Scanner;
 
 /**
@@ -16,24 +17,19 @@ import java.util.Scanner;
  * 
  * Clase que se encarga de pedir el numero de articulos revisados por revisor
  */
-public class PedirNumeroArticulosRevisadosRevisor extends PeticionPersona{
+public class PedirNumeroArticulosRevisadosRevisor{
     
-    public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
+    public void realizarPeticion(Revisor revi, Articulo articulo) {
         
-        int numeroArticulosRevisados;
-        Scanner sc1 = new Scanner(System.in);
-        System.out.print("Ingrese el numero de articulos revisados (mayor que 0 y menor que 30): ");
-        try{
-            numeroArticulosRevisados = sc1.nextInt();
-        }catch(IllegalArgumentException e){
-            throw new ErrorDeDatoException("Ingresa el numero, pero ahora solo con numeros");
-        }
-        Revisor rev = (Revisor)objetivo;
+        //incremento en el numero de articulos revisados
+        int numeroArticulosRevisados = 0;
+       
+        numeroArticulosRevisados = revi.getNumeroArticulosRevisados() + 1;
         
-        if( (numeroArticulosRevisados >= 0) && (numeroArticulosRevisados < 30) ){   //limite en articulos que se pueden colocar
-            rev.setNumeroArticulosRevisados(numeroArticulosRevisados);
-        }else{
-            throw new ErrorDeDatoException("Numero de articulos revisados invalido (debe ser mayor que 0 y menor que 30)");
-        }
+        revi.setNumeroArticulosRevisados(numeroArticulosRevisados);
+        
+        //asignacion del articulo revisado al revisor
+        revi.setArticulosRevisados(articulo);
+        
     }
 }

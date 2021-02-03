@@ -7,6 +7,7 @@ package operaciones;
 
 import Impresiones.imprimirArticulos;
 import Peticiones.peticionesArticulos.pedirEstado;
+import Peticiones.peticionesUsuarios.PedirNumeroArticulosRevisadosRevisor;
 import Usuarios.Persona;
 import Usuarios.empleados.Revisor;
 import articulo.Articulo;
@@ -32,12 +33,16 @@ public class RevisarArticulo extends Operacion{
         irev.realizarImpresion(datosGenerales);
         Scanner sc = new Scanner(System.in);
         
+        System.out.println(" ");
+        System.out.println("Usted revisor, revisara articulos");
+        System.out.println(" ");
+        
         int op = 0;
         String folio;
         int calif = 0;
         int k = 0;
         
-        HashMap<String,Integer> folios = new HashMap<>();
+        HashMap<String,Integer> folios = new HashMap<>();   //mapa temporal para no volver a ver el mismo articulo
         
         do{
             System.out.println(" ");
@@ -64,8 +69,11 @@ public class RevisarArticulo extends Operacion{
                             break;
                         }
                         //asociacion de revisor y calificacion con articulo
+                        
                         articulo.setRevisor(revisor, calif);
                         articulo.setEstado(Estado.STATER6); //cambio de estado del aticulo
+                        PedirNumeroArticulosRevisadosRevisor pedir = new PedirNumeroArticulosRevisadosRevisor();
+                        pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido
                         
                     }else{
                         throw new IllegalArgumentException();
@@ -87,16 +95,10 @@ public class RevisarArticulo extends Operacion{
             while(true){
                 try{
                     op = sc.nextInt();
-                    if(op == 1 || op == 0){
-                        
-                    }else{
-                        throw new ErrorDeDatoException("Ingrese solo 0 o 1");
-                    }
+                    
                 }catch(IllegalArgumentException ia){
                     System.out.println(" ");
                     System.out.println("Ingrese un numero correctamente, intente nuevamente");
-                    continue;
-                }catch(ErrorDeDatoException ep){
                     continue;
                 }
                 break;
