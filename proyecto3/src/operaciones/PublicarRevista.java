@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Excepciones.ErrorDeDatoException;
@@ -11,6 +7,9 @@ import Usuarios.Persona;
 import datos.Dato;
 import java.util.Scanner;
 import Revista.Revista;
+import Usuarios.suscriptor.Suscriptor;
+import java.util.TreeSet;
+import java.util.Iterator;
 
 
 /**
@@ -23,6 +22,8 @@ public class PublicarRevista extends Operacion{
     public void realizarOperacion(Persona operador) {
         Scanner sc = new Scanner(System.in);
         int num;
+        TreeSet<Suscriptor> mapaSuscriptores;
+        
         System.out.println("");
         System.out.println("Usted director puede publicar una revista");
         System.out.println("");
@@ -33,8 +34,20 @@ public class PublicarRevista extends Operacion{
         System.out.println("Revistas No Publicadas");
         irevNP.realizarImpresion(datos);
         
-        System.out.println("Ingrese numero de revista: ");
-        num = sc.nextInt();
+        System.out.println(" ");
+        System.out.print("Ingrese numero de revista: ");
+        
+        while(true){
+            try{
+                num = sc.nextInt();
+            }catch(IllegalArgumentException e){
+                System.out.println(" ");
+                System.out.println("Formato incorrecto, ingrese un numero");
+                continue;
+            }   
+            break;
+        }
+        
         
         try{
             if(datos.existsFolioNumeroRevista(num)){
@@ -42,6 +55,14 @@ public class PublicarRevista extends Operacion{
                     
                     //Poner la revista en estado publicado
                     datos.buscarFolioNumeroRevista(num).setEstado(Revista.STATER1);
+                    
+                    //una vez publicada la revista, se le notificará a los suscriptores
+                    //me traigo a los suscriptores y les guardo un mensaje de nueva revista
+                    mapaSuscriptores = datos.getSetDeSuscriptores();
+                    Iterator<Suscriptor> iterator = mapaSuscriptores.iterator();
+                    while (iterator.hasNext()){
+                        iterator.next().setNovedades("Se ha publicado la revista de titulo: '"+ datos.buscarFolioNumeroRevista(num).getTitulo() + "'");
+                    }
                     
             } else{
                     System.out.println("Esta revista no se puede publicar");

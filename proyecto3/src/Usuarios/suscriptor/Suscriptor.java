@@ -24,6 +24,7 @@ public class Suscriptor extends Persona{
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
+        this.esSub = true;
     }
     
     //formateador para la fecha ingresada

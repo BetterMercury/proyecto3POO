@@ -26,12 +26,14 @@ import java.io.Serializable;
 public abstract class Persona implements Serializable, Comparable<Persona> {    
     protected ArrayList<Operacion> operacionesDisponible;
     protected ArrayList<PeticionPersona> peticonesNecesarias;
+    protected ArrayList<String> novedades;
     String nombre;
     String apellidoPaterno;
     String apellidoMaterno;
     String email;
     protected String cadenaTodoJunto;
     String contrasena;
+    protected boolean esSub = false;
 
     /**
      * Constructor de la clase abstracta Persona, el cual inicializará 
@@ -99,6 +101,23 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
                 break;
             }
         }
+    }
+    
+    public void imprimirNovedades(){
+        System.out.println(" ");
+        System.out.println("Estas son las novedades que recibe siendo suscriptor\n");
+        System.out.println(" ");
+        int i = 1;
+        if(!novedades.isEmpty()){
+            for(String novedad:novedades){
+                System.out.println(i+".- "+novedad);
+                i++;
+            }
+        }else{
+            System.out.println(" ");
+            System.out.println("Usted no tiene novedades...");
+        }
+        
     }
     
     /**
@@ -195,6 +214,22 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
      */
     public void setCadenaTodoJunto(String cadenaTodoJunto) {
         this.cadenaTodoJunto = cadenaTodoJunto;
+    }
+    
+     /**
+     * Método de acceso para saber si la Persona es Suscriptor.
+     * @return Retorna un valor booleano de esta Persona.
+     **/
+    public boolean getEsSub() {
+        return esSub;
+    }
+    
+    /**
+     * Método de acceso para establecer una novedad en cadena de un objeto Persona (suscriptor).
+     * @param novedad La novedad en cadena que se le pondrá al objeto.
+     */
+    public void setNovedades(String novedad){
+        this.novedades.add(novedad);
     }
 
     /**

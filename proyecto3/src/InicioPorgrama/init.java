@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package InicioPorgrama;
 import Usuarios.Persona;
 import java.util.Scanner;
@@ -11,6 +7,7 @@ import InstanciadoresUsuarios.CrearCuentaAdministrativa;
 import Usuarios.empleados.Administrador;
 import InstanciadoresUsuarios.CrearDirector;
 import InstanciadoresUsuarios.CrearSuscriptor;
+import Usuarios.suscriptor.Suscriptor;
 import java.io.Console;
 import java.util.InputMismatchException;
 /**
@@ -64,6 +61,9 @@ public class init {
                     usuarioActual = ingresar();
                     if(usuarioActual == null){
                         break;
+                    }
+                    if(usuarioActual.getEsSub()){
+                        usuarioActual.imprimirNovedades();
                     }
                     usuarioActual.mostrarMenu();
                     usuarioActual.elegirOperacion();
