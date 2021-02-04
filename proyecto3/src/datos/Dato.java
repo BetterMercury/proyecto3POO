@@ -297,7 +297,7 @@ public class Dato implements Estado, Serializable {
         return mapaRevistas;
     }
 
-    public void cargarDatos() {
+    public boolean cargarDatos() {
         String nombreArchivo = "guardadoDeDatos.ser";
         try{
             FileInputStream flujoArchivo = new FileInputStream(nombreArchivo);
@@ -305,19 +305,24 @@ public class Dato implements Estado, Serializable {
             Dato.instance = (Dato) out.readObject();
             Revista.conteoRevistas = Dato.instance.numeroDeRevistas;
             System.out.println("Cargado exitoso");
+            return true;
         }catch (InvalidClassException e){
             System.out.println("Clase incorrecta, probablemente la versión "
                     + "del archivo no es compatible");
+            return false;
         }catch (IOException e){
             System.out.println("Ocurrio un error inesperado de I/O");
+            return false;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Dato.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Se intentó cargar un objeto incompatible");
+            return false;
         }
     }
 
     public void guardarDatos() {
         String nombreArchivo = "guardadoDeDatos.ser";
         try{
+            this.numeroDeRevistas = Revista.conteoRevistas;
             FileOutputStream flujoArchivo = new FileOutputStream(nombreArchivo);
             ObjectOutputStream out = new ObjectOutputStream(flujoArchivo);
             out.writeObject(this);

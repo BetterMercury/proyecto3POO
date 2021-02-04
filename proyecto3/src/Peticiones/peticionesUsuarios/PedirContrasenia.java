@@ -27,6 +27,10 @@ public class PedirContrasenia extends PeticionPersona{
             Scanner sc = new Scanner(System.in);
             contrasenia = sc.nextLine();
         }
+        if(contrasenia.length()<8){
+            throw new ErrorDeDatoException("La contrasenia debe tener al menos"
+                    + " 8 caracteres");
+        }
         objetivo.setContrasena(contrasenia);
     }
     

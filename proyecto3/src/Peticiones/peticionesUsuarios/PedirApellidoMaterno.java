@@ -12,7 +12,7 @@ public class PedirApellidoMaterno extends PeticionPersona{
         System.out.print("Apellido materno (menor a 15 caracteres \ny sin digitos): ");
         nombre = sc.nextLine();
 
-        if(nombre.length()>15 || !sinNumeros(nombre)){
+        if((nombre.length()==0) ||nombre.length()>15 || !sinNumeros(nombre)){
             throw new ErrorDeDatoException("Formato de apellido incorrecto");
         }
         objetivo.setApellidoMaterno(nombre);

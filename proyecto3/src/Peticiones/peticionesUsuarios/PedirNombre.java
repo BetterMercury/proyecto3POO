@@ -11,7 +11,7 @@ public class PedirNombre extends PeticionPersona{
         System.out.print("Nombre (menor a 15 caracteres \ny sin digitos): ");
         nombre = sc.nextLine();
 
-        if(nombre.length()>15 || !sinNumeros(nombre)){
+        if((nombre.length()==0) ||nombre.length()>15 || !sinNumeros(nombre)){
             throw new ErrorDeDatoException("Formato de nombre incorrecto");
         }
         objetivo.setNombre(nombre);

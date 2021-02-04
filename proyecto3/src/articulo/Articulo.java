@@ -163,7 +163,16 @@ public class Articulo implements Estado, Categoria, Serializable{
     }
 
     public String getSnopsis() {
-        return Snopsis;
+        StringBuilder cadena = new StringBuilder();
+        int i;
+        for(i=80; i<this.Snopsis.length();i+=80){
+            String subCadena;
+            subCadena = this.Snopsis.substring(i-80,i+1)+"\n";
+            cadena.append(subCadena);
+        }
+        cadena.append(this.Snopsis.substring(i-80,this.Snopsis.length()));
+        cadena.append("\n");
+        return cadena.toString();
     }
 
     public void setSnopsis(String Snopsis) {
@@ -201,6 +210,26 @@ public class Articulo implements Estado, Categoria, Serializable{
     public void setEstado(String estado) {
         this.estado = estado;
     }   
+
+    @Override
+    public String toString() {
+        StringBuilder infoArticulo = new StringBuilder();
+        infoArticulo.append("\nTitulo: ").append(this.Titulo);
+        infoArticulo.append("\nAutores: ").append(this.cadenaAutores());
+        infoArticulo.append("\nEstado: ").append(this.estado);
+        infoArticulo.append("\nFolio: ").append(this.folio);
+        infoArticulo.append("\nSinopsis: ").append(this.getSnopsis());
+        return infoArticulo.toString();
+    }
     
+    private String cadenaAutores(){
+        StringBuilder autoresCadena = new StringBuilder();
+        for(Autor autor:this.getAutores()){
+            autoresCadena.append(autor.getApellidoPaterno())
+                    .append(", ").append(autor.getNombre()).append("; ");
+        }
+        return autoresCadena.toString();
+    }
     
 }
+
