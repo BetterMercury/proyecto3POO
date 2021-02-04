@@ -34,10 +34,13 @@ public class Revista implements Estado{
     
     private String titulo;
     private Date fechaPublicacion;
-    private LinkedList<Articulo> articulos = new LinkedList<>();
     private Editor editor; //Solo puede contener editor si es publicado
     private int numRevista;
     private String Estado;
+    
+    
+    private LinkedList<Articulo> articulos = new LinkedList<>();    
+    
     
 
     public ArrayList<PeticionesRevista> peticionesNecesarias;
@@ -146,6 +149,78 @@ public class Revista implements Estado{
     
     public void setArticulo(Articulo art){
         this.articulos.add(art);
+    }
+    
+    /**
+     * Metodo que nos sirve para definir si una revista
+     * incluye al menos dos articulos de cada categoria.
+     */
+    public boolean comprobacionCAT(){
+        /*
+        NOTA:
+        CAT1 = "Inteligencia Artificial";   
+        CAT2 = "Analisis de Sistemas de Software";    
+        CAT3 = "Bases de Datos";    
+        CAT4 = "Hardware";    
+        */
+        
+        int contCAT1 = 0;
+        int contCAT2 = 0;
+        int contCAT3 = 0;
+        int contCAT4 = 0;        
+        int need;
+        
+        //Recorremos la lista de Articulos
+        for(Articulo art : this.articulos){
+            if(art.getCategoria().equals(Articulo.CAT1)){
+                contCAT1++;
+            }
+            if(art.getCategoria().equals(Articulo.CAT2)){
+                contCAT2++;
+            }
+            if(art.getCategoria().equals(Articulo.CAT3)){
+                contCAT3++;
+            }
+            if(art.getCategoria().equals(Articulo.CAT4)){
+                contCAT4++;
+            }            
+        }
+        
+        boolean puedePublicarse = true;
+        
+        if(contCAT1 < 2){
+            need = 2 - contCAT1;
+            System.out.println("A esta revista le faltan " + need +
+                    " articulos de " + Articulo.CAT1);
+            puedePublicarse = false;
+        }
+        
+        if(contCAT2 < 2){
+            need = 2 - contCAT1;
+            System.out.println("A esta revista le faltan " + need +
+                    " articulos de " + Articulo.CAT2);
+            puedePublicarse = false;
+            
+        }
+        
+        if(contCAT3 < 2){
+            need = 2 - contCAT1;
+            System.out.println("A esta revista le faltan " + need +
+                    " articulos de " + Articulo.CAT3);
+            puedePublicarse = false;
+            
+        }
+
+        if(contCAT4 < 2){
+            need = 2 - contCAT1;
+            System.out.println("A esta revista le faltan " + need +
+                    " articulos de " + Articulo.CAT4);
+            puedePublicarse = false;
+            
+        }        
+        
+        return puedePublicarse;
+
     }
     
 }
