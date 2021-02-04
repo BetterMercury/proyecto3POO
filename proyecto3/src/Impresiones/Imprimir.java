@@ -14,6 +14,6 @@ import java.io.Serializable;
  */
 public abstract class Imprimir implements Serializable {
     
-    public void realizarImpresion(Dato datosGenerales){};
+    public abstract void realizarImpresion(Dato datosGenerales);
     
 }

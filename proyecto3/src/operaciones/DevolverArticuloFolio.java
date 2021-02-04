@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class BuscarArticuloFolio extends Operacion {
+public class DevolverArticuloFolio extends Operacion {
 
     @Override
     public void realizarOperacion(Persona operador) {

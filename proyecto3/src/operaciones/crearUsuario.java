@@ -35,7 +35,7 @@ public class CrearUsuario extends Operacion{
         int i = 1;
         for(Instanciador op : tiposDeUsuario){
             System.out.print(i+".-");
-            op.toString();
+            System.out.println(op.toString());
             i++;
         }
         System.out.println("");
@@ -46,7 +46,11 @@ public class CrearUsuario extends Operacion{
         Scanner sc = new Scanner(System.in);
         System.out.print("\nTu eleccion: ");
         op = sc.nextInt();
-        tiposDeUsuario.get(op-1).realizarOperacion(operador);
+        if(op<1 || op > this.tiposDeUsuario.size()){
+            System.out.println("Opcion no valida");
+        }else{
+            tiposDeUsuario.get(op-1).realizarOperacion(operador);
+        }
     }
     
     @Override

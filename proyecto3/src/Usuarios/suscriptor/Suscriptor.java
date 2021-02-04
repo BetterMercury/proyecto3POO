@@ -4,6 +4,8 @@ package Usuarios.suscriptor;
 import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirFechaIngreso;
 import Usuarios.Persona;
+import operaciones.ImprimirColecciones;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -24,6 +26,7 @@ public class Suscriptor extends Persona{
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
+        this.operacionesDisponible.add(new ImprimirColecciones());
         this.esSub = true;
     }
     
