@@ -43,7 +43,7 @@ public class PedirFechaIngreso extends PeticionPersona {
         if(objetivo instanceof Empleado){    
             Empleado persona = (Empleado)objetivo;
             
-            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) ){  //solo si se tiene el formato
+            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) && fechaIngreso.length() == 10){  //solo si se tiene el formato
                 persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
             }else{
                 System.out.println(" ");
@@ -53,7 +53,7 @@ public class PedirFechaIngreso extends PeticionPersona {
         }else{
             Suscriptor persona = (Suscriptor)objetivo;
             
-            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) ){  //solo si se tiene el formato
+            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) && fechaIngreso.length() == 10){  //solo si se tiene el formato
                 persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
             }else{
                 System.out.println(" ");
