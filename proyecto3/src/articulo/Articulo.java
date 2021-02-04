@@ -231,5 +231,23 @@ public class Articulo implements Estado, Categoria, Serializable{
         return autoresCadena.toString();
     }
     
+    /**
+     * Método que concatena los nombres de todos los autores
+     * contenidos en el ArrayList de autores
+     * @return String con los nombres de los autores
+     */
+    public String autoresToString(){
+        String autores = null;
+        if(this.autores.isEmpty()){
+            return "Sin autores";
+        } else{
+            for(Autor autor : this.autores){
+                autores += autor.getNombre() + autor.getApellidoPaterno() 
+                        + autor.getApellidoMaterno() + "\n";
+            }
+            return autores;
+        }
+    }    
+    
 }
 
