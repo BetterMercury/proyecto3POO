@@ -19,6 +19,10 @@ public class PedirCorreo extends PeticionPersona {
         Scanner sc = new Scanner(System.in);
         System.out.print("Correo: ");
         nombre = sc.nextLine();
+        if(nombre.length()==0){
+            throw new ErrorDeDatoException("Debes ingresar un correo"
+                    + " obligatoriamente");
+        }
         objetivo.setEmail(nombre);
     }
 }

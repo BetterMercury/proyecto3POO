@@ -12,7 +12,7 @@ import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.PedirContrasenia;
 import java.io.Serializable;
 
-public abstract class Persona implements Serializable {    
+public abstract class Persona implements Serializable, Comparable<Persona> {    
     protected ArrayList<Operacion> operacionesDisponible;
     protected ArrayList<PeticionPersona> peticonesNecesarias;
     String nombre;
@@ -26,6 +26,7 @@ public abstract class Persona implements Serializable {
         operacionesDisponible = new ArrayList<>();
         peticonesNecesarias = new ArrayList<>();
         operacionesDisponible.add(new regresarMenuAnterior());
+        operacionesDisponible.add(new buscarArticuloFolio());
         peticonesNecesarias.add(new PedirNombre());
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());
@@ -130,6 +131,11 @@ public abstract class Persona implements Serializable {
         //REALIZAR ESTO ULTIMO IMPLICA UNA SOBREESCRITURA EN TODAS LAS
         //DEMAS CLASES HIJAS
                 
+    }
+    
+        @Override
+    public int compareTo(Persona arg0) {
+        return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
     }
     
     

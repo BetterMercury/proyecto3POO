@@ -31,7 +31,11 @@ public class init {
             op = sc.nextLine();
             switch(op){
                 case "s":
-                    referenciaDato.cargarDatos();
+                    if(!referenciaDato.cargarDatos()){
+                        System.out.println("No se pudo cargar el archivo, "
+                                + "el programa continuara sin cargar datos");
+                        op="n";
+                    }
                     referenciaDato = Dato.getInstance();
                     break;
                 case "n":

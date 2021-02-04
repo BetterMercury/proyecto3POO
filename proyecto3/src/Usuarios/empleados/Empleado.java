@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Equiipo 9
  */
-public class Empleado extends Persona implements Comparable<Empleado>{
+public class Empleado extends Persona {
     static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     
     Integer numeroEmpleado;
@@ -54,10 +54,7 @@ public class Empleado extends Persona implements Comparable<Empleado>{
     /**
      * Hace que los sets de los tipos especificos aparescan ordenados automaticamente.
      */
-    @Override
-    public int compareTo(Empleado arg0) {
-        return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     /**
      * Permite la impresion de los datos de Empleado
