@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesUsuarios;
 
 import Excepciones.ErrorDeDatoException;
@@ -11,13 +7,25 @@ import Usuarios.empleados.Revisor;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta PeticionPersona;
+ * sirve para representar la petición (operación) de pedirle
+ * el atributo área de interés al usuario, implementando el método
+ * realizarPeticion.
  * @author Equipo 9
  * 
- * Clase que se encarga de pedir el interes y la experiencia de los revisores
  */
 public class PedirInteresRevisor extends PeticionPersona{
     
+    /**
+        * Método implementado de la clase padre que se encarga de pedir
+        * el área de interés de un objeto de la clase Revisor.
+        * @param objetivo Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que el 
+        * área de interés ingresado no es correcto por su formato.
+        */
+    @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         String interes;
         Scanner sc = new Scanner(System.in);
@@ -57,6 +65,14 @@ public class PedirInteresRevisor extends PeticionPersona{
       
     }
     
+    /**
+        * Método que nos ayuda a determinar si en el área de interés se ingresó un 
+        * caracter inválido como un número.
+        * @param cadena La cadena en donde se almacenó el área de interés ingresado, para
+        * trabajar con él y verificar si el formato es válido.
+        * @return Retorna un booleano true si no se detectaron números y un false
+        * si se detectaaron números.
+        */
     private boolean sinNumeros(String cadena){
         for(char c: cadena.toCharArray()){
             return !Character.isDigit(c);

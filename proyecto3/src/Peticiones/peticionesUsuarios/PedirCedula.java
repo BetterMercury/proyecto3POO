@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesUsuarios;
 
 import Excepciones.ErrorDeDatoException;
@@ -11,13 +7,25 @@ import Usuarios.empleados.Editor;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta PeticionPersona;
+ * sirve para representar la petición (operación) de pedirle
+ * el atributo cédula profesional al usuario, implementando el método
+ * realizarPeticion.
  * @author Equipo 9
  * 
- * Clase que se encarga de recibir el numero de cedula de un editor
  */
 public class PedirCedula extends PeticionPersona {
     
+     /**
+        * Método implementado de la clase padre que se encarga de pedir
+        * la cédula de un objeto de la clase Editor.
+        * @param objetivo Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que la 
+        * cédula ingresada no es correcta por el tipo de dato.
+        */
+        @Override
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         
             

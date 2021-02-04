@@ -285,6 +285,14 @@ public class Dato implements Estado, Serializable {
         return this.mapaRevistas.get(numero); 
     }
 
+    public boolean existsFolioNumeroRevista(int numero){
+        if(this.mapaRevistas.containsKey(numero)){
+            return true;
+        } else {
+            return false;
+        }
+    }    
+
     public Director getDirectorGeneral() {
         return directorGeneral;
     }    

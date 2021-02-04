@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesUsuarios;
 
 import Excepciones.ErrorDeDatoException;
@@ -12,13 +8,25 @@ import Usuarios.empleados.Empleado;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta PeticionPersona;
+ * sirve para representar la petición (operación) de pedirle
+ * el atributo posgrado al usuario, implementando el método
+ * realizarPeticion.
  * @author Equipo 9
  * 
- * Clase que se encarga de recibir el posgrado
  */
 public class PedirPosgrado extends PeticionPersona {
     
+        /**
+        * Método implementado de la clase padre que se encarga de pedir
+        * el posgrado de un objeto Editor.
+        * @param objetivo Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía de Persona.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que el 
+        * posgrado ingresado no es el correcto.
+        */
+    @Override
         public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
         
         
