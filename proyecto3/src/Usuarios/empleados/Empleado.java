@@ -6,6 +6,7 @@ import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirFechaIngreso;
 import Peticiones.peticionesUsuarios.PeticionPersona;
 import Usuarios.Persona;
+import operaciones.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,6 +34,12 @@ public class Empleado extends Persona {
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
+        this.operacionesDisponible.add(new ImprimirColeccionesEmpleado());
+        this.operacionesDisponible.add(new DevolverArticuloFolio());
+        this.operacionesDisponible.add(new DevolverArticuloNombre());
+        this.operacionesDisponible.add(new DevolverEmpleadoPorNumero());
+        this.operacionesDisponible.add(new DevolverRevistaPorNumero());
+        this.operacionesDisponible.add(new DevolverSuscriptorPorNumero());
     }
     
        //formateador para la fecha ingresada

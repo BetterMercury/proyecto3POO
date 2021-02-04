@@ -46,7 +46,7 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
         operacionesDisponible = new ArrayList<>();
         peticonesNecesarias = new ArrayList<>();
         operacionesDisponible.add(new regresarMenuAnterior());
-        operacionesDisponible.add(new BuscarArticuloFolio());
+        operacionesDisponible.add(new DevolverArticuloFolio());
         peticonesNecesarias.add(new PedirNombre());
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());
@@ -55,7 +55,7 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
     }
 
     /**
-     * Método que no recibe parametros, se encarga de iterar
+     * Método que no recibe parámetros, se encarga de iterar
      * el arreglo de operaciones disponibles y mostrar en 
      * pantalla dichos objetos, los cuales representan operaciones
      * diferentes gracias al polimorfismo (por lo que este método
@@ -78,8 +78,12 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
         int op;
         System.out.print("Ingresa tu eleccion: ");
         op = sc.nextInt();
-        
+        if(op < 1 || op > this.operacionesDisponible.size()){
+            System.out.println("Opcion no valida");
+        }else{
             this.operacionesDisponible.get(op-1).realizarOperacion(this);
+        }
+            
     }
 
     /**

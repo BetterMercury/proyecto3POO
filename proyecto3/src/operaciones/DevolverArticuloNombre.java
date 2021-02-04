@@ -15,7 +15,7 @@ import java.util.TreeSet;
  *
  * @author ribel
  */
-public class BuscarArticuloNombre extends Operacion{
+public class DevolverArticuloNombre extends Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {

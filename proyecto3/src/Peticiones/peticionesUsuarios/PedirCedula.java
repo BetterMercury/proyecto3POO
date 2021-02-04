@@ -39,7 +39,7 @@ public class PedirCedula extends PeticionPersona {
         }
         Editor ed = (Editor)objetivo;
            
-        int cifras = 0;
+        int cifras;
         int numCed = numeroCedula;
    
         cifras= 0;    //esta variable es el contador de cifras
