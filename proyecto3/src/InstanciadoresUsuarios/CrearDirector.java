@@ -9,7 +9,7 @@ import Usuarios.Persona;
 import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import datos.Dato;
-import operaciones.Operacion;
+
 
 /**
  *
@@ -35,5 +35,9 @@ public class CrearDirector extends Instanciador{
         }else{
             System.out.println("Khe? como lograste entrar aqui?");
         }
+    }
+    @Override
+    public String toString() {
+        return "Registrar nuevo director (Sustituira al actual)";
     }
 }

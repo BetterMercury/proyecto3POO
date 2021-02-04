@@ -9,8 +9,6 @@ import Usuarios.suscriptor.Suscriptor;
 import articulo.Articulo;
 import java.util.TreeSet;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Dato implements Estado, Serializable {
     
@@ -85,6 +83,7 @@ public class Dato implements Estado, Serializable {
     }
     
     public boolean aniadirEmpleado(Empleado nuevoEmpleado){
+
         if (mapaEmpleados.containsKey(nuevoEmpleado.getNumeroEmpleado())){
             return false;
         }else{
@@ -108,7 +107,10 @@ public class Dato implements Estado, Serializable {
         }else if (empleado instanceof Administrador){
             setAdministradores.add((Administrador)empleado);
         }else if (empleado instanceof Director){
+            if(directorGeneral != null)
+                this.mapaEmpleados.remove(this.directorGeneral.getNumeroEmpleado());
             directorGeneral = (Director)empleado;
+
         }else{
             System.out.println("Esto no deberia de pasar \n aniadirListaEspecifica"
                     + " en la clase dato del paquete dato xd");
@@ -165,7 +167,7 @@ public class Dato implements Estado, Serializable {
     
     public boolean aniadirArticulo(Articulo nuevoArticulo){
         String folioArticulo = nuevoArticulo.getFolio();
-        if(mapaRevistas.containsKey(folioArticulo)){
+        if(mapaArticulos.containsKey(folioArticulo)){
             this.mapaArticulos.put(folioArticulo,nuevoArticulo);
             conjuntoEspecificoArticulo(nuevoArticulo);
             return true;
@@ -183,7 +185,7 @@ public class Dato implements Estado, Serializable {
      * @return true si existe, false si no existe.
      */
     public boolean existsFolioArticulo(String folio){
-        return (this.mapaArticulos.containsValue(folio));
+        return this.mapaArticulos.containsKey(folio);
     }
     
     private boolean conjuntoEspecificoArticulo(Articulo nuevoArticulo){
@@ -203,7 +205,6 @@ public class Dato implements Estado, Serializable {
     
 
     private boolean quitarDeConjuntoEspecificoArticulo(Articulo articulo){
-        boolean resultado;
         
         if (setArticulosAceptados.remove(articulo)){return true;}
         
@@ -269,7 +270,6 @@ public class Dato implements Estado, Serializable {
         }
     }
     private boolean quitarDeConjuntoEspecificoRevista(Revista revista){
-        boolean resultado;
         
         if (setRevistasNoPublicadas.remove(revista)){return true;}
         return setRevistasPublicadas.remove(revista);
@@ -305,6 +305,7 @@ public class Dato implements Estado, Serializable {
             Dato.instance = (Dato) out.readObject();
             Revista.conteoRevistas = Dato.instance.numeroDeRevistas;
             System.out.println("Cargado exitoso");
+            out.close();
             return true;
         }catch (InvalidClassException e){
             System.out.println("Clase incorrecta, probablemente la versión "
@@ -327,6 +328,7 @@ public class Dato implements Estado, Serializable {
             ObjectOutputStream out = new ObjectOutputStream(flujoArchivo);
             out.writeObject(this);
             System.out.println("Guardado exitoso");
+            out.close();
         }catch (InvalidClassException e){
             System.out.println("Clase incorrecta, probablemente la versión "
                     + "del archivo no es compatible");

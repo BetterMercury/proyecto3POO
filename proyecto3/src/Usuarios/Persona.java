@@ -26,7 +26,7 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
         operacionesDisponible = new ArrayList<>();
         peticonesNecesarias = new ArrayList<>();
         operacionesDisponible.add(new regresarMenuAnterior());
-        operacionesDisponible.add(new buscarArticuloFolio());
+        operacionesDisponible.add(new BuscarArticuloFolio());
         peticonesNecesarias.add(new PedirNombre());
         peticonesNecesarias.add(new PedirApellidoPaterno());
         peticonesNecesarias.add(new PedirApellidoMaterno());

@@ -9,8 +9,6 @@ import Usuarios.Persona;
 import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import datos.Dato;
-import operaciones.Operacion;
-import operaciones.Operacion;
 /**
  *
  * @author ribel
@@ -37,5 +35,8 @@ public class CrearCuentaAdministrativa extends Instanciador{
         }else{
             System.out.println("Khe? como lograste entrar aqui?");
         }
+    }
+    public String toString(){
+        return "Registrar cuenta administrativa";
     }
 }

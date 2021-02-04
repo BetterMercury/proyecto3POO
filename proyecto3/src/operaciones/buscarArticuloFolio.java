@@ -10,11 +10,12 @@ import articulo.Articulo;
 import datos.Dato;
 import java.util.HashMap;
 import java.util.Scanner;
+
 /**
  *
  * @author ribel
  */
-public class buscarArticuloFolio extends Operacion {
+public class BuscarArticuloFolio extends Operacion {
 
     @Override
     public void realizarOperacion(Persona operador) {

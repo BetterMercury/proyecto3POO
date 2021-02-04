@@ -6,6 +6,7 @@
 package Usuarios.empleados;
 import InstanciadoresUsuarios.CrearCuentaAdministrativa;
 import InstanciadoresUsuarios.CrearDirector;
+import operaciones.CrearUsuario;
 
 /**
  *
@@ -14,6 +15,7 @@ import InstanciadoresUsuarios.CrearDirector;
 public class Administrador extends Empleado {
     public Administrador(){
         super();
+        this.operacionesDisponible.add(new CrearUsuario());
     }
 
     @Override

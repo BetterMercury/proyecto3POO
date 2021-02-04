@@ -32,4 +32,9 @@ public class CrearSuscriptor extends Instanciador{
                     + "existe");
         }
     }
+    @Override
+    public String toString() {
+        return "Registrar suscriptor";
+        
+    }
 }

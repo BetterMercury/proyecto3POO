@@ -36,5 +36,11 @@ public class CrearEditor extends Instanciador{
         }else{
             System.out.println("Khe? como lograste entrar aqui?");
         }
+
+    }
+
+    @Override
+    public String toString() {
+    return "Registrar editor";
     }
 }

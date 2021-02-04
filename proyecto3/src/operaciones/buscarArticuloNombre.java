@@ -9,30 +9,38 @@ import Usuarios.Persona;
 import articulo.Articulo;
 import datos.Dato;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  *
  * @author ribel
  */
-public class buscarArticuloNombre extends Operacion{
+public class BuscarArticuloNombre extends Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {
         Dato accesoDatos = Dato.getInstance();
         Scanner sc = new Scanner(System.in);
-        String folioArticulo;
-        Articulo articuloBuscado;
-        SetTree 
+        String nombreArticulo;
+        Articulo articuloBuscado = null;
+        TreeSet<Articulo> articulosDisponibles;
+        
         System.out.println("Ingresa el titulo del artículo que "
                 + "buscas:");
-        folioArticulo = sc.nextLine();
-        accesoDatos.;
+        nombreArticulo = sc.nextLine();
+        articulosDisponibles = accesoDatos.getSetArticulosAceptados();
+        for(Articulo actual:articulosDisponibles){
+            if(actual.getTitulo().equalsIgnoreCase(nombreArticulo)){
+                articuloBuscado = actual;
+            }
+        }
+        
         if(articuloBuscado == null){
-            System.out.println("No existe ningun articulo con el folio"
+            System.out.println("No existe ningun articulo con el titulo"
                     + " proporcionado");
         }else{
             System.out.println("Informacion del artículo: ");
-            System.out.println(articuloBuscado.toString());
+            System.out.println(articuloBuscado.toString()); 
         }
     }
     

@@ -14,10 +14,10 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class crearUsuario extends Operacion{
+public class CrearUsuario extends Operacion{
 
     ArrayList<Instanciador> tiposDeUsuario = new ArrayList<>();
-    public crearUsuario(){
+    public CrearUsuario(){
         tiposDeUsuario.add(new CrearAutor());
         tiposDeUsuario.add(new CrearCuentaAdministrativa());
         tiposDeUsuario.add(new CrearDirector());
@@ -36,6 +36,7 @@ public class crearUsuario extends Operacion{
         for(Instanciador op : tiposDeUsuario){
             System.out.print(i+".-");
             op.toString();
+            i++;
         }
         System.out.println("");
     }

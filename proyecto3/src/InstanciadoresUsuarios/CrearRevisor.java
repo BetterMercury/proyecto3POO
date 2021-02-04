@@ -38,4 +38,8 @@ public class CrearRevisor extends Instanciador{
             System.out.println("Khe? como lograste entrar aqui?");
         }
     }
+    @Override
+    public String toString() {
+        return "Registrar revisor";
+    }
 }

@@ -151,7 +151,7 @@ public class init {
                 }
 
             }else{
-                System.out.println("opcion no valida");
+                System.out.println("0pcion no valida");
                 return null;
             }
         }catch(InputMismatchException e){

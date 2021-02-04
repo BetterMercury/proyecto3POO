@@ -215,21 +215,29 @@ public class Articulo implements Estado, Categoria, Serializable{
     public String toString() {
         StringBuilder infoArticulo = new StringBuilder();
         infoArticulo.append("\nTitulo: ").append(this.Titulo);
-        infoArticulo.append("\nAutores: ").append(this.cadenaAutores());
+        infoArticulo.append("\nAutores: ").append(this.autoresToString());
         infoArticulo.append("\nEstado: ").append(this.estado);
         infoArticulo.append("\nFolio: ").append(this.folio);
         infoArticulo.append("\nSinopsis: ").append(this.getSnopsis());
         return infoArticulo.toString();
     }
     
-    private String cadenaAutores(){
+    /**
+     * Método que concatena los nombres de todos los autores
+     * contenidos en el ArrayList de autores
+     * @return String con los nombres de los autores
+     */
+    public String autoresToString(){
         StringBuilder autoresCadena = new StringBuilder();
-        for(Autor autor:this.getAutores()){
+        if(this.autores.isEmpty()){
+            return "Sin autores";
+        }else{
+            for(Autor autor:this.getAutores()){
             autoresCadena.append(autor.getApellidoPaterno())
                     .append(", ").append(autor.getNombre()).append("; ");
         }
         return autoresCadena.toString();
-    }
-    
+        }
+    }  
 }
 

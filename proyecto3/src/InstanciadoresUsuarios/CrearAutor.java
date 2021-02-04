@@ -17,7 +17,7 @@ import operaciones.Operacion;
  * @author ribel
  */
 public class CrearAutor extends Instanciador{
-        public void realizarOperacion(Persona operador) {
+    public void realizarOperacion(Persona operador) {
         if(operador instanceof Director || operador instanceof Administrador){
             Autor nuevaInstancia = new Autor();
             nuevaInstancia.pedirDatos();
@@ -36,5 +36,9 @@ public class CrearAutor extends Instanciador{
         }else{
             System.out.println("Khe? como lograste entrar aqui?");
         }
+    }
+
+    public String toString(){
+        return "Registrar autor";
     }
 }
