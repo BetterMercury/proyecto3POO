@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
@@ -13,11 +9,24 @@ import datos.Dato;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta Operacion;
+ * sirve para representar la operación de crear
+ * un artículo por parte del Autor,
+ * implementando el método realizarPeticion.
  * @author Equipo 9
+ * 
  */
 public class CrearArticulo extends Operacion{
     
+    /**
+        * Método implementado de la clase padre que se encarga de crear 
+        * un artículo por parte de un objeto de la clase Autor.
+        * @param objetivo Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
+    @Override
     public void realizarOperacion(Persona objetivo){
         System.out.println(" ");
         System.out.println("Usted autor, creara articulos");

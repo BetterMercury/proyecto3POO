@@ -12,6 +12,17 @@ import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.PedirContrasenia;
 import java.io.Serializable;
 
+/**
+*
+*Esta clase abstracta se encarga de agrupar el concepto abstracto 
+*de los sujetos Persona dentro del programa con todos sus atributos y métodos; 
+*Implementa la interfaz Serializable para poder almacenar datos en archivos y,
+* también implementa la interfaz Comparable para poder ordenar objetos de esta clase.
+* 
+* @author Equipo 9
+*
+**/
+
 public abstract class Persona implements Serializable, Comparable<Persona> {    
     protected ArrayList<Operacion> operacionesDisponible;
     protected ArrayList<PeticionPersona> peticonesNecesarias;

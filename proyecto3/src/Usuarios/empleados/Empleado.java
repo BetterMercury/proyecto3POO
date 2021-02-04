@@ -13,8 +13,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * Clase que representa al sujeto Empleado, el cual hereda de Persona;
  * esta clase representa un tipo de dato abstracto; cuenta con características 
- * y atributos propios; implementa la interfaz comparable; y, es útil para 
- * englobar tipos especifícos que heredarán de esta clase.
+ * y atributos propios; y, es útil para englobar tipos especifícos que 
+ * heredarán de esta clase.
  * @author Equipo 9
  * 
  */

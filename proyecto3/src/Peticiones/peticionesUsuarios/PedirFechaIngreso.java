@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesUsuarios;
 
 import Excepciones.ErrorDeDatoException;
@@ -13,16 +9,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta PeticionPersona;
+ * sirve para representar la petición (operación) de pedirle
+ * el atributo fecha de ingreso al usuario, implementando el método
+ * realizarPeticion.
  * @author Equipo 9
  * 
- * Clase que se encarga de recibir los datos de fecha de ingreso
  */
 public class PedirFechaIngreso extends PeticionPersona {
     
         //formateador para la fecha ingresada
     static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     
+    /**
+        * Método implementado de la clase padre que se encarga de pedir
+        * la fecha de ingreso de un objeto de la clase Empleado o Suscriptor.
+        * @param objetivo Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que la 
+        * fecha de ingreso ingresada no es correcta por su formato.
+        */
+    @Override
     public void realizarPeticion(Persona objetivo) throws ErrorDeDatoException {
             
         String fechaIngreso;
@@ -58,7 +66,14 @@ public class PedirFechaIngreso extends PeticionPersona {
         
         
     }
-        
+    
+    /**
+        * Método que nos ayuda a determinar si el formato de fecha de ingreso es correcto.
+        * @param fecha La cadena en donde se almacenó la fecha ingresada, para
+        * trabajar con ella y verificar si el formato es válido.
+        * @return Retorna un booleano true si el formato es válido y un false
+        * si no lo es.
+        */
     static public boolean comprobar(String fecha){
             
         int i = 0;  //contador para saber si se cumplen los 8 digitos de la fecha

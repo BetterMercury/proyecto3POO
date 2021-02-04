@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Estado.Estado;
@@ -20,12 +16,24 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que hereda de la clase abstracta Operacion;
+ * sirve para representar la operación de confirmar
+ * la publicación de un artículo por parte del Editor,
+ * implementando el método realizarPeticion.
  * @author Equipo 9
- * Clase que sirve para la confirmacion de los editores de publicar articulos
+ * 
  */
 public class ConfirmarPublicacionArticulo extends Operacion{
     
+        /**
+        * Método implementado de la clase padre que se encarga de confirmar
+        * la publicación de un artículo por parte de un objeto de la clase Editor.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
+    @Override
     public void realizarOperacion(Persona operador){
        
         Editor edi = (Editor)operador;

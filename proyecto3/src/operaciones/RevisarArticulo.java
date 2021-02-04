@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Impresiones.imprimirArticulos;
@@ -18,12 +14,24 @@ import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
 
 /**
- *
+ * Clase que hereda de la clase abstracta Operacion;
+ * sirve para representar la operación de revisar
+ * un artículo por parte del Revisor,
+ * implementando el método realizarPeticion.
  * @author Equipo 9
- * Clase que se encarga de que los revisores puedan revisar articulos y calificarlos
+ * 
  */
 public class RevisarArticulo extends Operacion{
     
+    /**
+        * Método implementado de la clase padre que se encarga de revisar 
+        * un artículo por parte de un objeto de la clase Revisor.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
+    @Override
     public void realizarOperacion(Persona operador){
         Revisor revisor = (Revisor) operador;     
         
