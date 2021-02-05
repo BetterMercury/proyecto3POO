@@ -22,7 +22,7 @@ import java.util.InputMismatchException;
  * @author Equipo 9
  * 
  */
-public class RevisarArticulo extends Operacion{
+public class RevisarArticulo extends Operacion implements Estado{
     
     /**
         * Método implementado de la clase padre que se encarga de revisar 
@@ -33,44 +33,46 @@ public class RevisarArticulo extends Operacion{
         * 
         */
     @Override
-    public void realizarOperacion(Persona operador){
+    public void realizarOperacion(Persona operador) {
         try{
-            Revisor revisor = (Revisor) operador;     
+            Revisor revisor = (Revisor) operador;   
+            int op = 0;
+            String folio;
+            int calif = 0;  
+            Scanner sc = new Scanner(System.in);
+            Dato datosGenerales = Dato.getInstance();
 
             //datos de articulos creados
-            Dato datosGenerales = Dato.getInstance();
             imprimirArticulos irev = new imprimirArticulos();
             irev.realizarImpresion(datosGenerales);
-            Scanner sc = new Scanner(System.in);
+
 
             System.out.println(" ");
             System.out.println("Usted revisor, revisara articulos");
             System.out.println(" ");
 
-            int op = 0;
-            String folio;
-            int calif = 0;
-            int k = 0;
-
-            HashMap<String,Integer> folios = new HashMap<>();   //mapa temporal para no volver a ver el mismo articulo
+            
+            
 
             do{
+                if(datosGenerales.getSetArticulosPendientes().isEmpty() && datosGenerales.getSetArticulosRechazados().isEmpty() ){
+                    System.out.print("No hay artículos pendientes o rechazados para aplicar esta operación");
+                    break; //Si no hay artículos pendientes o rechazados no continua para que no se cicle. 
+                }
                 System.out.println(" ");
                 System.out.println("Escriba el folio del articulo que revisara");
+                
                 while(true){
-                    try{
-                        folio = sc.nextLine();
-                        if(datosGenerales.buscarFolioArticulo(folio).getEstado().equals(Articulo.STATER3)){
-                            throw new ErrorDeDatoException("El Articulo ya ha sido utilizado en otra Revista");
-                        }
-                        if(folios.containsKey(folio)){
-                            throw new ErrorDeDatoException("El folio ha sido revisado anteriormente");
-                        }
-                        if(datosGenerales.existsFolioArticulo(folio)){  //si existe el folio del articulo y si aun no se revisa
-                            Articulo articulo = datosGenerales.buscarFolioArticulo(folio);  //me traigo el articulo que ya existe, por lo que se actualizara solo
-
+                    folio = sc.nextLine();
+                    if(datosGenerales.existsFolioArticulo(folio)){  //si existe el folio
+                        
+                        Articulo articulo = datosGenerales.buscarFolioArticulo(folio); // pide el articulo
+                        String estadoArticulo = articulo.getEstado();  //pide el estado del articulo
+                        
+                        if(estadoArticulo.equals(STATER4) || estadoArticulo.equals(STATER5)){ //Verifica que el articulo sea rechazado o pendiente
                             System.out.println(" ");
                             System.out.println("Escriba la calificacion de este articulo de 0 a 10 en numero entero");
+                            
                             while(true){    
                                 try{
                                     calif = sc.nextInt();
@@ -88,30 +90,19 @@ public class RevisarArticulo extends Operacion{
 
                             articulo.setRevisor(revisor, calif);
                             articulo.setEstado(Estado.STATER6); //cambio de estado del aticulo
-                            datosGenerales.actualizarEstadoArticulo(articulo);
                             PedirNumeroArticulosRevisadosRevisor pedir = new PedirNumeroArticulosRevisadosRevisor();
-                            pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido
-                            folios.put(folio, k);
-                            k++;
-                        }else{
-                            System.out.println("El articulo no existe o no esta en un estado válido");
-                            break;
+                            pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido 
+                            datosGenerales.actualizarEstadoArticulo(articulo);             
                         }
-                        
-                    }catch(IllegalArgumentException e){
+
+                    }else{
                         System.out.println(" ");
                         System.out.println("Ingrese el folio correctamente, intente nuevamente");
                         continue;
                     }
-                    catch (ErrorDeDatoException e){
-                        System.out.println("");
-                        System.out.println(e.getMessage());
-                        break;
-                    }
                     break;
                 }
 
- 
 
 
                 System.out.println(" ");
