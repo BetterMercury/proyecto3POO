@@ -12,8 +12,11 @@ import datos.Dato;
 
 
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos directores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al director a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
+ * director anterior es sustituido por el nuevo al llamar al método realizarOperacion
+ * de esta clase.
  */
 public class CrearDirector extends Instanciador{
     

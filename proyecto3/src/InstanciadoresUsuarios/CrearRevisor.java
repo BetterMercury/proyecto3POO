@@ -14,8 +14,9 @@ import datos.Dato;
 import operaciones.Operacion;
 
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos revisores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al revisor a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 public class CrearRevisor extends Instanciador{
         @Override

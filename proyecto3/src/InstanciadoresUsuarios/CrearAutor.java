@@ -10,11 +10,12 @@ import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Autor;
 import Usuarios.empleados.Director;
 import datos.Dato;
-import operaciones.Operacion;
+
 
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos autores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al autor a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 public class CrearAutor extends Instanciador{
     public void realizarOperacion(Persona operador) {

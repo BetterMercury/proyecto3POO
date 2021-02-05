@@ -13,8 +13,9 @@ import datos.Dato;
 import operaciones.Operacion;
 
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos editores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al editor a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 public class CrearEditor extends Instanciador{
         @Override

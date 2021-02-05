@@ -11,8 +11,9 @@ import datos.Dato;
 import operaciones.Operacion;
 
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos suscriptores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al suscriptor a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 public class CrearSuscriptor extends Instanciador{
 
