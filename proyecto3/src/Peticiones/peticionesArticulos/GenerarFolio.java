@@ -5,6 +5,7 @@ import articulo.Articulo;
 import datos.Dato;
 import Excepciones.ErrorDeDatoException;
 import static java.lang.Math.abs;
+import static java.lang.System.currentTimeMillis;
 import java.util.Random;
 
 /**
@@ -33,14 +34,14 @@ public class GenerarFolio extends PeticionesArticulo{
         
         do{            
             do{
-                if(folio.length()<8){ //Nos aseguramos que sea de al menos 8 caracteres
-                    r.setSeed(hash);
+                if(folio.length()>=8){ //Nos aseguramos que sea de al menos 8 caracteres
+                    r.setSeed(currentTimeMillis());
                     folio = folio.concat(String.valueOf(abs(r.nextInt())));
                     ok = true;
                 }
             }while(ok == false);
                 
-            folio = folio.substring(0, 7); //Nos aseguramos que sea de 8 caracteres
+            folio = folio.substring(0, 8); //Nos aseguramos que sea de 8 caracteres
             
             if(datosGenerales.existsFolioArticulo(folio) == false){
                 break;                
@@ -49,7 +50,7 @@ public class GenerarFolio extends PeticionesArticulo{
                 int auxiliarIntHash;
                 
                 //Obtenemos la parte aleatoria-numerica del folio
-                auxiliarStringHash = folio.substring(3, 7);
+                auxiliarStringHash = folio.substring(5, 8);
                 
                 //Convertimos el String a int
                 auxiliarIntHash = Integer.parseInt(auxiliarStringHash);

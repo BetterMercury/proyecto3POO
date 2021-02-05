@@ -29,9 +29,10 @@ public class imprimirAutoresSencillo extends Imprimir{
         */
         
         TreeSet <Autor> setAutores = datosGenerales.getSetDeAutores(); 
-        for(Autor autor : setAutores){            
-            System.out.println("Numero : " + autor.getNumeroEmpleado());
-            System.out.print(" ; Nombre : " + autor.getNombre() + autor.getApellidoPaterno() + autor.getApellidoMaterno() + "\n");
+        for(Autor autor : setAutores){      
+            System.out.println("Nombre : " + autor.getNombre() + " " + autor.getApellidoPaterno() + " " + autor.getApellidoMaterno());            
+            System.out.print("Numero : " + autor.getNumeroEmpleado() + "\n");
+            System.out.println("---------------");
         }
     }
 }

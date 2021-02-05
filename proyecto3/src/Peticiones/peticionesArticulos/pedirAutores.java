@@ -25,13 +25,14 @@ public class pedirAutores extends PeticionesArticulo {
         * */
     @Override
     public void realizarPeticion(Articulo objetivo) {
+        
         Dato datosGenerales = Dato.getInstance();      
         Scanner sc = new Scanner(System.in);  
         int numEmpleado = 0; //Numero de empleado - autor
         int op = 1;
         boolean ok = true;
         
-        while(op == 1){
+        do{
             System.out.println("");            
             System.out.println("Desea ingresar un nuevo autor además de usted?, ingrese 1");
             
@@ -39,7 +40,6 @@ public class pedirAutores extends PeticionesArticulo {
                 try{
                     
                     op = sc.nextInt();
-                    sc.nextLine();
                     
                     ok = false;
 
@@ -51,65 +51,67 @@ public class pedirAutores extends PeticionesArticulo {
                     System.out.println("Ingrese un numero correctamente, intente nuevamente");
                 }
             }
+            System.out.println("LLEGAR HASTA ACA");
             
-            if(op != 1){                                    
-                break;
-            }
-            
-            if(datosGenerales.getSetDeAutores().isEmpty()){
-                System.out.println("No existen autores creados");
-                System.out.println("... no se pueden asignar autores a un Artículo");
-                op = 2;
-            } else {                
-                ok = false;
+            if(op == 1){                           
+                if(datosGenerales.getSetDeAutores().isEmpty()){
+                    System.out.println("No existen autores creados");
+                    System.out.println("... no se pueden asignar autores a un Artículo");
+                    op = 2;
+                } else {                
+                    ok = false;
 
-                System.out.println("Se asignaran autores a un Articulo");
-                System.out.println("Nota: Maximo tres autores por articulo");
-
-                System.out.println("Autores disponibles: ");    
-                imprimirAutoresSencillo impAS = new imprimirAutoresSencillo();
-                impAS.realizarImpresion(datosGenerales);
-                System.out.println("");        
-
-                do {
-                    System.out.println("Elegir numero de autor : ");
+                    System.out.println("Se asignaran autores a un Articulo");
+                    System.out.println("Nota: Maximo tres autores por articulo");
                     
-                    while(true){
-                        try{
-                            numEmpleado = sc.nextInt();
-                        }catch(InputMismatchException im){
-                            System.out.println("");
-                            System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
-                        }catch(IllegalArgumentException ia){
-                            System.out.println(" ");
-                            System.out.println("Ingrese un numero correctamente, intente nuevamente");
-                            continue;
-                        }
-                        break;
-                    }                    
+                    System.out.println("Autores disponibles: ");    
+                    imprimirAutoresSencillo impAS = new imprimirAutoresSencillo();
+                    impAS.realizarImpresion(datosGenerales);
+                    System.out.println("");
+                    
+                    do {
+                        System.out.println("Elegir numero de autor : ");
 
-                    if(datosGenerales.existsNumeroEmpleado(numEmpleado)){
-                        
-                        if(objetivo.getAutor().equals(datosGenerales.buscarNumeroEmpleado(numEmpleado))){
-                            System.out.println("");
-                            System.out.println("No te puedes seleccionar a ti mismo, ya estas"
-                                    + " registrado");
-                            ok = true;
-                        }  else{                                                  
-                            objetivo.setAutor((Autor) datosGenerales.buscarNumeroEmpleado(numEmpleado));
-                            System.out.println("Autor asignado correctamente");
-                            System.out.println("");
-                            ok = true;
+                        while(true){
+                            try{
+                                numEmpleado = sc.nextInt();
+                            }catch(InputMismatchException im){
+                                System.out.println("");
+                                System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
+                            }catch(IllegalArgumentException ia){
+                                System.out.println(" ");
+                                System.out.println("Ingrese un numero correctamente, intente nuevamente");
+                                continue;
+                            }
+                            break;
                         }
                         
-                    } else {
-                        System.out.println("El numero de empleado no existe, ingrese uno valido");
-                        System.out.println("");
-                    }
-                } while (ok == false);                                
+                        if(datosGenerales.existsNumeroEmpleado(numEmpleado)){
+
+                            if(objetivo.getAutor().equals(datosGenerales.buscarNumeroEmpleado(numEmpleado))){
+                                System.out.println("");
+                                System.out.println("No te puedes seleccionar a ti mismo, ya estas"
+                                        + " registrado");
+                                ok = true;
+                            }  else{                                                  
+                                objetivo.setAutor((Autor) datosGenerales.buscarNumeroEmpleado(numEmpleado));
+                                System.out.println("Autor asignado correctamente");
+                                System.out.println("");
+                                ok = true;
+                            }
+
+                        } else {
+                            System.out.println("El numero de empleado no existe, ingrese uno valido");
+                            System.out.println("");
+                        }
+                    } while (ok == false);                                
+                }
+            }else{
+                System.out.println("");
+                System.out.println("... saliendo de operacion");
             }
             
-        }
+        }while(op == 1);
     }
 }
 
