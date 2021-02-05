@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Usuarios.Persona;
@@ -18,7 +14,8 @@ import java.util.TreeSet;
  */
 public class BusquedaCadenaSinopsis extends Operacion{
 /**
- * Método que realiza la operación
+ * Método que realiza la operación de búsqueda de una subcadena en la sinopsis
+ * de los artículos.
  * @param operador Usuario que mandó a llamar a la operación.
  */
     @Override
@@ -51,6 +48,12 @@ public class BusquedaCadenaSinopsis extends Operacion{
         }
         
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString(){
         return "Buscar una cadena entre los articulos";

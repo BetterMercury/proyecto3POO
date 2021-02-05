@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Revista.Revista;
@@ -10,17 +6,30 @@ import Usuarios.Persona;
 import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import datos.Dato;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
- * @author Dante
+ * Clase que hereda de la clase abstracta Operacion;
+ * sirve para representar la operación de crear
+ * una revista por parte del Director o Administrador,
+ * implementando el método realizarPeticion.
+ * @author Equipo 9
+ * 
  */
 public class CrearRevista extends Operacion{
     //Una revista solo puede ser publicada por el director de la empresa
     //Poder hacer una consulta del estado de un articulo mediante
     //su folio solo disponible para empleados
     
+    /**
+        * Método implementado de la clase padre que se encarga de crear 
+        * una revista por parte de un objeto de la clase Director o Administrador.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
     @Override
     public void realizarOperacion(Persona operador) {
         int op;
@@ -62,7 +71,7 @@ public class CrearRevista extends Operacion{
                     try{
                         op = sc.nextInt();
 
-                    }catch(IllegalArgumentException ia){
+                    }catch(IllegalArgumentException | InputMismatchException ia){
                         System.out.println(" ");
                         System.out.println("Ingrese un numero correctamente, intente nuevamente");
                         continue;
@@ -77,7 +86,11 @@ public class CrearRevista extends Operacion{
         }            
     }
 
-    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         

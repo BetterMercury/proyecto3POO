@@ -3,7 +3,6 @@ package operaciones;
 
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
 import Usuarios.Persona;
-import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Autor;
 import articulo.Articulo;
 import datos.Dato;
@@ -90,6 +89,13 @@ public class CrearArticulo extends Operacion{
                     + " operacion");
         }
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
+    @Override
     public String toString(){
         return "Crear un articulo";
     }

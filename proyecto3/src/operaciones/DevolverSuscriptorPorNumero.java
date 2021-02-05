@@ -1,3 +1,4 @@
+
 package operaciones;
 
 import java.util.InputMismatchException;
@@ -8,9 +9,22 @@ import Usuarios.empleados.Empleado;
 import Usuarios.suscriptor.Suscriptor;
 import datos.Dato;
 
-
+/**
+ *Clase que hereda de la clase abstracta Operacion y sirve 
+ * para mostrar información de un suscriptor mediante su número
+ * de identificación.
+ * @author ribel
+ */
 public class DevolverSuscriptorPorNumero extends Operacion {
 
+    /**
+        * Método implementado de la clase padre que se encarga de mostrar 
+        * información de un suscriptor mediante su número de identificación.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
     @Override
     public void realizarOperacion(Persona operador) {
         if(!(operador instanceof Empleado)){
@@ -37,6 +51,12 @@ public class DevolverSuscriptorPorNumero extends Operacion {
         }
 
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Mostrar información de un suscriptor por su numero";

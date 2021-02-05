@@ -77,8 +77,9 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
     public void elegirOperacion(){
         Scanner sc = new Scanner(System.in);
         int op;
-        System.out.print("Ingresa tu eleccion: ");
+        
         while(true){
+            System.out.print("Ingresa tu eleccion: ");
             try{
                 op = sc.nextInt();
             }catch(IllegalArgumentException | InputMismatchException e){
