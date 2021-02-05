@@ -491,6 +491,10 @@ public class Dato implements Estado, Serializable {
             System.out.println("Cargado exitoso");
             out.close();
             return true;
+        }catch(FileNotFoundException e){
+            System.out.println("Parece que no existe un archivo de datos");
+            return false;
+
         }catch (InvalidClassException e){
             System.out.println("Clase incorrecta, probablemente la versión "
                     + "del archivo no es compatible");
