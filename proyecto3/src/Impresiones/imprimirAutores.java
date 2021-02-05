@@ -12,7 +12,7 @@ import java.util.TreeSet;
 
 /**
  * Clase que contiene a un método para imprimir todos los
- * autores existentes.
+ * autores existentes. Esta operación utiliza el método toString de los autores
  * @author Dante
  */
 public class imprimirAutores extends Imprimir{

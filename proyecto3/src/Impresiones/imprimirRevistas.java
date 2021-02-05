@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Clase que puede imprimir a todas las revistas, tambien su estado.
+ * Clase que puede imprimir a todas las revistas y su estado.
  * @author Dante
  */
 public class imprimirRevistas extends Imprimir{

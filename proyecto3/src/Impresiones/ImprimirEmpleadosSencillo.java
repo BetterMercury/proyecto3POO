@@ -18,7 +18,8 @@ import java.util.Map;
 import java.util.TreeSet;
 
 /**
- *
+ *Clase que imprime datos básicos de todos los empleados Se imprime el nombre,
+ * la fecha de ingreso, y el puesto.
  * @author Dante
  */
 public class ImprimirEmpleadosSencillo extends Imprimir{

@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Clase que imprime todos los atributos de un Articulo
+ * Clase que imprime todos los atributos de un Articulo. Se imprime el folio,
+ * autores, categoria, sinopsis y estado. 
  * @author Dante
  */
 public class imprimirArticuloCompleto extends Imprimir{

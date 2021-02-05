@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * Clase que recorre los Articulos disponibles, no hace uso del metodo
- * toString()
+ * toString(). Imprime el folio y el título de los artículos.
  * @author Dante
  */
 public class imprimirArticulos extends Imprimir{

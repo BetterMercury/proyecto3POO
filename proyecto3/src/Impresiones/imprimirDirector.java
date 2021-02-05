@@ -8,7 +8,8 @@ package Impresiones;
 import datos.Dato;
 
 /**
- *
+ *Operación que imprime todos los atributos de un director utilizando el método
+ * toString de las operaciones.
  * @author Dante
  */
 public class imprimirDirector extends Imprimir{

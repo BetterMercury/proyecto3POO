@@ -11,7 +11,8 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
- *
+ *Operación que imprime toda la información compartida de todos los tipos de 
+ * usuarios. Aprovecha el método toString de los empleados.
  * @author Dante
  */
 public class imprimirEmpleadosCompleto extends Imprimir{

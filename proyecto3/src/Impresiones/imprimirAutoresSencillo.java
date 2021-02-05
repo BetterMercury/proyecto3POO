@@ -10,7 +10,8 @@ import datos.Dato;
 import java.util.TreeSet;
 
 /**
- *
+ *Clase que define la operación de impresión sencilla de autores. Esta operación
+ * no hace uso del método toString y solo imprime el número de empleado y el nombre
  * @author Dante
  */
 public class imprimirAutoresSencillo extends Imprimir{

@@ -9,10 +9,11 @@ import Usuarios.empleados.Revisor;
 import datos.Dato;
 import java.util.Iterator;
 import java.util.TreeSet;
-/**
- *
- * @author Dante
- */
+    /**
+     * Metodo que imprime todos los Revisores, aprovecha
+     * el metodo toString() personalizado para la clase
+     * Revisor
+     */
 public class imprimirRevisores extends Imprimir{
 
     /**
