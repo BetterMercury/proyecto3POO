@@ -92,7 +92,8 @@ public class RevisarArticulo extends Operacion{
                             pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido
 
                         }else{
-                            throw new IllegalArgumentException();
+                            System.out.println("El articulo no existe o no esta en un estado válido");
+                            break;
                         }
                         
                     }catch(IllegalArgumentException e){
