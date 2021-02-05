@@ -14,7 +14,7 @@ import java.util.TreeSet;
  *
  * @author Dante
  */
-public class imprimirEmpleados extends Imprimir{
+public class imprimirEmpleadosCompleto extends Imprimir{
     
     @Override
     public void realizarImpresion(Dato datosGenerales){

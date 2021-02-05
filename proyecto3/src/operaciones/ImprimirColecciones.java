@@ -15,7 +15,7 @@ public class ImprimirColecciones extends Operacion {
         this.ImpresionesDisponibles = new ArrayList<>();
         this.ImpresionesDisponibles.add(new imprimirRevistasP());
         this.ImpresionesDisponibles.add(new imprimirRevistasNoP());
-        this.ImpresionesDisponibles.add(new imprimirEmpleados());
+        this.ImpresionesDisponibles.add(new imprimirEmpleadosCompleto());
         this.ImpresionesDisponibles.add(new imprimirArticulos());
     }
     @Override

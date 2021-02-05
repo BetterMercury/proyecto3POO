@@ -19,6 +19,7 @@ public class imprimirAutores extends Imprimir{
 
     @Override
     public void realizarImpresion(Dato datosGenerales){
+        /*
         TreeSet <Autor> setAutores = datosGenerales.getSetDeAutores(); 
         Iterator <Autor> iterator = setAutores.iterator();
         
@@ -26,6 +27,12 @@ public class imprimirAutores extends Imprimir{
         while (iterator.hasNext()){
             System.out.println(iterator.toString());
         } 
+        */
         
+        TreeSet <Autor> setAutores = datosGenerales.getSetDeAutores(); 
+        for(Autor autor : setAutores){
+            System.out.println(autor.toString());
+        }
+
     }     
 }

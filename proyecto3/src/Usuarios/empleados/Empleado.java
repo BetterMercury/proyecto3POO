@@ -2,7 +2,7 @@
 package Usuarios.empleados;
 
 import Excepciones.ErrorDeDatoException;
-import Impresiones.imprimirEmpleados;
+import Impresiones.imprimirEmpleadosCompleto;
 import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirFechaIngreso;
 import Peticiones.peticionesUsuarios.PeticionPersona;

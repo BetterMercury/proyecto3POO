@@ -10,7 +10,7 @@ public class ImprimirColeccionesEmpleado extends ImprimirColecciones{
         this.ImpresionesDisponibles.add(new imprimirAutores());
         this.ImpresionesDisponibles.add(new imprimirDirector());
         this.ImpresionesDisponibles.add(new imprimirEditores());
-        this.ImpresionesDisponibles.add(new imprimirEmpleados());
+        this.ImpresionesDisponibles.add(new imprimirEmpleadosCompleto());
         this.ImpresionesDisponibles.add(new imprimirRevistas());
         this.ImpresionesDisponibles.add(new imprimirRevistasNoP());
     }
