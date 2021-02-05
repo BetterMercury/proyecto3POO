@@ -7,7 +7,7 @@ import InstanciadoresUsuarios.CrearCuentaAdministrativa;
 import Usuarios.empleados.Administrador;
 import InstanciadoresUsuarios.CrearDirector;
 import InstanciadoresUsuarios.CrearSuscriptor;
-import Usuarios.suscriptor.Suscriptor;
+import operaciones.BusquedaCadenaSinopsis;
 import java.io.Console;
 import java.util.InputMismatchException;
 /**
@@ -27,7 +27,7 @@ public class init {
     public static void main (String [] args){
         Persona usuarioActual = new Administrador();
         Dato referenciaDato = Dato.getInstance();
-        String valorSalida = "4";
+        String valorSalida = "5";
         String op = "";
         String op2 = "";
         Scanner sc = new Scanner(System.in);
@@ -63,7 +63,8 @@ public class init {
             System.out.println("\tMenu principal\n"
                     + "1.- Ingresar\n"
                     + "2.- Suscribirse\n"
-                    + "3.-Salir y guardar\n"
+                    + "3.- Busqueda entre los articulos"
+                    + "4.-Salir y guardar\n"
                     + valorSalida +".- salir\n");
             op = sc.nextLine();
             switch(op){
@@ -99,6 +100,9 @@ public class init {
                     suscribir(usuarioActual);
                     break;
                 case "3":
+                    buscarEnArticulo(usuarioActual);
+                    break;
+                case "4":
                     referenciaDato.guardarDatos();
                     op = valorSalida;
                     break;
@@ -195,6 +199,10 @@ public class init {
 
     private static void suscribir(Persona usuarioActual) {
         new CrearSuscriptor().realizarOperacion(usuarioActual); 
+    }
+
+    private static void buscarEnArticulo(Persona operador) {
+        new BusquedaCadenaSinopsis().realizarOperacion(operador);
     }
     
     

@@ -11,11 +11,15 @@ import datos.Dato;
 import java.util.Scanner;
 import java.util.TreeSet;
 /**
- *
- * @author ribel
+ *Clase que define la operación de búsqueda de una subcadena en la información
+ * de los empleados e imprime información básica del empleado donde se encontró
+ * la coincidencia.
  */
 public class BusquedaPorCadenaDeEmpleados extends Operacion{
-
+    /**
+     * Método que realiza la operación
+     * @param operador Usuario que mandó a llamar a esta operación.
+     */
     @Override
     public void realizarOperacion(Persona operador) {
         Scanner sc = new Scanner(System.in);

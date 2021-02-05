@@ -12,11 +12,15 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 /**
- *
- * @author ribel
+ * Clase que define la operación de búsqueda de una subcadena en la sinopsis 
+ * de los artículos.
+ * @author Equipo 9
  */
 public class BusquedaCadenaSinopsis extends Operacion{
-
+/**
+ * Método que realiza la operación
+ * @param operador Usuario que mandó a llamar a la operación.
+ */
     @Override
     public void realizarOperacion(Persona operador) {
         Scanner sc = new Scanner(System.in);
