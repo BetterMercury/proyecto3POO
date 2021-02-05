@@ -88,6 +88,7 @@ public class RevisarArticulo extends Operacion{
 
                             articulo.setRevisor(revisor, calif);
                             articulo.setEstado(Estado.STATER6); //cambio de estado del aticulo
+                            datosGenerales.actualizarEstadoArticulo(articulo);
                             PedirNumeroArticulosRevisadosRevisor pedir = new PedirNumeroArticulosRevisadosRevisor();
                             pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido
 
