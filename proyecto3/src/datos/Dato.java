@@ -97,6 +97,12 @@ public class Dato implements Estado, Serializable {
         return new TreeSet<>(this.mapaEmpleados.values());
     }
     
+    public HashMap<Integer, Empleado> getMapEmpleados(){
+        return mapaEmpleados;
+    }
+    
+    
+    
     private void aniadirListaEspecifica(Empleado empleado){
         if (empleado instanceof Autor){
             setAutores.add((Autor)empleado);
