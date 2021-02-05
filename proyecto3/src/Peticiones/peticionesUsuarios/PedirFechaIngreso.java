@@ -38,13 +38,26 @@ public class PedirFechaIngreso extends PeticionPersona {
         System.out.print("Fecha en formato dd/MM/yyyy: ");
         fechaIngreso = sc.nextLine();
         //objetivo.setFechaIngreso(nombre);
-                
+         
+        if( !(fechaIngreso.length() == 10) ){
+            System.out.println(" ");
+            System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
+            throw new ErrorDeDatoException("Ingrese nuevamente con el formato requerido");
+        }
+                    
         //depende si llega un empleado o un suscriptor
         if(objetivo instanceof Empleado){    
             Empleado persona = (Empleado)objetivo;
             
-            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) && fechaIngreso.length() == 10){  //solo si se tiene el formato
-                persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
+            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && (fechaIngreso.length() == 10) ){  //solo si se tiene el formato
+                if(comprobar(fechaIngreso)){
+                    persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
+                }else{
+                    System.out.println(" ");
+                    System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
+                    throw new ErrorDeDatoException("Ingrese nuevamente con el formato requerido");
+                }
+                
             }else{
                 System.out.println(" ");
                 System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
@@ -53,16 +66,20 @@ public class PedirFechaIngreso extends PeticionPersona {
         }else{
             Suscriptor persona = (Suscriptor)objetivo;
             
-            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/') && comprobar(fechaIngreso) && fechaIngreso.length() == 10){  //solo si se tiene el formato
-                persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
+            if((fechaIngreso.charAt(2) == '/') && (fechaIngreso.charAt(5) == '/')  && (fechaIngreso.length() == 10)){  //solo si se tiene el formato
+                if(comprobar(fechaIngreso)){
+                    persona.setFechaIngreso( fechaIngreso );//this.fechaIngreso = LocalDate.parse(fechaIngreso, formateador);
+                }else{
+                    System.out.println(" ");
+                    System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
+                    throw new ErrorDeDatoException("Ingrese nuevamente con el formato requerido");
+                }
             }else{
                 System.out.println(" ");
                 System.out.println("El formato de fecha es incorrecto. El formato debe ser dd/MM/AAAA");
                 throw new ErrorDeDatoException("Ingrese nuevamente con el formato requerido");
             } 
         }
-        
-        
         
         
     }
@@ -73,16 +90,13 @@ public class PedirFechaIngreso extends PeticionPersona {
         * trabajar con ella y verificar si el formato es válido.
         * @return Retorna un booleano true si el formato es válido y un false
         * si no lo es.
-        * @throws ErrorDeDatoException Esta excepción es usada para indicar que la 
-        * fecha de ingreso ingresada no es correcta por su formato.
+        * 
         */
-    static public boolean comprobar(String fecha) throws ErrorDeDatoException{
+    static public boolean comprobar(String fecha){
             
         int i = 0;  //contador para saber si se cumplen los 8 digitos de la fecha
            
-        if(!(fecha.length() == 10)){
-            throw new ErrorDeDatoException("Ingrese la fecha en el formato requerido dd/MM/AAAA");
-        }
+       
         //verificacion de los dias
         int dia = Integer.parseInt(fecha.substring(0, 2));
         if(dia >= 1 && dia <= 31){
