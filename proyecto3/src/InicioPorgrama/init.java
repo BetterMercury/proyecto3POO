@@ -20,6 +20,7 @@ public class init {
         Dato referenciaDato = Dato.getInstance();
         String valorSalida = "4";
         String op = "";
+        String op2 = "";
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al programa de administracion\n");
         
@@ -64,7 +65,7 @@ public class init {
                         break;
                     }
                     do{
-                        String op2;
+                        
                         if(usuarioActual.getEsSub()){
                             usuarioActual.imprimirNovedades();
                         }
@@ -77,8 +78,11 @@ public class init {
                                 otraOperacion = true;
                             }else if (op2.equalsIgnoreCase("n")){
                                 otraOperacion = false;
+                                System.out.println("Aqui");
+                            }else{
+                                System.out.println("Opcion no valida");
                             }
-                        }while(!op2.equalsIgnoreCase("s")  && !op.equalsIgnoreCase("n"));
+                        }while(!op2.equalsIgnoreCase("s")  && !op2.equalsIgnoreCase("n"));
                         
                     }while(otraOperacion);
                     
