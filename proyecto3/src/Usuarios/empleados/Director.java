@@ -5,7 +5,7 @@
  */
 package Usuarios.empleados;
 import InstanciadoresUsuarios.CrearCuentaAdministrativa;
-import operaciones.CrearUsuario;
+import operaciones.crearUsuario;
 
 /**
  *
@@ -14,7 +14,7 @@ import operaciones.CrearUsuario;
 public class Director extends Empleado {
     public Director(){
         super();
-        this.operacionesDisponible.add(new CrearUsuario());
+        this.operacionesDisponible.add(new crearUsuario());
     
     }
 

@@ -20,6 +20,7 @@ public class init {
         Dato referenciaDato = Dato.getInstance();
         String valorSalida = "4";
         String op = "";
+        String op2 = "";
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al programa de administracion\n");
         
@@ -58,6 +59,7 @@ public class init {
             op = sc.nextLine();
             switch(op){
                 case "1":
+                    boolean otraOperacion = false ;
                     usuarioActual = ingresar();
                     if(usuarioActual == null){
                         break;

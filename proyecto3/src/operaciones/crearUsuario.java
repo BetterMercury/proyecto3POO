@@ -14,10 +14,10 @@ import java.util.Scanner;
  *
  * @author ribel
  */
-public class CrearUsuario extends Operacion{
+public class crearUsuario extends Operacion{
 
     ArrayList<Instanciador> tiposDeUsuario = new ArrayList<>();
-    public CrearUsuario(){
+    public crearUsuario(){
         tiposDeUsuario.add(new CrearAutor());
         tiposDeUsuario.add(new CrearCuentaAdministrativa());
         tiposDeUsuario.add(new CrearDirector());

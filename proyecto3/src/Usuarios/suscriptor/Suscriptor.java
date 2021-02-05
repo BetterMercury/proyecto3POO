@@ -4,10 +4,10 @@ package Usuarios.suscriptor;
 import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirFechaIngreso;
 import Usuarios.Persona;
-import operaciones.ImprimirColecciones;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import operaciones.ImprimirSuscriptor;
 
 /**
  * Clase que representa al sujeto Suscriptor, el cual hereda de Persona;
@@ -26,7 +26,7 @@ public class Suscriptor extends Persona{
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
-        this.operacionesDisponible.add(new ImprimirColecciones());
+        this.operacionesDisponible.add(new ImprimirSuscriptor());
         this.esSub = true;
     }
     

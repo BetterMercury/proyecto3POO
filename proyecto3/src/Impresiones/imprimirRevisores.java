@@ -24,12 +24,17 @@ public class imprimirRevisores extends Imprimir{
      */
     @Override
     public void realizarImpresion(Dato datosGenerales){        
-        TreeSet <Revisor> setRevisores = datosGenerales.getSetDeRevisores();        
+        TreeSet <Revisor> setRevisores = datosGenerales.getSetDeRevisores();   
+        /*
         Iterator <Revisor> iterator = setRevisores.iterator();
         
         System.out.println("Revisores: ");
         while (iterator.hasNext()){
             System.out.println(iterator.toString());
+        }
+        */
+        for(Revisor revisor : setRevisores){
+            System.out.println(revisor.toString());
         }
     }            
 }

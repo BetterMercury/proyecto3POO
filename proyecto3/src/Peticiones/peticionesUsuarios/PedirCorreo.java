@@ -37,3 +37,4 @@ public class PedirCorreo extends PeticionPersona{
             objetivo.setEmail(nombre);
         }
 }
+

@@ -36,6 +36,7 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     
     
     public Articulo(){
+        autores = new ArrayList<>();
         peticionesNecesarias = new ArrayList<>();
         peticionesNecesarias.add(new pedirTitulo());
         peticionesNecesarias.add(new pedirSinopsis());
@@ -143,8 +144,8 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     }
     
     public void setAutor(Autor autor){
-        if(autores.size() < 3){
-            this.autores.add(autor);
+        if(autores.size() <= 3){
+            autores.add(autor);
         }else{
             System.out.println(" ");
             System.out.println("Ya hay 3 autores asociados a este articulo");

@@ -19,12 +19,19 @@ public class imprimirEditores extends Imprimir{
     
     @Override
     public void realizarImpresion(Dato datosGenerales){
-        TreeSet <Editor> setRevisores = datosGenerales.getSetDeEditores();        
+        
+        TreeSet <Editor> setEditores = datosGenerales.getSetDeEditores();        
+        /*
         Iterator <Editor> iterator = setRevisores.iterator();
         
         System.out.println("Editores: ");
         while (iterator.hasNext()){
             System.out.println(iterator.toString());
+        } 
+        */
+        for(Editor editor : setEditores){
+            System.out.println(editor.toString());
         }        
+        
     }     
 }

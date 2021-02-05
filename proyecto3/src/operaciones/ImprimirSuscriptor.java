@@ -8,15 +8,13 @@ import Impresiones.imprimirRevistasP;
 import Usuarios.Persona;
 import datos.Dato;
 
-public class ImprimirColecciones extends Operacion {
+public class ImprimirSuscriptor extends Operacion{
     ArrayList<Imprimir>  ImpresionesDisponibles;
 
-    public ImprimirColecciones(){
+    public ImprimirSuscriptor(){
         this.ImpresionesDisponibles = new ArrayList<>();
-        this.ImpresionesDisponibles.add(new imprimirRevistasP());
-        this.ImpresionesDisponibles.add(new imprimirRevistasNoP());
-        this.ImpresionesDisponibles.add(new imprimirEmpleadosCompleto());
         this.ImpresionesDisponibles.add(new imprimirArticulos());
+        this.ImpresionesDisponibles.add(new imprimirRevistasP());
     }
     @Override
     public void realizarOperacion(Persona operador) {
