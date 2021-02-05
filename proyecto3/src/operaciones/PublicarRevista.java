@@ -11,16 +11,28 @@ import Revista.Revista;
 import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import Usuarios.suscriptor.Suscriptor;
+import java.util.InputMismatchException;
 import java.util.TreeSet;
 import java.util.Iterator;
 
 
 /**
- *
+ *Clase que hereda de la clase abstracta Operacion;
+ * sirve para representar la operación de publicar
+ * una revista por parte del Director o Administrador,
+ * implementando el método realizarPeticion.
  * @author Dante
  */
 public class PublicarRevista extends Operacion{
 
+    /**
+        * Método implementado de la clase padre que se encarga de publicar 
+        * una revista por parte de un objeto de la clase Director o Administrador.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
     @Override
     public void realizarOperacion(Persona operador) {
         
@@ -53,7 +65,7 @@ public class PublicarRevista extends Operacion{
                 while(true){
                     try{
                         num = sc.nextInt();
-                    }catch(IllegalArgumentException e){
+                    }catch(IllegalArgumentException | InputMismatchException e){
                         System.out.println(" ");
                         System.out.println("Formato incorrecto, ingrese un numero");
                         continue;
@@ -99,6 +111,12 @@ public class PublicarRevista extends Operacion{
                     + " operacion");            
         }        
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Publicar una revista";

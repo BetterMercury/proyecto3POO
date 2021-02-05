@@ -1,11 +1,9 @@
 
 package operaciones;
 
-import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
 import Impresiones.imprimirArticulos;
 import Peticiones.peticionesArticulos.pedirEstado;
-import Peticiones.peticionesUsuarios.PedirNumeroArticulosRevisadosRevisor;
 import Revista.Revista;
 import Usuarios.Persona;
 import Usuarios.empleados.Editor;
@@ -164,6 +162,12 @@ public class ConfirmarPublicacionArticulo extends Operacion{
         }
     }
     
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
+    @Override
     public String toString(){
         return "Revisar un articulo y aceptarlo o rechazarlo";
     }

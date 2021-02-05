@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
+import java.util.InputMismatchException;
 
 /**
  * Clase que hereda de la clase abstracta Operacion;
@@ -70,7 +71,7 @@ public class RevisarArticulo extends Operacion{
                                     if(calif<0 || calif>10){
                                         throw new IllegalArgumentException();
                                     }
-                                }catch(IllegalArgumentException i){
+                                }catch(IllegalArgumentException | InputMismatchException i){
                                     System.out.println(" ");
                                     System.out.println("Ingrese un numero entero de 0 a 10");
                                     continue;
@@ -105,7 +106,7 @@ public class RevisarArticulo extends Operacion{
                     try{
                         op = sc.nextInt();
 
-                    }catch(IllegalArgumentException ia){
+                    }catch(IllegalArgumentException | InputMismatchException ia){
                         System.out.println(" ");
                         System.out.println("Ingrese un numero correctamente, intente nuevamente");
                         continue;
@@ -117,7 +118,13 @@ public class RevisarArticulo extends Operacion{
                 System.out.println("No tienes privilegios suficientes para acceder a esta"
                     + " operacion");
         }
-    }    
+    }   
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Revisar articulo";

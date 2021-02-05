@@ -1,3 +1,4 @@
+
 package operaciones;
 
 import Usuarios.Persona;
@@ -6,8 +7,24 @@ import datos.Dato;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/**
+ *Clase que hereda de la clase abstracta Operacion y sirve 
+ * para mostrar información de un empleado mediante su número 
+ * de identificación único.
+ * @author ribel
+ */
 public class DevolverEmpleadoPorNumero extends Operacion {
 
+    /**
+        * Método implementado de la clase padre que se encarga de mostrar 
+        * información de un empleado mediante su número de identificación 
+        * único.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
     @Override
     public void realizarOperacion(Persona operador) {
         
@@ -35,6 +52,12 @@ public class DevolverEmpleadoPorNumero extends Operacion {
         }
 
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Mostrar información de un empleado por su numero unico";

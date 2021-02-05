@@ -1,22 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package operaciones;
 
 import Usuarios.Persona;
 import articulo.Articulo;
 import datos.Dato;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- *
+ *Clase que hereda de la clase abstracta Operacion y sirve 
+ * para mostrar información de un artículo mediante su folio.
  * @author ribel
  */
 public class DevolverArticuloFolio extends Operacion {
 
+    /**
+        * Método implementado de la clase padre que se encarga de mostrar 
+        * información de un artículo mediante su folio.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
     @Override
     public void realizarOperacion(Persona operador) {
         
@@ -36,6 +40,13 @@ public class DevolverArticuloFolio extends Operacion {
             System.out.println(articuloBuscado.toString());
         }
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
+    @Override
     public String toString(){
         return "Mostrar informacion de un articulo con su folio";
     }
