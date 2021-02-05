@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package InstanciadoresUsuarios;
 
 import Usuarios.Persona;
@@ -18,6 +14,16 @@ import datos.Dato;
  * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 public class CrearAutor extends Instanciador{
+    
+    /**
+        * Método implementado de la clase padre que se encarga de crear 
+        * un autor nuevo e ingresarlo al programa.
+        * @param operador Un objeto de la jerarquía de la clase abstracta Persona, con el cual
+        * se hará uso del polimorfismo para trabajar con un tipo de dato necesario
+        * de la jerarquía.
+        * 
+        */
+    @Override
     public void realizarOperacion(Persona operador) {
         if(operador instanceof Director || operador instanceof Administrador){
             Autor nuevaInstancia = new Autor();
@@ -39,6 +45,11 @@ public class CrearAutor extends Instanciador{
         }
     }
 
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     public String toString(){
         return "Registrar autor";
     }

@@ -14,7 +14,8 @@ import java.util.LinkedList;
 
 /**
  * Clase que representa a una Revista, implementa a la 
- * interfaz Estado para determinar si está publicada o no.
+ * interfaz Estado para determinar si está publicada o no; y 
+ * Comparable para ordenar elementos de esta clase.
  * @author Dante
  */
 
