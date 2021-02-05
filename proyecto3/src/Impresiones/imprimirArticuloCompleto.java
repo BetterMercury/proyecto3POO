@@ -22,13 +22,11 @@ public class imprimirArticuloCompleto extends Imprimir{
         
         for(Map.Entry<String, Articulo> entry : mapaArticulos.entrySet()){
             System.out.println("Folio : " + entry.getKey() + "; Titulo : " + entry.getValue().getTitulo());
-            System.out.println("Autores \n" + entry.getValue().autoresToString());
-            System.out.println("Categoria " + entry.getValue().getCategoria());            
-            System.out.println("Sinopsis " + entry.getValue().getSnopsis());
-            if(entry.getValue().getEstado().equals(Articulo.STATER6)){
-                
-            }
-            
+            System.out.println("Autores :\n" + entry.getValue().autoresToString());
+            System.out.println("Categoria : " + entry.getValue().getCategoria());            
+            System.out.println("Sinopsis : " + entry.getValue().getSnopsis());
+            System.out.println("Estado : " + entry.getValue().getEstado());
+            System.out.println("Revisores :\n" + entry.getValue().revisoresToString());            
         }
     }   
     @Override

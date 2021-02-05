@@ -16,6 +16,7 @@ import Usuarios.empleados.Autor;
 import Usuarios.empleados.Revisor;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -239,6 +240,18 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         }
         return autoresCadena.toString();
         }
+    }
+    
+    public String revisoresToString(){
+        StringBuilder revisoresCadena = new StringBuilder();
+        if(this.revisoresCalificaciones.isEmpty()){
+            return "Sin Revisores";
+        } else {
+            for(Map.Entry<Integer, Revisor> entry : this.revisoresCalificaciones.entrySet()){            
+                revisoresCadena.append("Revisor").append(entry.getValue().toString()).append(" ; Calificacion : ").append(entry.getKey()).append(" \n");
+            }
+            return revisoresCadena.toString();
+        }         
     }
 
     @Override

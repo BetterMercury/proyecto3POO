@@ -4,6 +4,8 @@ package Peticiones.peticionesArticulos;
 import articulo.Articulo;
 import datos.Dato;
 import Excepciones.ErrorDeDatoException;
+import static java.lang.Math.abs;
+import java.util.Random;
 
 /**
  *  Clase para la generación de una clave alfanumérica
@@ -23,11 +25,21 @@ public class GenerarFolio extends PeticionesArticulo{
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{  
         Dato datosGenerales = Dato.getInstance();
+        Random r = new Random();
+        boolean ok = false;
         
         int hash = objetivo.hashCode();
-        String folio = "ARTIC".concat(String.valueOf(hash));
+        String folio = "ART".concat(String.valueOf(hash));
         
         do{            
+            do{
+                if(folio.length()<8){ //Nos aseguramos que sea de al menos 8 caracteres
+                    r.setSeed(hash);
+                    folio = folio.concat(String.valueOf(abs(r.nextInt())));
+                    ok = true;
+                }
+            }while(ok == false);
+                
             folio = folio.substring(0, 7); //Nos aseguramos que sea de 8 caracteres
             
             if(datosGenerales.existsFolioArticulo(folio) == false){
@@ -36,15 +48,15 @@ public class GenerarFolio extends PeticionesArticulo{
                 String auxiliarStringHash;
                 int auxiliarIntHash;
                 
-                //Obtenemos la parte numerica del folio
-                auxiliarStringHash = folio.substring(5, 7);
+                //Obtenemos la parte aleatoria-numerica del folio
+                auxiliarStringHash = folio.substring(3, 7);
                 
                 //Convertimos el String a int
                 auxiliarIntHash = Integer.parseInt(auxiliarStringHash);
                 auxiliarIntHash += 1; //Solucion lineal de colisiones
                 
                 //Reestablecemos un nuevo folio
-                folio = "ARTIC".concat(String.valueOf(auxiliarIntHash));
+                folio = "ART".concat(String.valueOf(auxiliarIntHash));
             }
         }while(true);
         
