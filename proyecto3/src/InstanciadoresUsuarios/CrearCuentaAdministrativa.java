@@ -10,8 +10,9 @@ import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import datos.Dato;
 /**
- *
- * @author ribel
+ *Clase para la instanciación de nuevos administradores. El método realizarOperacion
+ *llama a todos los métodos necesarios para agregar al administrador a los mapas 
+ * correspondientes de dato y para llenar los datos de la misma instancia.
  */
 
 public class CrearCuentaAdministrativa extends Instanciador{
