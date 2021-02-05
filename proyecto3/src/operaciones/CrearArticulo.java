@@ -3,6 +3,7 @@ package operaciones;
 
 import Peticiones.peticionesUsuarios.PedirNumeroArticulosEscritosAutor;
 import Usuarios.Persona;
+import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Autor;
 import articulo.Articulo;
 import datos.Dato;
@@ -29,61 +30,65 @@ public class CrearArticulo extends Operacion{
         */
     @Override
     public void realizarOperacion(Persona objetivo){
+        
         System.out.println(" ");
         System.out.println("Usted autor, creara articulos");
         System.out.println(" ");
-        
-        //creacion de articulo
-        Autor autor = (Autor)objetivo;
-        Scanner sc = new Scanner(System.in);
-        int op = 0;
-        PedirNumeroArticulosEscritosAutor pedir = new PedirNumeroArticulosEscritosAutor();
-        Dato datos = Dato.getInstance();
-        Articulo articuloNuevo;
-        
-        do{                
-            articuloNuevo = new Articulo();
                 
-            
-            //asignamos el autor al articulo creado
-            articuloNuevo.setAutor(autor);            
-            
-            //se piden los datos del articulo
-            articuloNuevo.pedirDatos();
-        
-            //almacenaremos el articulo en Dato
-            
-            pedir.realizarPeticion(autor, articuloNuevo);   //incrementa el numero de articulos creados, y al autor se le asigna su articulo
-            System.out.println(" ");
-            System.out.println("Se almacenara el articulo en memoria");
-            
-            if(datos.aniadirArticulo(articuloNuevo)){
+        try{
+            //creacion de articulo
+            Autor autor = (Autor)objetivo;
+            Scanner sc = new Scanner(System.in);
+            int op = 0;
+            PedirNumeroArticulosEscritosAutor pedir = new PedirNumeroArticulosEscritosAutor();
+            Dato datos = Dato.getInstance();
+            Articulo articuloNuevo;
+
+            do{                
+                articuloNuevo = new Articulo();
+
+                //asignamos el autor al articulo creado
+                articuloNuevo.setAutor(autor);            
+
+                //se piden los datos del articulo
+                articuloNuevo.pedirDatos();
+
+                //almacenaremos el articulo en Dato
+
+                pedir.realizarPeticion(autor, articuloNuevo);   //incrementa el numero de articulos creados, y al autor se le asigna su articulo
                 System.out.println(" ");
-                System.out.println("Se guardo el articulo exitosamente");
-            }else{
-                System.out.println(" ");
-                System.out.println("No se pudo almacenar el articulo");
-            }
-        
-        
-            System.out.println(" ");
-            System.out.println("Si desea crear otro articulo, presione '1'");
-            while(true){
-                try{
-                    op = sc.nextInt();
-                    
-                }catch(InputMismatchException im){
-                    System.out.println("");
-                    System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
-                }catch(IllegalArgumentException ia){
+                System.out.println("Se almacenara el articulo en memoria");
+
+                if(datos.aniadirArticulo(articuloNuevo)){
                     System.out.println(" ");
-                    System.out.println("Ingrese un numero correctamente, intente nuevamente");
-                    continue;
+                    System.out.println("Se guardo el articulo exitosamente");
+                }else{
+                    System.out.println(" ");
+                    System.out.println("No se pudo almacenar el articulo");
                 }
-                break;
-            }
-        }while(op == 1);
-        
+
+
+                System.out.println(" ");
+                System.out.println("Si desea crear otro articulo, presione '1'");
+                while(true){
+                    try{
+                        op = sc.nextInt();
+
+                    }catch(InputMismatchException im){
+                        System.out.println("");
+                        System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
+                    }catch(IllegalArgumentException ia){
+                        System.out.println(" ");
+                        System.out.println("Ingrese un numero correctamente, intente nuevamente");
+                        continue;
+                    }
+                    break;
+                }
+            }while(op == 1);
+        }catch(ClassCastException e){
+            System.out.println("No tienes privilegios suficientes para acceder a esta"
+                    + " operacion");
+        }
     }
     public String toString(){
         return "Crear un articulo";
