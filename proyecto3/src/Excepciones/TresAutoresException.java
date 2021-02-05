@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Excepciones;
 
 /**
@@ -12,6 +8,11 @@ package Excepciones;
  */
 public class TresAutoresException extends Exception{
 
+    /**
+     * Constructor de la clase que, utiliza el 
+     * constructor de la clase padre Exception 
+     * para imprimir un mensaje de error.
+     */
     public TresAutoresException() {
         super("Error: Sólo pueden existir tres autores en un artículo");
     }    

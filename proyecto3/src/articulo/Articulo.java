@@ -1,10 +1,5 @@
 package articulo;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesArticulos.PeticionesArticulo;
@@ -21,8 +16,12 @@ import java.util.Objects;
 
 
 /**
- *
- * @author ribel
+ * Clase que representa a un Articulo, implementa a la 
+ * interfaz Estado para determinar si está publicada o no; 
+ * categoria para establecer una categoría; Serializable 
+ * para poder almacenar en archivos los objetos de esta clase; y, 
+ * Comparable para poder iterar elementos de esta clase.
+ * @author Dante
  */
 public class Articulo implements Estado, Categoria, Serializable, Comparable<Articulo>{ 
     private ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
@@ -35,7 +34,13 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     
     private ArrayList<PeticionesArticulo> peticionesNecesarias;  //lista para hacer las peticiones de forma automática
     
-    
+    /**
+     * Constructor de la clase Articulo, el cual inicializará 
+     * los arreglos de los atributos por medio de polimorfismo, pues se 
+     * usan referencias a interfaces; se agregarán nuevos objetos para
+     * poder realizar las peticiones de datos por este medio (constructor, 
+     * arreglos de objetos y polimorfismo).
+     **/
     public Articulo(){
         autores = new ArrayList<>();
         peticionesNecesarias = new ArrayList<>();
@@ -50,13 +55,13 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     HashMap <Integer, Integer> mapaCalificaciones;    //La clave es el número de cuenta del Revisor,
                                                       //el valor representa la calificacion puesta
     
-    /**
-     * Método para la obtención de una parte del Folio por medio
-     * de la generación de un HashCode que utiliza cada uno de los
-     * atributos de un Articulo
-     * 
-     */
     
+    /**
+     * Método que recorre el arreglo de objetos para realizar Peticiones diferentes,
+     * esto a través del polimorfismo por usar referencias a una interfaz, en otras 
+     * palabras, este método es un mecanismo polimorfico para que el usuario ingrese 
+     * los datos del objeto Persona, ahorrando líneas de código.
+     **/
     public void pedirDatos(){
         System.out.println("Por favor ingresa los datos que se te piden \n");
         for(PeticionesArticulo peticion: peticionesNecesarias){
@@ -72,7 +77,12 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         }
     }
     
-    
+    /**
+     * Método para la obtención de una parte del Folio por medio
+     * de la generación de un HashCode que utiliza cada uno de los
+     * atributos de un Articulo
+     * 
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -86,6 +96,13 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         return hash;
     }
 
+    /**
+     * Método que sobreescribe al método equals
+     * para poder comparar objetos de clase Articulo.
+     * @param obj Objeto general hijo de la clase Object
+     * @return Retorna un valor booleano si se cumplen
+     * o no las condiciones.
+     **/
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -102,40 +119,86 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     }
 
     //METODOS QUE OBTIENEN LAS CATEGORIAS DE LA INTERFAZ CATEGORIA
+    
+    /**
+     * Método de acceso para obtener la categoría 1 de un objeto Articulo.
+     * @return Retorna la categoría 1 de este Articulo en cadena.
+     **/
     public static String getCAT1() {
         return CAT1;
     }
+    
+    /**
+     * Método de acceso para obtener la categoría 2 de un objeto Articulo.
+     * @return Retorna la categoría 2 de este Articulo en cadena.
+     **/
     public static String getCAT2() {
         return CAT2;
     }
+    
+    /**
+     * Método de acceso para obtener la categoría 3 de un objeto Articulo.
+     * @return Retorna la categoría 3 de este Articulo en cadena.
+     **/
     public static String getCAT3() {
         return CAT3;
     }
+    
+   /**
+     * Método de acceso para obtener la categoría 4 de un objeto Articulo.
+     * @return Retorna la categoría 4 de este Articulo en cadena.
+     **/
     public static String getCAT4() {
         return CAT4;
     }
      
     //METODOS QUE OBTIENEN LOS ESTADOS DE LA INTERFAZ ESTADO
+    /**
+     * Método de acceso para obtener el estado 3 de un objeto Articulo.
+     * @return Retorna el estado 3 de este Articulo en cadena.
+     **/
     public static String getSTATER3() {
         return STATER3;
     }
+    
+    /**
+     * Método de acceso para obtener el estado 4 de un objeto Articulo.
+     * @return Retorna el estado 4 de este Articulo en cadena.
+     **/
     public static String getSTATER4() {
         return STATER4;
     }
+    
+    /**
+     * Método de acceso para obtener el estado 5 de un objeto Articulo.
+     * @return Retorna el estado 5 de este Articulo en cadena.
+     **/
     public static String getSTATER5() {
         return STATER5;
     }
     
     //MÉTODOS COMUNES PARA LA CLASE Articulo
     
+    /**
+     * Método de acceso para obtener la lista de autores de un objeto Articulo.
+     * @return Retorna la lista de autores de este Articulo en Lista.
+     **/
     public ArrayList<Autor> getAutores() {
         return autores;
     }
 
+    /**
+     * Método de acceso para establecer la lista de autores de un objeto Articulo.
+     * @param autores La lista de autores en Lista que se le pondrá al objeto.
+     */
     public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
     }
     
+    /**
+     * Método de acceso para obtener el primer autor de un objeto Articulo.
+     * @return Retorna el primer autor de este Articulo en Autor.
+     **/
     public Autor getAutor() {
         if(autores.isEmpty() == false){
             return autores.get(0);
@@ -145,6 +208,10 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         
     }
     
+    /**
+     * Método de acceso para establecer un autor de un objeto Articulo.
+     * @param autor El autor en Autor que se le pondrá al objeto.
+     */
     public void setAutor(Autor autor){
         if(autores.size() <= 3){
             autores.add(autor);
@@ -156,14 +223,26 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         
     }
 
+    /**
+     * Método de acceso para obtener el título de un objeto Articulo.
+     * @return Retorna el título de este Articulo en cadena.
+     **/
     public String getTitulo() {
         return Titulo;
     }
 
+    /**
+     * Método de acceso para establecer el título de un objeto Articulo.
+     * @param Titulo El título en cadena que se le pondrá al objeto.
+     */
     public void setTitulo(String Titulo) {
         this.Titulo = Titulo;
     }
 
+    /**
+     * Método de acceso para obtener la sinopsis de un objeto Articulo.
+     * @return Retorna la sinopsis de este Articulo en cadena.
+     **/
     public String getSnopsis() {
         StringBuilder cadena = new StringBuilder();
         int i;
@@ -177,42 +256,86 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         return cadena.toString();
     }
 
+    /**
+     * Método de acceso para establecer la sinopsis de un objeto Articulo.
+     * @param Snopsis La sinopsis en cadena que se le pondrá al objeto.
+     */
     public void setSnopsis(String Snopsis) {
         this.Snopsis = Snopsis;
     }
 
+    /**
+     * Método de acceso para obtener la categoría de un objeto Articulo.
+     * @return Retorna la categoría de este Articulo en cadena.
+     **/
     public String getCategoria() {
         return categoria;
     }
 
+    /**
+     * Método de acceso para establecer la categoria de un objeto Articulo.
+     * @param categoria La categoria en cadena que se le pondrá al objeto.
+     */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
+    /**
+     * Método de acceso para obtener el revisor de un objeto Articulo.
+     * @return Retorna el revissor de este Articulo en Persona.
+     **/
     public Persona getRevisor(int i) {
         return revisoresCalificaciones.get(i);
     }
 
+    /**
+     * Método de acceso para establecer el revisor de un objeto Articulo.
+     * @param revisor El revisor en Revisor que se le pondrá al objeto.
+     * @param i La calificacion que este revisor le coloca al artículo.
+     */
     public void setRevisor(Revisor revisor, int i) {
         this.revisoresCalificaciones.put(i, revisor);
     }
 
+    /**
+     * Método de acceso para obtener el folio de un objeto Articulo.
+     * @return Retorna el folio de este Articulo en cadena.
+     **/
     public String getFolio() {
         return folio;
     }
 
+    /**
+     * Método de acceso para establecer el folio de un objeto Articulo.
+     * @param folio El folio en cadena que se le pondrá al objeto.
+     */
     public void setFolio(String folio) {
         this.folio = folio;
     }    
 
+    /**
+     * Método de acceso para obtener el estado de un objeto Articulo.
+     * @return Retorna el estado de este Articulo en cadena.
+     **/
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * Método de acceso para establecer el estado de un objeto Articulo.
+     * @param estado El estado en cadena que se le pondrá al objeto.
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }   
 
+    /**
+     * Método toString sobreescrito, el cual representa en forma 
+     * de cadena una descripción general de los atributos del 
+     * objeto.
+     * @return Retorna una cadena que muestra una descripción
+     * general de las características del objeto.
+     */
     @Override
     public String toString() {
         StringBuilder infoArticulo = new StringBuilder();
@@ -242,6 +365,12 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         }
     }
     
+    /**
+     * Método que imprime los revisores de este artículo
+     * si es que los hay.
+     * @return Retorna una cadena con la información
+     * de los revisores de este artículo.
+     */
     public String revisoresToString(){
         StringBuilder revisoresCadena = new StringBuilder();
         if(this.revisoresCalificaciones.isEmpty()){
@@ -254,6 +383,15 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         }         
     }
 
+    /**
+     * Método que sobreescribe el método compareTo para
+     * poder comparar elementos de esta clase por medio
+     * del atributo título.
+     * @param o Objeto de la clase Articulo para
+     * comparar.
+     * @return Se retorna un valor entero tras hacer la
+     * comparación entre los títulos.
+     */
     @Override
     public int compareTo(Articulo o) {
         // TODO Auto-generated method stub
