@@ -2,8 +2,10 @@ package datos;
 
 import Estado.Estado;
 import Revista.Revista;
-import java.util.HashMap; 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
 import Usuarios.empleados.*;
 import Usuarios.suscriptor.Suscriptor;
 import articulo.Articulo;
@@ -528,5 +530,87 @@ public class Dato implements Estado, Serializable {
         }catch (IOException e){
             System.out.println("Ocurrio un error inesperado de I/O");
         }
+    }
+
+    /**
+     * Método que copia un archivo pdf a directorio seguro dentro del programa para
+     * poder ser utilizado posteriormente.
+     * @param ruta String de la ruta absoluta al archivo
+     * @return Objeto de tipo File apuntando al archivo dentro del directorio seguro. null en caso
+     * de que no se haya podido copiar el archivo. 
+     */
+
+
+    public File copiarPDF(String ruta){
+        Scanner sc = new Scanner(System.in);
+        String extension;
+        File archivoDatos;
+        File directorioPDFs = new File("archivos");
+        File archivoEscritura;
+        int ultimoPunto;
+           
+        archivoDatos = new File(ruta);
+        ultimoPunto = ruta.lastIndexOf('.');
+        extension = ruta.substring(ultimoPunto+1,ruta.length());
+        //Si no tiene extensión o la extensión es diferente a pdf
+        if(ultimoPunto ==-1 || !extension.equals("pdf") ){
+            System.out.println("La extension no es correcta");
+            return null;
+        }
+            
+
+        if(!directorioPDFs.exists()){
+            if(directorioPDFs.mkdir()){
+                System.out.println("Se creo el directorio de archivos exitosamente");
+            }else{
+                System.out.println("No se pudo crear el directorio de archivos");
+                return null;
+            }
+        }
+        archivoEscritura = new File (directorioPDFs.toString()+archivoDatos.getName());
+        
+        if(!archivoEscritura.exists()){
+            try{
+                archivoEscritura.createNewFile();
+            }catch(IOException e){
+                System.out.println("Ocurrio un error al crear el archivo de texto");
+                return null;
+            }
+        }else{
+            System.out.println("El archivo ya existe en los datos");
+            return null;
+        }
+        
+        FileInputStream lector;
+        FileOutputStream escritor;
+        try{
+            lector = new FileInputStream(archivoDatos);
+            escritor = new FileOutputStream(archivoEscritura);
+        }catch(FileNotFoundException e){
+            System.out.println("No se encontró el archivo de entrada");
+            return null;
+        }
+        try{
+            int caracter = lector.read();
+            while(caracter != -1){
+                escritor.write(caracter);
+                caracter = lector.read();
+            }
+            
+        }catch(IOException e){
+            System.out.println("Error al trasformar los datos");
+            return null;
+        }finally{
+            try{
+            lector.close();
+            escritor.close();
+            }catch(IOException e){
+                System.out.println("Error al cerrar los archivos");
+                return null;
+            }
+
+        }
+        return archivoEscritura;
+
     }
 }
