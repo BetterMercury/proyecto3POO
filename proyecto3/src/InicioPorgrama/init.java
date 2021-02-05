@@ -62,11 +62,27 @@ public class init {
                     if(usuarioActual == null){
                         break;
                     }
-                    if(usuarioActual.getEsSub()){
-                        usuarioActual.imprimirNovedades();
-                    }
-                    usuarioActual.mostrarMenu();
-                    usuarioActual.elegirOperacion();
+                    do{
+                        
+                        if(usuarioActual.getEsSub()){
+                            usuarioActual.imprimirNovedades();
+                        }
+                        usuarioActual.mostrarMenu();
+                        usuarioActual.elegirOperacion();
+                        do{
+                            System.out.println("Quieres realizar otra operacion?");
+                            op2 = sc.nextLine();
+                            if(op2.equalsIgnoreCase("s")){
+                                otraOperacion = true;
+                            }else if (op2.equalsIgnoreCase("n")){
+                                otraOperacion = false;
+                            }else{
+                                System.out.println("Opcion no valida");
+                            }
+                        }while(!op2.equalsIgnoreCase("s")  && !op2.equalsIgnoreCase("n"));
+                        
+                    }while(otraOperacion);
+                    
                     break;
                 case "2":
                     suscribir(usuarioActual);

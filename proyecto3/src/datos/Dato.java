@@ -167,7 +167,7 @@ public class Dato implements Estado, Serializable {
     
     public boolean aniadirArticulo(Articulo nuevoArticulo){
         String folioArticulo = nuevoArticulo.getFolio();
-        if(mapaArticulos.containsKey(folioArticulo)){
+        if(!mapaArticulos.containsKey(folioArticulo)){
             this.mapaArticulos.put(folioArticulo,nuevoArticulo);
             conjuntoEspecificoArticulo(nuevoArticulo);
             return true;

@@ -23,8 +23,7 @@ import java.util.Objects;
  *
  * @author ribel
  */
-public class Articulo implements Estado, Categoria, Serializable{
-    
+public class Articulo implements Estado, Categoria, Serializable, Comparable<Articulo>{ 
     private ArrayList<Autor> autores; //Sólo se puede tener un máximo de 3 autores, verificacion en clase pedirAutores
     private String Titulo;
     private String Snopsis;
@@ -238,6 +237,12 @@ public class Articulo implements Estado, Categoria, Serializable{
         }
         return autoresCadena.toString();
         }
-    }  
+    }
+
+    @Override
+    public int compareTo(Articulo o) {
+        // TODO Auto-generated method stub
+        return this.Titulo.compareTo(o.getTitulo());
+    }
 }
 
