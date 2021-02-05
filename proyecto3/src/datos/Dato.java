@@ -17,7 +17,7 @@ import java.io.*;
 public class Dato implements Estado, Serializable {
     
     /**
-     *Atributo estatico que guarda una referencia a la única instancia de la 
+     *Atributo estático que guarda una referencia a la única instancia de la 
      * clase.
      */
     public static Dato instance;
@@ -80,7 +80,7 @@ public class Dato implements Estado, Serializable {
     }
     
     /**
-     * Mpetodo para devolver un empleado por su número de empleado
+     * Método para devolver un empleado por su número de empleado
      * @param numeroEmpleado Numero de empleado del empleado
      * @return El empleado buscado, si no es encontró devuelve null
      */
@@ -88,7 +88,7 @@ public class Dato implements Estado, Serializable {
         return mapaEmpleados.get(numeroEmpleado);    
     }
     /**
-     * Mpetodo para devolver un empleado por su correo electronico
+     * Método para devolver un empleado por su correo electronico
      * @param correo Correo electronico del empleado
      * @return El empleado buscado, si no es encontró devuelve null
      */
@@ -178,7 +178,7 @@ public class Dato implements Estado, Serializable {
         return this.mapaSuscriptores.get(numeroSuscriptor);    
     }
     /**
-     * Método para buscar un suscriptor por su correo electronico
+     * Método para buscar un suscriptor por su correo electrónico
      * @param correo Correo electrónico del usuario
      * @return Suscriptor bsucado, null en caso de no encontrarse.
      */
@@ -193,7 +193,7 @@ public class Dato implements Estado, Serializable {
         return null;
     }
     /**
-     * Método para añadir un siscriptor a los mapas de la clase.
+     * Método para añadir un suscriptor a los mapas de la clase.
      * @param nuevoSuscriptor Suscriptor a ser añadido.
      * @return true si se pudo añadir al suscriptor, falso en cualquier otro
      * caso.
@@ -245,7 +245,7 @@ public class Dato implements Estado, Serializable {
 
     //Metodos de revistas 
     /**
-     * Añade un articulo a los mapas del objeto Dato
+     * Añade un artículo a los mapas del objeto Dato
      * @param nuevoArticulo Articulo a ser añadidio a los mapas.
      * @return true si se pudo añadir correctamenete, false en cualquier otro
      * caso
@@ -292,7 +292,7 @@ public class Dato implements Estado, Serializable {
         }
     }
     /**
-     * Quita a un articulo de un conjunto específico cuando cambia de estado 
+     * Quita a un artículo de un conjunto específico cuando cambia de estado 
      * para evitar que se queden en un set que no les corresponde.
      * @param articulo Articulo a ser movido set específico.
      * @return true si se movió correctamente, false en caso contrario.
@@ -439,8 +439,8 @@ public class Dato implements Estado, Serializable {
     }    
     /**
      * Devuelve el director general de la empresa.
-     * @return Instancia de director general. Nunca debe delver null, el director
-     * general siempre debe de existir.
+     * @return Instancia de director general. Nunca debe devolver null, el director
+     * general siempre debe existir.
      */
     public Director getDirectorGeneral() {
         return directorGeneral;
@@ -489,7 +489,7 @@ public class Dato implements Estado, Serializable {
         }
     }
     /**
-     * Guarda los datos de la ejecución utilizando ObjectOutputStream Le indica al
+     * Guarda los datos de la ejecución utilizando ObjectOutputStream. Le indica al
      * usuario si se pudieron guardar los datos exitosamente.
      */
     public void guardarDatos() {

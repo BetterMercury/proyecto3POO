@@ -11,10 +11,19 @@ import Usuarios.suscriptor.Suscriptor;
 import java.io.Console;
 import java.util.InputMismatchException;
 /**
- *
- * @author ribel
+ * Clase que inicia el programa y que contiene el main
+ * contiene métodos para crear suscriptores nuevos y para ingresar
+ * como usario registrado, también debe permitir hacer búsqudas sin ingresar
  */
 public class init {
+    /**
+     * Método que carga los datos de ejecuciones anteriores si es necesario y 
+     * crea un usuario administrador temporal para poder crear al primer 
+     * administrador creado por el usuario y al director. Proporciona la
+     * secuencia básica de ejeción, que es iniciar sesión, mostrar menu,
+     * elegir una opción y cerrar sesión.
+     * @param args Arguemtos de la linea de comandos, no utilizado.
+     */
     public static void main (String [] args){
         Persona usuarioActual = new Administrador();
         Dato referenciaDato = Dato.getInstance();
@@ -106,7 +115,12 @@ public class init {
     }
 
 
-
+    /**
+     * Metodo para iniciar sesión en el programa. Permite iniciar sesión con el
+     * número único de cada usuario o con el correo electrónico proporcionado
+     * al crear el usuario. Si se ejecutael programa desde netbeans utiliza Scanner,
+     * se se utiliza desde la terminal utiliza Console.
+     * @return Usuaro si es que existe y colocó su nombre de usuario y contraseña correctamente. Null en cualquier otro caso     */
     private static Persona ingresar() {
         Dato accesoDatos = Dato.getInstance();
         Scanner sc = new Scanner(System.in);
