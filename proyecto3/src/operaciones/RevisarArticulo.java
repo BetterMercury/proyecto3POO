@@ -111,9 +111,10 @@ public class RevisarArticulo extends Operacion{
                 }
                 break;
             }
-        }while(op == 1);
-        
-        
-        
+        }while(op == 1);   
     }    
+    @Override
+    public String toString() {
+        return "Revisar articulo";
+    }
 }

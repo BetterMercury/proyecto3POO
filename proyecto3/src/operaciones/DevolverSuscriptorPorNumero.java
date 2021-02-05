@@ -37,5 +37,9 @@ public class DevolverSuscriptorPorNumero extends Operacion {
         }
 
     }
+    @Override
+    public String toString() {
+        return "Mostrar información de un suscriptor por su numero";
+    }
 }
 

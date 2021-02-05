@@ -35,4 +35,8 @@ public class imprimirAutores extends Imprimir{
         }
 
     }     
+    @Override
+    public String toString() {
+        return "Imprimir lista de autores";
+    }
 }

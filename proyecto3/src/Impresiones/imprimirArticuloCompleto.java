@@ -30,4 +30,8 @@ public class imprimirArticuloCompleto extends Imprimir{
             
         }
     }   
+    @Override
+    public String toString() {
+        return "Imprimir todos los datos de un artículo";
+    }
 }

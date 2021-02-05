@@ -43,5 +43,9 @@ public class DevolverArticuloNombre extends Operacion{
             System.out.println(articuloBuscado.toString()); 
         }
     }
+    @Override
+    public String toString() {
+        return "Mostrar información de un articulo por su Titulo";
+    }
     
 }

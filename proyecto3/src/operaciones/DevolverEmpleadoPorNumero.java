@@ -34,5 +34,8 @@ public class DevolverEmpleadoPorNumero extends Operacion {
         }
 
     }
-    
+    @Override
+    public String toString() {
+        return "Mostrar información de un empleado por su numero unico";
+    }
 }

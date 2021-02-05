@@ -36,5 +36,9 @@ public class imprimirRevisores extends Imprimir{
         for(Revisor revisor : setRevisores){
             System.out.println(revisor.toString());
         }
-    }            
+    }     
+    @Override
+    public String toString() {
+        return "Imprimir lista de revisores";
+    }       
 }

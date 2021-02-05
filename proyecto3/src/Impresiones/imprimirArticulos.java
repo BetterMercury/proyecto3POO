@@ -25,5 +25,9 @@ public class imprimirArticulos extends Imprimir{
             System.out.println("Folio : " + entry.getKey() + "; Titulo : " + entry.getValue().getTitulo());
         }
     };
+    @Override
+    public String toString() {
+        return "Imprimir lista de articulos";
+    }
     
 }

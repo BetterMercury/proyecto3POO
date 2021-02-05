@@ -11,7 +11,7 @@ import operaciones.DevolverArticuloNombre;
 import operaciones.DevolverEmpleadoPorNumero;
 import operaciones.DevolverRevistaPorNumero;
 import operaciones.DevolverSuscriptorPorNumero;
-import operaciones.ImprimirColecciones;
+
 import operaciones.PublicarRevista;
 import operaciones.RevisarArticulo;
 
@@ -25,7 +25,6 @@ public class Administrador extends Empleado {
         this.operacionesDisponible.add(new crearUsuario());
         this.operacionesDisponible.add(new ConfirmarPublicacionArticulo());
         this.operacionesDisponible.add(new CrearRevista());
-        this.operacionesDisponible.add(new ImprimirColecciones());
         this.operacionesDisponible.add(new PublicarRevista());
         this.operacionesDisponible.add(new RevisarArticulo());
 

@@ -26,5 +26,9 @@ public class imprimirEmpleadosCompleto extends Imprimir{
         while (iterator.hasNext()){
             System.out.println(iterator.toString());
         }
-    }     
+    }   
+    @Override
+    public String toString() {
+        return "Imprimir lista con informacion completa de empleados";
+    }  
 }

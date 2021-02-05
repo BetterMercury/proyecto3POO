@@ -36,7 +36,6 @@ public class Empleado extends Persona {
         super();
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
-        this.operacionesDisponible.add(new ImprimirColeccionesEmpleado());
         this.operacionesDisponible.add(new DevolverArticuloFolio());
         this.operacionesDisponible.add(new DevolverArticuloNombre());
         this.operacionesDisponible.add(new DevolverEmpleadoPorNumero());

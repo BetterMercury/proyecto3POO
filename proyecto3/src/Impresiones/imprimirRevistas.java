@@ -23,4 +23,8 @@ public class imprimirRevistas extends Imprimir{
             System.out.println("Estado: " + entry.getValue().getEstado());
         }        
     }    
+    @Override
+    public String toString() {
+        return "Imprimir lista de revistas";
+    }
 }

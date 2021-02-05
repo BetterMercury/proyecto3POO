@@ -17,5 +17,9 @@ public class imprimirDirector extends Imprimir{
     public void realizarImpresion(Dato datosGenerales){
         System.out.println("Director:");
         System.out.println(datosGenerales.getDirectorGeneral().toString());
-    }     
+    }    
+    @Override
+    public String toString() {
+        return "Imprimir informacion del director";
+    } 
 }
