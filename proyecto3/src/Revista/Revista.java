@@ -8,17 +8,13 @@ package Revista;
 import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesRevista.PeticionesRevista;
-import Peticiones.peticionesRevista.pedirNumero;
 import Peticiones.peticionesRevista.pedirTitulo;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Calendar;
 import java.util.LinkedList;
-import java.util.Objects;
 
 /**
  * Clase que representa a una Revista, implementa a la 

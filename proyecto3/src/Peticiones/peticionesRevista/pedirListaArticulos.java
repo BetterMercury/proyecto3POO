@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesRevista;
 
 import Excepciones.ListaVaciaException;
@@ -17,7 +13,13 @@ import java.util.LinkedList;
  */
 public class pedirListaArticulos extends PeticionesRevista{
 
-    
+     /**
+        * Método implementado de la clase padre que se encarga de asociar
+        * una lista de artículos a un objeto de la clase Revista.
+        * @param objetivo Un objeto de la clase Revista, al cual se le 
+        * asignará un conjunto de artículos.
+        **/
+    @Override
     public void realizarPeticion(Revista objetivo) {
         LinkedList<Articulo> articulos = null; //Adaptar, esto debe ser un TreeSet
         System.out.println("Se agregara la lista de articulos a la Revista");
