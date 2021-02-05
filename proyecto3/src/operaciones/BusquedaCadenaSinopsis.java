@@ -6,39 +6,40 @@
 package operaciones;
 
 import Usuarios.Persona;
-import Usuarios.empleados.Empleado;
+import articulo.Articulo;
 import datos.Dato;
 import java.util.Scanner;
 import java.util.TreeSet;
+
 /**
  *
  * @author ribel
  */
-public class BusquedaPorCadenaDeEmpleados extends Operacion{
+public class BusquedaCadenaSinopsis extends Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {
         Scanner sc = new Scanner(System.in);
         String cadenaBuscada;
         Dato datosGenerales = Dato.getInstance();
-        TreeSet<Empleado> setDeEmpleados = datosGenerales.getSetDeEmpleados();
+        TreeSet<Articulo> setDeEmpleados = datosGenerales.getSetArticulosAceptados();
         System.out.println("Ingresa la cadena que quieres buscar entre los"
-                + "empleados. Debe ser de almenos 4 caracteres");
+                + " articulos. Debe ser de almenos 4 caracteres");
         cadenaBuscada = sc.nextLine();
         if(cadenaBuscada.length()<4){
             System.out.println("No escribiste una cadena lo suficientemente"
                     + " larga");
         }else{
-            for(Empleado iterador : setDeEmpleados){
+            for(Articulo iterador : setDeEmpleados){
                 int indiceEncontrado;
                 int tamanioCadenaBuscada = cadenaBuscada.length();
                 cadenaBuscada.replaceAll("\\s",""); //Elimina todos los caracteres no visibles
-                String cadenaDeBusqueda = iterador.getCadenaTodoJunto().toLowerCase();
+                String cadenaDeBusqueda = iterador.getSnopsis().toLowerCase();
                 cadenaBuscada = cadenaBuscada.toLowerCase();
                 indiceEncontrado = cadenaDeBusqueda.indexOf(cadenaBuscada);
                 if(indiceEncontrado != -1){
-                    System.out.print("Coincidencia en el empleado con numero: "+iterador.getNumeroEmpleado());
-                    System.out.println("\t"+iterador.getCadenaTodoJunto().substring(indiceEncontrado,
+                    System.out.print("Coincidencia en el artículo con folio: "+iterador.getFolio());
+                    System.out.println("\t"+iterador.getSnopsis().substring(indiceEncontrado,
                             indiceEncontrado+tamanioCadenaBuscada-1));
                     System.out.println("");
                 }
@@ -48,7 +49,8 @@ public class BusquedaPorCadenaDeEmpleados extends Operacion{
     }
     @Override
     public String toString(){
-        return "Buscar una cadena entre los empleados";
+        return "Buscar una cadena entre los articulos";
     }
+    
     
 }

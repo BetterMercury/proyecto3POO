@@ -7,7 +7,7 @@ import Usuarios.Persona;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import operaciones.ImprimirSuscriptor;
+import operaciones.*;
 
 /**
  * Clase que representa al sujeto Suscriptor, el cual hereda de Persona;
@@ -27,6 +27,7 @@ public class Suscriptor extends Persona{
         this.peticonesNecesarias.add(new GenerarIdentificador());
         this.peticonesNecesarias.add(new PedirFechaIngreso());
         this.operacionesDisponible.add(new ImprimirSuscriptor());
+        this.operacionesDisponible.add(new BusquedaCadenaSinopsis());
         this.esSub = true;
     }
     
