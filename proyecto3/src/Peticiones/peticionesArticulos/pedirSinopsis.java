@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import Excepciones.ErrorDeDatoException;
@@ -10,12 +6,21 @@ import articulo.Articulo;
 import java.util.Scanner;
 
 /**
- * Esta clase permite aladire una sinopsis de no mas de 160 caracteres
+ * Esta clase permite añadirle una sinopsis de no mas de 160 caracteres
  * a un Articulo.
  * @author Dante
  */
 public class pedirSinopsis extends PeticionesArticulo{
 
+    /**
+        * Método implementado de la clase padre que se encarga de asignarle
+        * una sinopsis a un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder asignarle
+        * una sinopsis.
+        * @throws ErrorDeDatoException Se usa esta excepción general
+        * para poder validar la condición de que la sinopsis no 
+        * exceda el limite de 160 caracteres.
+        * */
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{
         String sinopsis;

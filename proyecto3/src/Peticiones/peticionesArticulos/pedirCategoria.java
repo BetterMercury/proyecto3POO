@@ -1,22 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import Excepciones.ErrorDeDatoException;
 import articulo.Articulo;
 import static articulo.Articulo.*;
 import static articulo.Categoria.CAT1;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ *Clase que se encarga de asignarle una categoría a 
+ * un artículo dado.
  * @author Dante
  */
 public class pedirCategoria extends PeticionesArticulo{
 
+    /**
+        * Método implementado de la clase padre que se encarga de asignarle
+        * una categoría a un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder asignarle
+        * una categoría.
+        * @throws ErrorDeDatoException Se usa esta excepción general
+        * para poder validar la condición de números o de opciones 
+        * limitadas por los casos de la estructura switch-case.
+        * */
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{
         Scanner sc = new Scanner(System.in);
@@ -27,11 +34,12 @@ public class pedirCategoria extends PeticionesArticulo{
         System.out.println("2. " + CAT2);
         System.out.println("3. " + CAT3);
         System.out.println("4. " + CAT4);        
-        System.out.print("Ingrese numero: ");
+        
         
         try{
+            System.out.print("Ingrese numero: ");
             seleccion = sc.nextInt();
-        }catch(IllegalArgumentException e){
+        }catch(IllegalArgumentException | InputMismatchException e){
             throw new ErrorDeDatoException("Ingresa nuevamente el numero de categoria, pero ahora solo numero");
         }
         

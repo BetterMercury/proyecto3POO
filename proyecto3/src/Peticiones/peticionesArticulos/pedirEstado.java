@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import static Estado.Estado.*;
 import articulo.Articulo;
 import java.util.Scanner;
 import Excepciones.ErrorDeDatoException;
+import java.util.InputMismatchException;
 /**
  *  Clase que permite asignarle un estado a un artículo, lo ideal
  * es que un Revisor sea el único con acceso a el método incluido.
@@ -16,6 +13,15 @@ import Excepciones.ErrorDeDatoException;
  */
 public class pedirEstado extends PeticionesArticulo{
     
+    /**
+        * Método implementado de la clase padre que se encarga de asignarle
+        * un estado a un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder asignarle
+        * un estado.
+        * @throws ErrorDeDatoException Se usa esta excepción general
+        * para poder validar la condición de opciones 
+        * limitadas por los casos de la estructura switch-case.
+        * */
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{  //ESTE MÉTODO SOLO LO PUEDE HACER UN Revisor
         Scanner sc = new Scanner(System.in);
@@ -30,7 +36,7 @@ public class pedirEstado extends PeticionesArticulo{
         while(true){
                 try{
                     seleccion = sc.nextInt();
-                }catch(IllegalArgumentException e){
+                }catch(IllegalArgumentException | InputMismatchException e){
                     System.out.println(" ");
                     System.out.println("Ingrese un numero, intente nuevamente");
                     continue;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import articulo.Articulo;
@@ -15,6 +11,15 @@ import Excepciones.ErrorDeDatoException;
  * @author Dante
  */
 public class GenerarFolio extends PeticionesArticulo{
+    
+    /**
+        * Método implementado de la clase padre que se encarga de generar
+        * una clave alfanumérica de un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder generarle
+        * un identificador.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que 
+        * es posible que se genere una excepción personalizada.
+        */
     @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException{  
         Dato datosGenerales = Dato.getInstance();

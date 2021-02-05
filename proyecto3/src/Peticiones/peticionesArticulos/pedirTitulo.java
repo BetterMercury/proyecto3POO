@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import Excepciones.ErrorDeDatoException;
@@ -15,6 +11,16 @@ import java.util.Scanner;
  */
 public class pedirTitulo extends PeticionesArticulo{
 
+    /**
+        * Método implementado de la clase padre que se encarga de asignarle
+        * un título a un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder asignarle
+        * un título.
+        * @throws ErrorDeDatoException Se usa esta excepción general
+        * para poder validar la condición de que el título no 
+        * sea menor que 4 caracteres.
+        * */
+    @Override
     public void realizarPeticion(Articulo objetivo) throws ErrorDeDatoException {
         String title;
         Scanner sc = new Scanner(System.in);

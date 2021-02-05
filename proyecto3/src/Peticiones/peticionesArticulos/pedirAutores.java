@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesArticulos;
 
 import Excepciones.TresAutoresException;
@@ -21,6 +17,12 @@ import java.util.Scanner;
  */
 public class pedirAutores extends PeticionesArticulo {
 
+    /**
+        * Método implementado de la clase padre que se encarga de asociar
+        * tres objetos Autor a un objeto de la clase Articulo.
+        * @param objetivo Un objeto de la clase Articulo para poder asociarle
+        * como máximo tres autores.
+        * */
     @Override
     public void realizarPeticion(Articulo objetivo) {
         Dato datosGenerales = Dato.getInstance();      

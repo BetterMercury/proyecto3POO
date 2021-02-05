@@ -3,10 +3,7 @@ package Peticiones.peticionesRevista;
 
 import Excepciones.ErrorDeDatoException;
 import Revista.Revista;
-import Usuarios.empleados.Editor;
-import articulo.Articulo;
 import java.io.Serializable;
-import java.util.LinkedList;
 
 /**
  * Clase abstracta que representa una operación general como 

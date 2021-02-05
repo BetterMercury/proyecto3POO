@@ -12,6 +12,7 @@ import Usuarios.empleados.Editor;
 import articulo.Articulo;
 import datos.Dato;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -117,7 +118,7 @@ public class ConfirmarPublicacionArticulo extends Operacion{
                     while(true){
                         try{
                             op = sc.nextInt();
-                        }catch(IllegalArgumentException ia){
+                        }catch(IllegalArgumentException | InputMismatchException ia){
                             System.out.println(" ");
                             System.out.println("Ingrese un numero correctamente, intente nuevamente");
                             continue;
@@ -149,7 +150,7 @@ public class ConfirmarPublicacionArticulo extends Operacion{
                     try{
                         op = sc.nextInt();
 
-                    }catch(IllegalArgumentException ia){
+                    }catch(IllegalArgumentException | InputMismatchException ia){
                         System.out.println(" ");
                         System.out.println("Ingrese un numero correctamente, intente nuevamente");
                         continue;
