@@ -11,6 +11,7 @@ import java.util.Scanner;
 import Excepciones.ErrorDeDatoException;
 import Peticiones.peticionesUsuarios.PedirContrasenia;
 import java.io.Serializable;
+import java.util.InputMismatchException;
 
 /**
 *
@@ -77,7 +78,16 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
         Scanner sc = new Scanner(System.in);
         int op;
         System.out.print("Ingresa tu eleccion: ");
-        op = sc.nextInt();
+        while(true){
+            try{
+                op = sc.nextInt();
+            }catch(IllegalArgumentException | InputMismatchException e){
+                System.out.println(" ");
+                System.out.println("Ingrese un numero, intentelo de nuevo");
+                continue;
+            }
+            break;
+        }
         if(op < 1 || op > this.operacionesDisponible.size()){
             System.out.println("Opcion no valida");
         }else{

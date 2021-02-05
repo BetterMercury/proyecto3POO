@@ -4,6 +4,7 @@ package Peticiones.peticionesUsuarios;
 import Excepciones.ErrorDeDatoException;
 import Usuarios.Persona;
 import Usuarios.empleados.Editor;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -34,7 +35,7 @@ public class PedirCedula extends PeticionPersona {
         System.out.print("Numero de cedula (5 digitos): ");
         try{
             numeroCedula = sc.nextInt();
-        }catch(IllegalArgumentException e){
+        }catch(IllegalArgumentException | InputMismatchException e){
             throw new ErrorDeDatoException("Ingresa nuevamente el numero de cedula, pero ahora solo con numeros");
         }
         Editor ed = (Editor)objetivo;

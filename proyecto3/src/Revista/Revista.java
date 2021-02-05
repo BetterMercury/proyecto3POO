@@ -12,6 +12,8 @@ import Peticiones.peticionesRevista.pedirNumero;
 import Peticiones.peticionesRevista.pedirTitulo;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
@@ -30,10 +32,11 @@ public class Revista implements Estado{
     ArrayList<PeticionRevista> peticionesNecesarias;    
     */
     
+    static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     public static int conteoRevistas;
     
     private String titulo;
-    private Date fechaPublicacion;
+    private LocalDate fechaPublicacion;
     private Editor editor; //Solo puede contener editor si es publicado
     private int numRevista;
     private String Estado;
@@ -115,12 +118,22 @@ public class Revista implements Estado{
         this.titulo = titulo;
     }
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
+    /**
+     * Método de acceso para obtener la fecha de publicación de un objeto Revista.
+     * @return Retorna la fecha de publicación de esta Revista en cadena.
+     **/
+    public String getFechaPublicacion() {
+        return formateador.format(fechaPublicacion);    //regresa la cadena con fecha establecida por LocalDate
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
+    /**
+     * Método de acceso para establecer la fecha de publicación de un objeto Revista.
+     * @param fechaPublicacion La fecha de publicacion en cadena que se le pondrá al objeto.
+     */
+    public void setFechaPublicacion(String fechaPublicacion) {  //cadena en formato dd/MM/AAAA
+ 
+        this.fechaPublicacion = LocalDate.parse(fechaPublicacion, formateador);
+        
     }
 
     public LinkedList<Articulo> getArticulos() {

@@ -1,21 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesRevista;
 
 import Revista.Revista;
 import Usuarios.empleados.Editor;
 
 /**
- *  Clase que permite asignare un editor a una revista,
+ *  Clase que permite asignarle un editor a una revista,
  *  si la revista esta en STATER1, es decir "Publicada",
  *  se puede asignar, de lo contrario no.
- * @author Dante
+ * @author Equipo 9
  */
 public class pedirEditor extends PeticionesRevista{
 
+    /**
+        * Método implementado de la clase padre que se encarga de asignar un editor
+        * a una revista dada como parámetro.
+        * @param objetivo Un objeto de la clase Revista, al cual se le 
+        * asignará un editor.
+        **/
+    @Override
     public void realizarPeticion(Revista objetivo) {
         Editor ed = null;
         if(objetivo.getEstado().equals(Revista.STATER1)){

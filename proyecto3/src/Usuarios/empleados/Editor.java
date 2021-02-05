@@ -8,6 +8,7 @@ import Usuarios.empleados.Empleado;
 import articulo.Articulo;
 import java.util.LinkedList;
 import java.util.List;
+import operaciones.ConfirmarPublicacionArticulo;
 
 /**
  * Clase que representa al sujeto Editor, el cual hereda de Empleado;
@@ -26,6 +27,7 @@ public class Editor extends Empleado{
         super();
         this.peticonesNecesarias.add(new PedirPosgrado());
         this.peticonesNecesarias.add(new PedirCedula());    //falta pedir el numero de articulos, relacionado con la operacion asociada
+        this.operacionesDisponible.add(new ConfirmarPublicacionArticulo());
     }
     
     String posgrado; //debe ser maestría o doctorado

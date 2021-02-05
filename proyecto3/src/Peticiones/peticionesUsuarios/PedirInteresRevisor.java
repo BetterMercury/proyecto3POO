@@ -4,6 +4,7 @@ package Peticiones.peticionesUsuarios;
 import Excepciones.ErrorDeDatoException;
 import Usuarios.Persona;
 import Usuarios.empleados.Revisor;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -43,7 +44,7 @@ public class PedirInteresRevisor extends PeticionPersona{
         System.out.print("Ingrese sus anios de experiencia (maximo 2 digitos y en numero entero): ");
         try{
             experiencia = sc1.nextInt();
-        }catch(IllegalArgumentException e){
+        }catch(IllegalArgumentException | InputMismatchException e){
             throw new ErrorDeDatoException("Ingresa nuevamente la experiencia, pero ahora solo con numeros y menor de 3 digitos");
         }
            

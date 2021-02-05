@@ -8,7 +8,7 @@ import articulo.Articulo;
 
 /**
  * Clase que sirve como operación; sirve para representar la petición 
- * (operación) de incrementar el númmero de artículos escritos por 
+ * (operación) de incrementar el número de artículos escritos por 
  * Autor, implementando el método realizarPeticion.
  * @author Equipo 9
  * 
