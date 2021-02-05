@@ -2,6 +2,7 @@
 package Usuarios.empleados;
 
 import Excepciones.ErrorDeDatoException;
+import Impresiones.imprimirEmpleados;
 import Peticiones.peticionesUsuarios.GenerarIdentificador;
 import Peticiones.peticionesUsuarios.PedirFechaIngreso;
 import Peticiones.peticionesUsuarios.PeticionPersona;
@@ -25,6 +26,7 @@ public class Empleado extends Persona {
     Integer numeroEmpleado;
     LocalDate fechaIngreso;
     
+    
     /**
     * Constructor de la clase Empleado que utiliza el constructor de su clase 
     * padre; se encarga de inicializar las listas de peticiones y operaciones,
@@ -40,6 +42,7 @@ public class Empleado extends Persona {
         this.operacionesDisponible.add(new DevolverEmpleadoPorNumero());
         this.operacionesDisponible.add(new DevolverRevistaPorNumero());
         this.operacionesDisponible.add(new DevolverSuscriptorPorNumero());
+        this.operacionesDisponible.add(new ImprimirEmpleado());
     }
     
        //formateador para la fecha ingresada
