@@ -22,7 +22,7 @@ import java.util.LinkedList;
  * @author Dante
  */
 
-public class Revista implements Estado{
+public class Revista implements Estado, Comparable<Revista>{
     /*
     ArrayList<Operacion> operacionesDisponible;
     ArrayList<PeticionRevista> peticionesNecesarias;    
@@ -48,6 +48,7 @@ public class Revista implements Estado{
         peticionesNecesarias = new ArrayList<>();
         peticionesNecesarias.add(new pedirTitulo());
         conteoRevistas++;
+        this.numRevista = conteoRevistas;
         this.Estado = STATER2;   //se auto asigna como NO PUBLICADO
     }    
     
@@ -230,6 +231,11 @@ public class Revista implements Estado{
         
         return puedePublicarse;
 
+    }
+
+    @Override
+    public int compareTo(Revista o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

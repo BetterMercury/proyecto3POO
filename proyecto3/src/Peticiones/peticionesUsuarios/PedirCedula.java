@@ -49,7 +49,7 @@ public class PedirCedula extends PeticionPersona {
             cifras++;          //sumamos 1 al contador de cifras
         }
         
-        if((numCed == 5) ){   //se forza a tener 5 cifras en el numero de cedula
+        if((cifras == 5) ){   //se forza a tener 5 cifras en el numero de cedula
             ed.setNumeroCedula(numeroCedula); 
         }else{
             System.out.println(" ");

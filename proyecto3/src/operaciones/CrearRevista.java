@@ -26,48 +26,52 @@ public class CrearRevista extends Operacion{
         int op;
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("");
-        System.out.println("Solo un Director puede crear la revista");
-        System.out.println("");
+        if(operador instanceof Director || operador instanceof Administrador){
+                
+            System.out.println("");
+            System.out.println("Usted Director, puede crear una revista");
+            System.out.println("");
             
-        try{
-        Director director = (Director)operador;
-
-        Dato datos = Dato.getInstance(); 
-
-        //Creacion de la Revista
-        String titulo;
-        do{
-            Revista revistaNueva = new Revista();
-
-            revistaNueva.pedirDatos();
-
-            //almacenamos el articulo en Dato
-
-            if(datos.aniadirRevista(revistaNueva)){
+            if(operador instanceof Administrador){
+                System.out.println("Acceso concedido al Administrador");
                 System.out.println("");
-                System.out.println("Se ha añadido la revista correctamente");
-            } else {
-                System.out.println("");
-                System.out.println("Error: No se ha guardado la revista");
             }
+            
+            Dato datos = Dato.getInstance(); 
 
-            System.out.println(" ");            
-            System.out.println("Si desea crear otra revista, presione '1'");
-            while(true){
-                try{
-                    op = sc.nextInt();
+            //Creacion de la Revista
+            String titulo;
+            do{
+                Revista revistaNueva = new Revista();
 
-                }catch(IllegalArgumentException ia){
-                    System.out.println(" ");
-                    System.out.println("Ingrese un numero correctamente, intente nuevamente");
-                    continue;
+                revistaNueva.pedirDatos();
+
+                //almacenamos el articulo en Dato
+
+                if(datos.aniadirRevista(revistaNueva)){
+                    System.out.println("");
+                    System.out.println("Se ha añadido la revista correctamente");
+                } else {
+                    System.out.println("");
+                    System.out.println("Error: No se ha guardado la revista");
                 }
-                break;
-            }            
-        } while(op==1);
 
-    }catch(ClassCastException e){
+                System.out.println(" ");            
+                System.out.println("Si desea crear otra revista, presione '1'");
+                while(true){
+                    try{
+                        op = sc.nextInt();
+
+                    }catch(IllegalArgumentException ia){
+                        System.out.println(" ");
+                        System.out.println("Ingrese un numero correctamente, intente nuevamente");
+                        continue;
+                    }
+                    break;
+                }            
+            } while(op==1);
+
+    } else{
             System.out.println("No tienes privilegios suficientes para acceder a esta"
                     + " operacion");
         }            

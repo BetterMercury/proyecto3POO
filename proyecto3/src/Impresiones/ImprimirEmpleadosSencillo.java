@@ -28,7 +28,7 @@ public class ImprimirEmpleadosSencillo extends Imprimir{
         HashMap <Integer, Empleado> mapaEmpleados = datosGenerales.getMapEmpleados();
         
         for(Map.Entry<Integer, Empleado> entry : mapaEmpleados.entrySet()){
-            System.out.println("Nombre : " + entry.getValue().getNombre() + entry.getValue().getApellidoPaterno() + entry.getValue().getApellidoPaterno());
+            System.out.println("Nombre : " + entry.getValue().getNombre() + " " + entry.getValue().getApellidoPaterno() + " " + entry.getValue().getApellidoMaterno());
             System.out.println("Fecha de Ingreso : " + entry.getValue().getFechaIngreso());
             System.out.print("Puesto : ");
             if(entry.getValue() instanceof Director){
