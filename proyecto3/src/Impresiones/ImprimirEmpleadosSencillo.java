@@ -30,24 +30,24 @@ public class ImprimirEmpleadosSencillo extends Imprimir{
         for(Map.Entry<Integer, Empleado> entry : mapaEmpleados.entrySet()){
             System.out.println("Nombre : " + entry.getValue().getNombre() + entry.getValue().getApellidoPaterno() + entry.getValue().getApellidoPaterno());
             System.out.println("Fecha de Ingreso : " + entry.getValue().getFechaIngreso());
-            System.out.println("Puesto : ");
+            System.out.print("Puesto : ");
             if(entry.getValue() instanceof Director){
-                System.out.print("Director");
+                System.out.print("Director\n");
             }
             if(entry.getValue() instanceof Autor){
-                System.out.print("Autor");
+                System.out.print("Autor\n");
             }
             if(entry.getValue() instanceof Editor){
-                System.out.print("Editor");
+                System.out.print("Editor\n");
             }            
             if(entry.getValue() instanceof Revisor){
-                System.out.print("Revisor");
+                System.out.print("Revisor\n");
             }   
             if(entry.getValue() instanceof Administrador){
-                System.out.print("Administrador");
+                System.out.print("Administrador\n");
             }                       
             System.out.println("Numero : " + entry.getKey());
-            
+            System.out.println("---------------");
         }            
     }
     @Override

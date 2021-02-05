@@ -27,7 +27,7 @@ public class imprimirRevistasNoP extends Imprimir{
             }
         }
         if(count == 0){
-            System.out.println("No existen revistas sin publicar");
+            System.out.println("...no existen revistas para ser publicadas");
         } else {
             System.out.println("Existen " + count + " Revistas sin publicar");
         }
