@@ -53,7 +53,7 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
      * Método para la obtención de una parte del Folio por medio
      * de la generación de un HashCode que utiliza cada uno de los
      * atributos de un Articulo
-     * @return 
+     * 
      */
     
     public void pedirDatos(){
