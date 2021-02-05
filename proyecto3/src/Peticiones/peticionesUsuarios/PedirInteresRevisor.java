@@ -57,7 +57,7 @@ public class PedirInteresRevisor extends PeticionPersona{
             cifras++;          //sumamos 1 al contador de cifras
         }
         
-        if((numExp <= 2  &&  numExp >= 0) ){   //se forza a tener 2 cifras en el numero de cedula
+        if((cifras <= 2  &&  cifras >= 0) ){   //se forza a tener 2 cifras en el numero de cedula
             rev.setInteres(interes,experiencia);     //interes y experiencia
         }else{
             System.out.println(" ");
