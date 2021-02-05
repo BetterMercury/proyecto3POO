@@ -13,14 +13,14 @@ import java.util.InputMismatchException;
 /**
  * Clase que inicia el programa y que contiene el main
  * contiene métodos para crear suscriptores nuevos y para ingresar
- * como usario registrado, también debe permitir hacer búsqudas sin ingresar
+ * como usario registrado, también debe permitir hacer búsquedas sin ingresar
  */
 public class init {
     /**
      * Método que carga los datos de ejecuciones anteriores si es necesario y 
      * crea un usuario administrador temporal para poder crear al primer 
      * administrador creado por el usuario y al director. Proporciona la
-     * secuencia básica de ejeción, que es iniciar sesión, mostrar menu,
+     * secuencia básica de ejecución, que es iniciar sesión, mostrar menu,
      * elegir una opción y cerrar sesión.
      * @param args Arguemtos de la linea de comandos, no utilizado.
      */
@@ -63,7 +63,7 @@ public class init {
             System.out.println("\tMenu principal\n"
                     + "1.- Ingresar\n"
                     + "2.- Suscribirse\n"
-                    + "3.- Busqueda entre los articulos"
+                    + "3.- Busqueda entre los articulos\n"
                     + "4.-Salir y guardar\n"
                     + valorSalida +".- salir\n");
             op = sc.nextLine();
@@ -82,7 +82,7 @@ public class init {
                         usuarioActual.mostrarMenu();
                         usuarioActual.elegirOperacion();
                         do{
-                            System.out.println("Quieres realizar otra operacion?");
+                            System.out.println("Quieres realizar otra operacion [s/n]?");
                             op2 = sc.nextLine();
                             if(op2.equalsIgnoreCase("s")){
                                 otraOperacion = true;

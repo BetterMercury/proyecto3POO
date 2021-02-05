@@ -2,7 +2,6 @@ package articulo;
 
 import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
-import Peticiones.peticionesArticulos.PeticionesArticulo;
 import Peticiones.peticionesArticulos.*;
 import java.util.ArrayList;
 import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
@@ -50,6 +49,7 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         peticionesNecesarias.add(new pedirSinopsis());
         peticionesNecesarias.add(new pedirCategoria());
         peticionesNecesarias.add(new pedirAutores());
+        peticionesNecesarias.add(new PedirPDF());
         peticionesNecesarias.add(new GenerarFolio());
         this.estado = Estado.STATER4;   //se auto asigna como pendiente
     }

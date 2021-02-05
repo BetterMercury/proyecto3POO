@@ -31,6 +31,7 @@ public class BusquedaCadenaSinopsis extends Operacion{
             System.out.println("No escribiste una cadena lo suficientemente"
                     + " larga");
         }else{
+            boolean encontrado = false;
             for(Articulo iterador : setDeEmpleados){
                 int indiceEncontrado;
                 int tamanioCadenaBuscada = cadenaBuscada.length();
@@ -39,12 +40,16 @@ public class BusquedaCadenaSinopsis extends Operacion{
                 cadenaBuscada = cadenaBuscada.toLowerCase();
                 indiceEncontrado = cadenaDeBusqueda.indexOf(cadenaBuscada);
                 if(indiceEncontrado != -1){
+                    encontrado = true;
                     System.out.print("Coincidencia en el artículo con folio: "+iterador.getFolio());
                     System.out.println("\t"+iterador.getSnopsis().substring(indiceEncontrado,
                             indiceEncontrado+tamanioCadenaBuscada-1));
                     System.out.println("");
                 }
             }
+        if(!encontrado){
+            System.out.println("No se encontraron coincidencias");
+        }  
         }
         
     }
