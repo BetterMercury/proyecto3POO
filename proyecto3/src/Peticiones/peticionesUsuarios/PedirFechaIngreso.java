@@ -73,11 +73,16 @@ public class PedirFechaIngreso extends PeticionPersona {
         * trabajar con ella y verificar si el formato es válido.
         * @return Retorna un booleano true si el formato es válido y un false
         * si no lo es.
+        * @throws ErrorDeDatoException Esta excepción es usada para indicar que la 
+        * fecha de ingreso ingresada no es correcta por su formato.
         */
-    static public boolean comprobar(String fecha){
+    static public boolean comprobar(String fecha) throws ErrorDeDatoException{
             
         int i = 0;  //contador para saber si se cumplen los 8 digitos de la fecha
            
+        if(!(fecha.length() == 10)){
+            throw new ErrorDeDatoException("Ingrese la fecha en el formato requerido dd/MM/AAAA");
+        }
         //verificacion de los dias
         int dia = Integer.parseInt(fecha.substring(0, 2));
         if(dia >= 1 && dia <= 31){
