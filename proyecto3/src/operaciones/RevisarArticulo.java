@@ -91,7 +91,8 @@ public class RevisarArticulo extends Operacion{
                             datosGenerales.actualizarEstadoArticulo(articulo);
                             PedirNumeroArticulosRevisadosRevisor pedir = new PedirNumeroArticulosRevisadosRevisor();
                             pedir.realizarPeticion(revisor, articulo);  //al revisor se le guarda el articulo leido
-
+                            folios.put(folio, k);
+                            k++;
                         }else{
                             System.out.println("El articulo no existe o no esta en un estado válido");
                             break;
@@ -110,8 +111,7 @@ public class RevisarArticulo extends Operacion{
                     break;
                 }
 
-                folios.put(folio, k);
-                k++;
+ 
 
 
                 System.out.println(" ");
