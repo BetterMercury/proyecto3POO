@@ -60,7 +60,13 @@ public class RevisarArticulo extends Operacion{
                 while(true){
                     try{
                         folio = sc.nextLine();
-                        if(datosGenerales.existsFolioArticulo(folio) && !(folios.containsKey(folio)) ){  //si existe el folio del articulo y si aun no se revisa
+                        if(datosGenerales.buscarFolioArticulo(folio).getEstado().equals(Articulo.STATER3)){
+                            throw new ErrorDeDatoException("El Articulo ya ha sido utilizado en otra Revista");
+                        }
+                        if(folios.containsKey(folio)){
+                            throw new ErrorDeDatoException("El folio ha sido revisado anteriormente");
+                        }
+                        if(datosGenerales.existsFolioArticulo(folio)){  //si existe el folio del articulo y si aun no se revisa
                             Articulo articulo = datosGenerales.buscarFolioArticulo(folio);  //me traigo el articulo que ya existe, por lo que se actualizara solo
 
                             System.out.println(" ");
@@ -88,10 +94,16 @@ public class RevisarArticulo extends Operacion{
                         }else{
                             throw new IllegalArgumentException();
                         }
+                        
                     }catch(IllegalArgumentException e){
                         System.out.println(" ");
                         System.out.println("Ingrese el folio correctamente, intente nuevamente");
                         continue;
+                    }
+                    catch (ErrorDeDatoException e){
+                        System.out.println("");
+                        System.out.println(e.getMessage());
+                        break;
                     }
                     break;
                 }

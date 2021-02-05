@@ -22,7 +22,7 @@ public class imprimirArticulos extends Imprimir{
         HashMap <String, Articulo> mapaArticulos = datosGenerales.getMapaArticulos();
         
         for(Map.Entry<String, Articulo> entry : mapaArticulos.entrySet()){
-            System.out.println("Folio : " + entry.getKey() + "; Titulo : " + entry.getValue().getTitulo());
+            System.out.println("Folio : " + entry.getKey() + " ; Titulo : " + entry.getValue().getTitulo());
             System.out.println("Categoria : " + entry.getValue().getCategoria() + " ; Estado: " + entry.getValue().getEstado());
             System.out.println("---------------");
         }
