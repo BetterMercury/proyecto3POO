@@ -215,6 +215,21 @@ public class Dato implements Estado, Serializable {
         return new TreeSet<>(this.mapaSuscriptores.values());
     }
     /**
+     * Elimina a un suscriptor de la lista de suscriptores 
+     * @param aEliminar Suscriptor a ser eliminado 
+     * @return true si la eliminación fue exitosa, false si no.
+     */
+    public boolean eliminarSuscriptor(Suscriptor aEliminar){
+        aEliminar = this.mapaSuscriptores.remove(aEliminar.getNumeroSuscriptor());
+        if(aEliminar == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    //Empleados
+    /**
      * Devuelve un TreeSet de editores actuales
      * @return Set de editores actualmente contratados.
      */

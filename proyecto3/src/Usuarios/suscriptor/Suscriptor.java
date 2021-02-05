@@ -28,6 +28,7 @@ public class Suscriptor extends Persona{
         this.peticonesNecesarias.add(new PedirFechaIngreso());
         this.operacionesDisponible.add(new ImprimirSuscriptor());
         this.operacionesDisponible.add(new BusquedaCadenaSinopsis());
+        this.operacionesDisponible.add(new Desuscribir());
         this.esSub = true;
     }
     
