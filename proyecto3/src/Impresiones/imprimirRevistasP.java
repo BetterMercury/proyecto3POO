@@ -34,4 +34,8 @@ public class imprimirRevistasP extends Imprimir{
             System.out.println("Existen " + count + " Revistas publicadas");
         }
     }    
+    @Override
+    public String toString() {
+        return "Imprimir lista de revistas publicadas";
+    }
 }

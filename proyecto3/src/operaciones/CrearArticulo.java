@@ -80,4 +80,7 @@ public class CrearArticulo extends Operacion{
         }while(op == 1);
         
     }
+    public String toString(){
+        return "Crear un articulo";
+    }
 }

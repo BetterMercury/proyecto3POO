@@ -42,5 +42,9 @@ public class DevolverRevistaPorNumero extends Operacion {
             System.out.println("Titulo: "+articulo.getTitulo()+" Folio: "+articulo.getFolio());
         }
     }
+    @Override
+    public String toString() {
+        return "Mostrar información de una revista por su numero";
+    }
 
 }

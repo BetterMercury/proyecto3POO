@@ -154,7 +154,8 @@ public class ConfirmarPublicacionArticulo extends Operacion{
             }
         }while(op == 1);
         
-        
-        
+    }
+    public String toString(){
+        return "Revisar un articulo y aceptarlo o rechazarlo";
     }
 }

@@ -32,4 +32,8 @@ public class imprimirRevistasNoP extends Imprimir{
             System.out.println("Existen " + count + " Revistas sin publicar");
         }
     }    
+    @Override
+    public String toString() {
+        return "Imprimir lista de revistas no publicadas";
+    }
 }

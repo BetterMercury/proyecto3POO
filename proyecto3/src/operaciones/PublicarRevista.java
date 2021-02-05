@@ -77,5 +77,9 @@ public class PublicarRevista extends Operacion{
         }                        
         
     }        
+    @Override
+    public String toString() {
+        return "Publicar una revista";
+    }
     
 }

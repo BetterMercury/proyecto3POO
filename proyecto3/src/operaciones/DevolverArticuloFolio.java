@@ -35,5 +35,8 @@ public class DevolverArticuloFolio extends Operacion {
             System.out.println(articuloBuscado.toString());
         }
     }
+    public String toString(){
+        return "Mostrar informacion de un articulo con su folio";
+    }
     
 }

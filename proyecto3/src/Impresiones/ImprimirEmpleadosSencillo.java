@@ -46,5 +46,9 @@ public class ImprimirEmpleadosSencillo extends Imprimir{
             
         }            
     }
+    @Override
+    public String toString() {
+        return "Imprimir lista con informacion basica de empleados";
+    }
     
 }

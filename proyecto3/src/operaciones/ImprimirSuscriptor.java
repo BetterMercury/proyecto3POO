@@ -44,5 +44,7 @@ public class ImprimirSuscriptor extends Operacion{
             ImpresionesDisponibles.get(op-1).realizarImpresion(Dato.getInstance());
         }
     }
-    
+    public String toString(){
+        return "Imprimir listas diversas";
+    }
 }

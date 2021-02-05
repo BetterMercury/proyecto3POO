@@ -64,5 +64,10 @@ public class CrearRevista extends Operacion{
             }            
         } while(op==1);
     }
+    @Override
+    public String toString() {
+        
+        return "Crear una revista";
+    }
     
 }

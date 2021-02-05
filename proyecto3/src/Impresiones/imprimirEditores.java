@@ -34,4 +34,8 @@ public class imprimirEditores extends Imprimir{
         }        
         
     }     
+    @Override
+    public String toString() {
+        return "Imprimir lista de editores";
+    }
 }
