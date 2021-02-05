@@ -10,6 +10,7 @@ public class DevolverEmpleadoPorNumero extends Operacion {
 
     @Override
     public void realizarOperacion(Persona operador) {
+        
         if(!(operador instanceof Empleado)){
             System.out.println("Esta clase no deberia tener acceso a esta operacion");
         }else{

@@ -11,6 +11,7 @@ public class DevolverRevistaPorNumero extends Operacion {
 
     @Override
     public void realizarOperacion(Persona operador) {
+        
         Dato accesoDato = Dato.getInstance();
         Scanner sc = new Scanner(System.in);
         int nuemeroRevista;

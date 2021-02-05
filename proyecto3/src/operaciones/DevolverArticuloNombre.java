@@ -19,6 +19,7 @@ public class DevolverArticuloNombre extends Operacion{
 
     @Override
     public void realizarOperacion(Persona operador) {
+        
         Dato accesoDatos = Dato.getInstance();
         Scanner sc = new Scanner(System.in);
         String nombreArticulo;

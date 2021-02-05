@@ -7,6 +7,7 @@ package operaciones;
 
 import Revista.Revista;
 import Usuarios.Persona;
+import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Director;
 import datos.Dato;
 import java.util.Scanner;
@@ -28,19 +29,21 @@ public class CrearRevista extends Operacion{
         System.out.println("");
         System.out.println("Solo un Director puede crear la revista");
         System.out.println("");
-        
+            
+        try{
         Director director = (Director)operador;
-        Dato datos = Dato.getInstance();        
-        
+
+        Dato datos = Dato.getInstance(); 
+
         //Creacion de la Revista
         String titulo;
         do{
             Revista revistaNueva = new Revista();
-            
+
             revistaNueva.pedirDatos();
-            
+
             //almacenamos el articulo en Dato
-            
+
             if(datos.aniadirRevista(revistaNueva)){
                 System.out.println("");
                 System.out.println("Se ha añadido la revista correctamente");
@@ -48,13 +51,13 @@ public class CrearRevista extends Operacion{
                 System.out.println("");
                 System.out.println("Error: No se ha guardado la revista");
             }
-            
+
             System.out.println(" ");            
             System.out.println("Si desea crear otra revista, presione '1'");
             while(true){
                 try{
                     op = sc.nextInt();
-                    
+
                 }catch(IllegalArgumentException ia){
                     System.out.println(" ");
                     System.out.println("Ingrese un numero correctamente, intente nuevamente");
@@ -63,7 +66,14 @@ public class CrearRevista extends Operacion{
                 break;
             }            
         } while(op==1);
+
+    }catch(ClassCastException e){
+            System.out.println("No tienes privilegios suficientes para acceder a esta"
+                    + " operacion");
+        }            
     }
+
+    
     @Override
     public String toString() {
         

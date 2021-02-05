@@ -23,12 +23,7 @@ public class Administrador extends Empleado {
     public Administrador(){
         super();
         this.operacionesDisponible.add(new crearUsuario());
-        this.operacionesDisponible.add(new ConfirmarPublicacionArticulo());
-        this.operacionesDisponible.add(new CrearRevista());
         this.operacionesDisponible.add(new PublicarRevista());
-        this.operacionesDisponible.add(new RevisarArticulo());
-
-
     }
 
     @Override
