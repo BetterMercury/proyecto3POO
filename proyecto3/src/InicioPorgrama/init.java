@@ -58,15 +58,30 @@ public class init {
             op = sc.nextLine();
             switch(op){
                 case "1":
+                    boolean otraOperacion = false ;
                     usuarioActual = ingresar();
                     if(usuarioActual == null){
                         break;
                     }
-                    if(usuarioActual.getEsSub()){
-                        usuarioActual.imprimirNovedades();
-                    }
-                    usuarioActual.mostrarMenu();
-                    usuarioActual.elegirOperacion();
+                    do{
+                        String op2;
+                        if(usuarioActual.getEsSub()){
+                            usuarioActual.imprimirNovedades();
+                        }
+                        usuarioActual.mostrarMenu();
+                        usuarioActual.elegirOperacion();
+                        do{
+                            System.out.println("Quieres realizar otra operacion?");
+                            op2 = sc.nextLine();
+                            if(op2.equalsIgnoreCase("s")){
+                                otraOperacion = true;
+                            }else if (op2.equalsIgnoreCase("n")){
+                                otraOperacion = false;
+                            }
+                        }while(!op2.equalsIgnoreCase("s")  && !op.equalsIgnoreCase("n"));
+                        
+                    }while(otraOperacion);
+                    
                     break;
                 case "2":
                     suscribir(usuarioActual);
