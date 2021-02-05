@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Peticiones.peticionesRevista;
 
 import Excepciones.ErrorDeDatoException;
@@ -16,6 +12,12 @@ import java.util.Scanner;
  */
 public class pedirTitulo extends PeticionesRevista{
     
+    /**
+        * Método implementado de la clase padre que se encarga de asociar
+        * un título a un objeto de la clase Revista.
+        * @param objetivo Un objeto de la clase Revista, al cual se le 
+        * asignará un título.
+        **/
     @Override
     public void realizarPeticion(Revista objetivo){
         String title;
@@ -27,10 +29,12 @@ public class pedirTitulo extends PeticionesRevista{
                 title = sc.nextLine();
                 if(title.length()<4)
                     throw new ErrorDeDatoException("Error: La longitud del título debe ser mayor a 4 caracteres");            
-                break;
+                
             } catch(ErrorDeDatoException e){
                 System.out.println(e.getMessage());
+                continue;
             }
+            break;
         }
         objetivo.setTitulo(title);
     }    

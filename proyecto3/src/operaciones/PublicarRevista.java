@@ -3,6 +3,7 @@ package operaciones;
 
 import Excepciones.ErrorDeDatoException;
 import Impresiones.imprimirRevistasNoP;
+import Peticiones.peticionesRevista.pedirFechaPublicacion;
 import Usuarios.Persona;
 import datos.Dato;
 import java.util.Scanner;
@@ -39,6 +40,7 @@ public class PublicarRevista extends Operacion{
 
             Dato datos = Dato.getInstance();  
             imprimirRevistasNoP irevNP = new imprimirRevistasNoP();
+            pedirFechaPublicacion pedir = new pedirFechaPublicacion();
 
             System.out.println("Revistas No Publicadas");
             irevNP.realizarImpresion(datos);
@@ -66,7 +68,8 @@ public class PublicarRevista extends Operacion{
 
                             //Poner la revista en estado publicado
                             datos.buscarFolioNumeroRevista(num).setEstado(Revista.STATER1);
-
+                            pedir.realizarPeticion(datos.buscarFolioNumeroRevista(num)); //con esto se pide la fecha de publicacion de la revista
+                            
                             //una vez publicada la revista, se le notificará a los suscriptores
                             //me traigo a los suscriptores y les guardo un mensaje de nueva revista
                             mapaSuscriptores = datos.getSetDeSuscriptores();
