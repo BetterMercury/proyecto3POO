@@ -41,6 +41,7 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
         peticionesNecesarias.add(new pedirTitulo());
         peticionesNecesarias.add(new pedirSinopsis());
         peticionesNecesarias.add(new pedirCategoria());
+        peticionesNecesarias.add(new pedirAutores());
         peticionesNecesarias.add(new GenerarFolio());
         this.estado = Estado.STATER4;   //se auto asigna como pendiente
     }

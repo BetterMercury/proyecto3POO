@@ -44,8 +44,9 @@ public class CrearArticulo extends Operacion{
         do{                
             articuloNuevo = new Articulo();
                 
+            
             //asignamos el autor al articulo creado
-            articuloNuevo.getAutores();
+            articuloNuevo.setAutor(autor);            
             
             //se piden los datos del articulo
             articuloNuevo.pedirDatos();
