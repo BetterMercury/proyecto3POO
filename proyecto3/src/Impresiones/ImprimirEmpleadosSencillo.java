@@ -5,6 +5,7 @@
  */
 package Impresiones;
 
+import Usuarios.empleados.Administrador;
 import Usuarios.empleados.Autor;
 import Usuarios.empleados.Director;
 import Usuarios.empleados.Editor;
@@ -41,7 +42,10 @@ public class ImprimirEmpleadosSencillo extends Imprimir{
             }            
             if(entry.getValue() instanceof Revisor){
                 System.out.print("Revisor");
-            }            
+            }   
+            if(entry.getValue() instanceof Administrador){
+                System.out.print("Administrador");
+            }                       
             System.out.println("Numero : " + entry.getKey());
             
         }            

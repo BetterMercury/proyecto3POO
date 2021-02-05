@@ -6,6 +6,7 @@ import Usuarios.Persona;
 import Usuarios.empleados.Autor;
 import articulo.Articulo;
 import datos.Dato;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -40,12 +41,12 @@ public class CrearArticulo extends Operacion{
         Dato datos = Dato.getInstance();
         Articulo articuloNuevo;
         
-        do{        
-        
+        do{                
             articuloNuevo = new Articulo();
                 
             //asignamos el autor al articulo creado
-            articuloNuevo.setAutor(autor);
+            articuloNuevo.getAutores();
+            
             //se piden los datos del articulo
             articuloNuevo.pedirDatos();
         
@@ -70,6 +71,9 @@ public class CrearArticulo extends Operacion{
                 try{
                     op = sc.nextInt();
                     
+                }catch(InputMismatchException im){
+                    System.out.println("");
+                    System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
                 }catch(IllegalArgumentException ia){
                     System.out.println(" ");
                     System.out.println("Ingrese un numero correctamente, intente nuevamente");

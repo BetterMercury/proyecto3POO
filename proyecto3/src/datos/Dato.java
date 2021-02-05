@@ -82,6 +82,20 @@ public class Dato implements Estado, Serializable {
         return null;
     }
     
+    /**
+     * Método para determinar la existencia de un empleado por medio
+     * de su número.
+     * @param numeroEmpleado 
+     * @return true si existe en el mapa de empleados, false si no.
+     */
+    public boolean existsNumeroEmpleado(Integer numeroEmpleado){
+        if(this.mapaEmpleados.containsKey(numeroEmpleado)){
+            return true;
+        } else{
+            return false;
+        }
+    }       
+    
     public boolean aniadirEmpleado(Empleado nuevoEmpleado){
 
         if (mapaEmpleados.containsKey(nuevoEmpleado.getNumeroEmpleado())){
