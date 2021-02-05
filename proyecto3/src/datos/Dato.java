@@ -39,6 +39,7 @@ public class Dato implements Estado, Serializable {
     private final TreeSet<Articulo> setArticulosAceptados;
     private final TreeSet<Articulo> setArticulosPendientes;
     private final TreeSet<Articulo> setArticulosRechazados;
+    private final TreeSet<Articulo> setArticulosRevisados;
     //Conjuntos especificos de tipos de Revistas
     private final TreeSet<Revista> setRevistasPublicadas;
     private final TreeSet<Revista> setRevistasNoPublicadas;
@@ -66,6 +67,7 @@ public class Dato implements Estado, Serializable {
         //conjuntos de revistas
         setRevistasPublicadas = new TreeSet<>();
         setRevistasNoPublicadas = new TreeSet<>();
+        setArticulosRevisados = new TreeSet<>();
     }
     
     /**
@@ -302,6 +304,8 @@ public class Dato implements Estado, Serializable {
                 return this.setArticulosPendientes.add(nuevoArticulo);
             case STATER5:
                 return this.setArticulosRechazados.add(nuevoArticulo);
+            case STATER6:
+                return this.setArticulosRevisados.add(nuevoArticulo);
             default:
                 System.out.println("Error, la revista probablemente tiene un estado"
                         + "invalido o no tiene uno asignado");
@@ -319,6 +323,8 @@ public class Dato implements Estado, Serializable {
         if (setArticulosAceptados.remove(articulo)){return true;}
         
         if (setArticulosPendientes.remove(articulo)){return true;}
+
+        if (setArticulosRevisados.remove(articulo)){return true;}
         
         return setArticulosRechazados.remove(articulo);
     }
@@ -352,6 +358,11 @@ public class Dato implements Estado, Serializable {
     public TreeSet<Articulo> getSetArticulosRechazados() {
         return setArticulosRechazados;
     }
+
+    public TreeSet<Articulo> getSetArticulosRevisados(){
+        return setArticulosRevisados;
+    }
+
     /**
      * Método para devolver un articulo por su folio.
      * @param folio Folio del artículo.

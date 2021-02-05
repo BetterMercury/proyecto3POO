@@ -1,18 +1,19 @@
 
 package operaciones;
 
-import Excepciones.ErrorDeDatoException;
+
 import Impresiones.imprimirArticulos;
-import Peticiones.peticionesArticulos.pedirEstado;
-import Revista.Revista;
+
 import Usuarios.Persona;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
 import datos.Dato;
-import java.util.HashMap;
+
 import java.util.InputMismatchException;
-import java.util.Map;
+
 import java.util.Scanner;
+
+import Estado.Estado;
 
 /**
  * Clase que hereda de la clase abstracta Operacion;
@@ -22,7 +23,7 @@ import java.util.Scanner;
  * @author Equipo 9
  * 
  */
-public class ConfirmarPublicacionArticulo extends Operacion{
+public class ConfirmarPublicacionArticulo extends Operacion implements Estado{
     
         /**
         * Método implementado de la clase padre que se encarga de confirmar
@@ -33,67 +34,69 @@ public class ConfirmarPublicacionArticulo extends Operacion{
         * 
         */
     @Override
-    public void realizarOperacion(Persona operador){
-        System.out.println("");
-        System.out.println("Solo un Editor puede confirmar la publicacion de un articulo");
-        System.out.println("");
-        
+    public void realizarOperacion(Persona operador) {
         try{
-            Editor edi = (Editor)operador;
-
-            Dato datosGenerales = Dato.getInstance();
-            imprimirArticulos irev = new imprimirArticulos();
-            irev.realizarImpresion(datosGenerales);
-            Scanner sc = new Scanner(System.in);
-            pedirEstado pedir = new pedirEstado();
-            HashMap<Integer,Revista> mapaRevistas;
-            Articulo articulo;
-            Revista revista;
-
-            System.out.println(" ");
-            System.out.println("Usted editor, aceptara o rechazara articulos");
-            System.out.println(" ");
-
+            Editor editor = (Editor) operador;   
             int op = 0;
             String folio;
-            int calif = 0;
-            int k = 0;
+            Scanner sc = new Scanner(System.in);
+            Dato datosGenerales = Dato.getInstance();
+            String op2;
 
-            HashMap<String,Integer> folios = new HashMap<>();   //mapa temporal para no volver a ver el mismo articulo
+            //datos de articulos creados
+            imprimirArticulos irev = new imprimirArticulos();
+            irev.realizarImpresion(datosGenerales);
+
+
+            System.out.println(" ");
+            System.out.println("Usted Editor, acepta o rechaza artículos");
+            System.out.println(" ");
+
+            
+            
 
             do{
+                if(datosGenerales.getSetArticulosRevisados().isEmpty() ){
+                    System.out.print("No hay artículos revisados para aplicar esta operación");
+                    break; //Si no hay artículos pendientes o rechazados no continua para que no se cicle. 
+                }
                 System.out.println(" ");
-                System.out.println("Escriba el folio del articulo que revisara");
+                System.out.println("Escriba el folio del articulo que aceptara o rechazara");
+                
                 while(true){
-                    try{
-                        folio = sc.nextLine();
-                        if(datosGenerales.existsFolioArticulo(folio) && !(folios.containsKey(folio)) ){  //si existe el folio del articulo y si aun no se revisa
-                            articulo = datosGenerales.buscarFolioArticulo(folio);  //me traigo el articulo que ya existe, pues que se actualizara solo
-
+                    folio = sc.nextLine();
+                    if(datosGenerales.existsFolioArticulo(folio)){  //si existe el folio
+                        
+                        Articulo articulo = datosGenerales.buscarFolioArticulo(folio); // pide el articulo
+                        String estadoArticulo = articulo.getEstado();  //pide el estado del articulo
+                        
+                        if(estadoArticulo.equals(STATER6)){ //Verifica que el articulo sea rechazado o pendiente
                             System.out.println(" ");
-                            System.out.println("Lectura del articulo...");
-
-                            //aceptacion o rechazo de articulo por parte del editor
-
-                                System.out.println(" ");
-                                System.out.println("Aceptar o rechazar artículo");
-                                while(true){
-                                    try{
-                                        pedir.realizarPeticion(articulo);
-                                    }catch(ErrorDeDatoException e){
-                                         System.out.println("Ocurrio un error: "+e.getMessage());
-                                            continue;
+                            System.out.println("Escriba A si acepta el articulo o R si lo rechaza");
+                            
+                            while(true){    
+                                try{
+                                    op2 = sc.nextLine();
+                                    if(!op2.equals("A") && !op2.equals("B")){
+                                        throw new IllegalArgumentException();
                                     }
-                                    break;
+                                }catch(IllegalArgumentException | InputMismatchException i){
+                                    System.out.println(" ");
+                                    System.out.println("Por favor ingresa A o R");
+                                    continue;
                                 }
-
-                                //el editor guardara el articulo que reviso
-                                edi.setArticulosRevisados(articulo);
-
-                        }else{
-                            throw new IllegalArgumentException();
+                                break;
+                            }
+                            //asociacion de revisor y calificacion con articulo
+                            if(op2.equals("A")){
+                                articulo.setEstado(Estado.STATER3); //cambio de estado del aticulo
+                            }else{
+                                articulo.setEstado(Estado.STATER5); //cambio de estado del aticulo
+                            }
+                            datosGenerales.actualizarEstadoArticulo(articulo);             
                         }
-                    }catch(IllegalArgumentException e){
+
+                    }else{
                         System.out.println(" ");
                         System.out.println("Ingrese el folio correctamente, intente nuevamente");
                         continue;
@@ -101,49 +104,10 @@ public class ConfirmarPublicacionArticulo extends Operacion{
                     break;
                 }
 
-                //proceso de dirigir un articulo a una revista
-                mapaRevistas = datosGenerales.getMapaRevistas();
-                if(!(mapaRevistas.isEmpty()) && articulo.getEstado().compareTo("Aceptado") == 0){   //si no esta vacio el mapa de revistas y si se acepto el articulo
-                    System.out.println(" ");
-                    System.out.println("Revistas disponibles");
-                    System.out.println(" ");
-                    for (Map.Entry<Integer, Revista> entry : mapaRevistas.entrySet()) {
-                        System.out.println("Numero: " + entry.getKey() + ", revista: " + entry.getValue().getTitulo());
-                    }
-
-                    System.out.println(" ");
-                    System.out.print("Ingrese el numero de la revista a la que quiere asociar el articulo: ");
-                    while(true){
-                        try{
-                            op = sc.nextInt();
-                        }catch(IllegalArgumentException | InputMismatchException ia){
-                            System.out.println(" ");
-                            System.out.println("Ingrese un numero correctamente, intente nuevamente");
-                            continue;
-                        }
-                        break;
-                    }
-
-                    //en teoria se actualiza la referencia, entonces, deberia funcionar
-                    revista = mapaRevistas.get(op);
-                    revista.setArticulo(articulo);
-
-                    System.out.println(" ");
-                    System.out.println("Se guardo el articulo en la revista especificada");
-
-                }else{
-                    System.out.println(" ");
-                    System.out.println("No se puede colocar el articulo en una revista");
-                }
-
-                folios.put(folio, k);
-                k++;
-
-
 
 
                 System.out.println(" ");
-                System.out.println("Si desea revisar otro articulo (diferente al que ya reviso), presione '1'");
+                System.out.println("Si desea aceptar o denegar otro articulo, presione '1'");
                 while(true){
                     try{
                         op = sc.nextInt();
@@ -155,12 +119,12 @@ public class ConfirmarPublicacionArticulo extends Operacion{
                     }
                     break;
                 }
-            }while(op == 1);
+            }while(op == 1);  
         }catch(ClassCastException e){
-            System.out.println("No tiene los privilegios suficientes para"
-                    + " utilizar esta operacion");
+                System.out.println("No tienes privilegios suficientes para acceder a esta"
+                    + " operacion");
         }
-    }
+    }   
     
     /**
      * Método toString que representa, en forma de cadena, 
