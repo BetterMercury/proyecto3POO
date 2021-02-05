@@ -3,17 +3,17 @@ package operaciones;
 
 
 import Impresiones.imprimirArticulos;
-
 import Usuarios.Persona;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
 import datos.Dato;
-
 import java.util.InputMismatchException;
-
 import java.util.Scanner;
-
 import Estado.Estado;
+
+import java.awt.Desktop;
+import java.awt.desktop.*;
+import java.io.*;
 
 /**
  * Clase que hereda de la clase abstracta Operacion;
@@ -71,6 +71,18 @@ public class ConfirmarPublicacionArticulo extends Operacion implements Estado{
                         String estadoArticulo = articulo.getEstado();  //pide el estado del articulo
                         
                         if(estadoArticulo.equals(STATER6)){ //Verifica que el articulo sea rechazado o pendiente
+                            
+                            System.out.println("Mostrando el articulo...");
+                            
+                            if(Desktop.isDesktopSupported()){
+                                try{
+                                    Desktop.getDesktop().open(articulo.getReferenciaArticulo());
+                                }catch (IOException e){
+                                    System.out.println("Ocurrio un error al abrir el archivo");
+                                }
+                            }
+                            
+                            
                             System.out.println(" ");
                             System.out.println("Escriba A si acepta el articulo o R si lo rechaza");
                             

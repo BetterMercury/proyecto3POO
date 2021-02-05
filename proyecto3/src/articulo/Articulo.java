@@ -9,6 +9,7 @@ import Usuarios.Persona; //Hay que cambiarlo por Autor cuando este
 import Usuarios.empleados.Autor;
 
 import Usuarios.empleados.Revisor;
+import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +32,7 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     private HashMap <Integer, Revisor> revisoresCalificaciones;
     private String estado;
     private String folio; //Clave alfanumerica de 8 digitos
+    private File referenciaArticulo;
     
     private ArrayList<PeticionesArticulo> peticionesNecesarias;  //lista para hacer las peticiones de forma automática
     
@@ -396,6 +398,14 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     public int compareTo(Articulo o) {
         // TODO Auto-generated method stub
         return this.Titulo.compareTo(o.getTitulo());
+    }
+
+    public File getReferenciaArticulo() {
+        return referenciaArticulo;
+    }
+
+    public void setReferenciaArticulo(File referenciaArticulo) {
+        this.referenciaArticulo = referenciaArticulo;
     }
 }
 

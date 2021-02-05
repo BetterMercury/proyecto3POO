@@ -13,6 +13,9 @@ import java.util.Scanner;
 import Estado.Estado;
 import Excepciones.ErrorDeDatoException;
 import java.util.InputMismatchException;
+import java.awt.Desktop;
+import java.awt.desktop.*;
+import java.io.*;
 
 /**
  * Clase que hereda de la clase abstracta Operacion;
@@ -70,6 +73,17 @@ public class RevisarArticulo extends Operacion implements Estado{
                         String estadoArticulo = articulo.getEstado();  //pide el estado del articulo
                         
                         if(estadoArticulo.equals(STATER4) || estadoArticulo.equals(STATER5)){ //Verifica que el articulo sea rechazado o pendiente
+                            
+                            System.out.println("Mostrando el articulo...");
+                            
+                            if(Desktop.isDesktopSupported()){
+                                try{
+                                    Desktop.getDesktop().open(articulo.getReferenciaArticulo());
+                                }catch (IOException e){
+                                    System.out.println("Ocurrio un error al abrir el archivo");
+                                }
+                            }
+                            
                             System.out.println(" ");
                             System.out.println("Escriba la calificacion de este articulo de 0 a 10 en numero entero");
                             
