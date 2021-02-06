@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresiones;
 
 import Revista.Revista;
@@ -15,6 +11,12 @@ import java.util.Map;
  * @author Dante
  */
 public class imprimirRevistasNoP extends Imprimir{
+    
+    /**
+     * Método para imprimir las características y atributos
+     * de las revistas no publicadas, de forma resumida.
+     * @param datosGenerales 
+     */
     @Override
     public void realizarImpresion(Dato datosGenerales){
         int count=0;
@@ -32,6 +34,12 @@ public class imprimirRevistasNoP extends Imprimir{
             System.out.println("Existen " + count + " Revistas sin publicar");
         }
     }    
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Imprimir lista de revistas no publicadas";

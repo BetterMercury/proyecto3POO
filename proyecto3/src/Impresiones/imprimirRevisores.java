@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresiones;
 
 import Usuarios.empleados.Revisor;
@@ -37,7 +33,13 @@ public class imprimirRevisores extends Imprimir{
         for(Revisor revisor : setRevisores){
             System.out.println(revisor.toString());
         }
-    }     
+    } 
+
+/**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */    
     @Override
     public String toString() {
         return "Imprimir lista de revisores";

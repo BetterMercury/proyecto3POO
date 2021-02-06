@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresiones;
 
 import articulo.Articulo;
@@ -16,6 +12,12 @@ import java.util.Map;
  * @author Dante
  */
 public class imprimirArticuloCompleto extends Imprimir{
+    
+    /**
+     * Método para imprimir las características y atributos
+     * de los artículos, de forma completa
+     * @param datosGenerales 
+     */
     @Override
     public void realizarImpresion(Dato datosGenerales){
         HashMap <String, Articulo> mapaArticulos = datosGenerales.getMapaArticulos();
@@ -29,6 +31,12 @@ public class imprimirArticuloCompleto extends Imprimir{
             System.out.println("Revisores :\n" + entry.getValue().revisoresToString());            
         }
     }   
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Imprimir todos los datos de un artículo";
