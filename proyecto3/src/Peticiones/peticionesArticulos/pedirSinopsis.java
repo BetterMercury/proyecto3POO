@@ -27,10 +27,10 @@ public class pedirSinopsis extends PeticionesArticulo{
         Scanner sc = new Scanner(System.in);
         
         while(true){        
-            System.out.print("Título de Revista \n(Mayor a 4 caracteres): ");
+            System.out.print("Sinopsis del artículo(160 caracteres minimo): ");
             try{
                 sinopsis = sc.nextLine();
-                if(sinopsis.length()>160)
+                if(sinopsis.length()<160)
                     throw new ErrorDeDatoException("Error: La sinopsis debe ser menor a 160 caracteres");            
                 break;
             } catch(ErrorDeDatoException e){
