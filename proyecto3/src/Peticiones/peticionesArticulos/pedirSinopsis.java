@@ -30,8 +30,8 @@ public class pedirSinopsis extends PeticionesArticulo{
             System.out.print("Sinopsis del artículo(160 caracteres minimo): ");
             try{
                 sinopsis = sc.nextLine();
-                if(sinopsis.length()<160)
-                    throw new ErrorDeDatoException("Error: La sinopsis debe ser menor a 160 caracteres");            
+                if(sinopsis.length()>160 || sinopsis.length()<50)
+                    throw new ErrorDeDatoException("Error: La sinopsis debe ser menor a 160 caracteres y mayor a 50");            
                 break;
             } catch(ErrorDeDatoException e){
                 System.out.println(e.getMessage());
