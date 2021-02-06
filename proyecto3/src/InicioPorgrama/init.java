@@ -11,13 +11,13 @@ import operaciones.BusquedaCadenaSinopsis;
 import java.io.Console;
 import java.util.InputMismatchException;
 /**
- * Clase que inicia el programa y que contiene el main
- * contiene métodos para crear suscriptores nuevos y para ingresar
- * como usario registrado, también debe permitir hacer búsquedas sin ingresar
+ *  * Clase que inicia el programa y que contiene el main,
+ * contiene métodos para crear suscriptores nuevos, ingresar
+ * como usario registrado, y permitir hacer búsqudas sin ingresar.
  */
 public class init {
     /**
-     * Método que carga los datos de ejecuciones anteriores si es necesario y 
+     * * Método que carga los datos de ejecuciones anteriores si es necesario,  
      * crea un usuario administrador temporal para poder crear al primer 
      * administrador creado por el usuario y al director. Proporciona la
      * secuencia básica de ejecución, que es iniciar sesión, mostrar menu,
@@ -31,7 +31,7 @@ public class init {
         String op = "";
         String op2 = "";
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bienvenido al programa de administracion\n");
+        System.out.println("\nBienvenido al programa de administracion\n");
         
         while(!"s".equals(op) && !"n".equals(op)){
             System.out.println("Deseas cargar datos de una ejecución anterior?[s/n]");
@@ -197,10 +197,23 @@ public class init {
         
     }
 
+    /**
+     * Método estático que se encarga de crear suscriptores
+     * dentro del programa y asociarlos a la memoria
+     * del programa.
+     * @param usuarioActual El usuario que está trabajando
+     * dentro del proceso del menú principal.
+     */
     private static void suscribir(Persona usuarioActual) {
         new CrearSuscriptor().realizarOperacion(usuarioActual); 
     }
 
+    /**
+     * Mpetodo estático que se encarga de realizar búsquedas de 
+     * elementos dentro del programa, esto aunque no se tengan
+     * usuarios registrados.
+     * @param operador 
+     */
     private static void buscarEnArticulo(Persona operador) {
         new BusquedaCadenaSinopsis().realizarOperacion(operador);
     }
