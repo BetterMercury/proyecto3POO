@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresiones;
 
 import Usuarios.empleados.Administrador;
@@ -24,6 +20,12 @@ import java.util.TreeSet;
  */
 public class ImprimirEmpleadosSencillo extends Imprimir{
     
+    /**
+     * Método para imprimir las características y atributos
+     * de los sujetos empleado, cuidadndo la impresión de
+     * datos confidenciales.
+     * @param datosGenerales 
+     */
     @Override
     public void realizarImpresion(Dato datosGenerales) {
         HashMap <Integer, Empleado> mapaEmpleados = datosGenerales.getMapEmpleados();
@@ -51,6 +53,12 @@ public class ImprimirEmpleadosSencillo extends Imprimir{
             System.out.println("---------------");
         }            
     }
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Imprimir lista con informacion basica de empleados";

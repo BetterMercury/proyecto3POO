@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresiones;
 
 import Usuarios.empleados.Editor;
@@ -17,6 +13,11 @@ import java.util.TreeSet;
  */
 public class imprimirEditores extends Imprimir{
     
+    /**
+     * Método para imprimir las colecciones
+     * de los sujetos editores, de forma resumida.
+     * @param datosGenerales 
+     */
     @Override
     public void realizarImpresion(Dato datosGenerales){
         
@@ -33,7 +34,13 @@ public class imprimirEditores extends Imprimir{
             System.out.println(editor.toString());
         }        
         
-    }     
+    }    
+    
+    /**
+     * Método toString que representa, en forma de cadena, 
+     * el nombre de la operación de esta clase.
+     * @return El nombre de la operación en cadena.
+     */
     @Override
     public String toString() {
         return "Imprimir lista de editores";
