@@ -96,6 +96,7 @@ public class RevisarArticulo extends Operacion implements Estado{
                                 }catch(IllegalArgumentException | InputMismatchException i){
                                     System.out.println(" ");
                                     System.out.println("Ingrese un numero entero de 0 a 10");
+                                    sc.nextLine();
                                     continue;
                                 }
                                 break;

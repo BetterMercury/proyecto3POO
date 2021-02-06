@@ -89,7 +89,7 @@ public class ConfirmarPublicacionArticulo extends Operacion implements Estado{
                             while(true){    
                                 try{
                                     op2 = sc.nextLine();
-                                    if(!op2.equals("A") && !op2.equals("B")){
+                                    if(!op2.equals("A") && !op2.equals("R")){
                                         throw new IllegalArgumentException();
                                     }
                                 }catch(IllegalArgumentException | InputMismatchException i){
