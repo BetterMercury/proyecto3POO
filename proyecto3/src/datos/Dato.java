@@ -564,8 +564,8 @@ public class Dato implements Estado, Serializable {
         ultimoPunto = ruta.lastIndexOf('.');
         extension = ruta.substring(ultimoPunto+1,ruta.length());
         //Si no tiene extensión o la extensión es diferente a pdf
-        if(ultimoPunto ==-1 || !extension.equals("pdf") ){
-            System.out.println("La extension no es correcta");
+        if(ultimoPunto ==-1 || !extension.equals("pdf") || !archivoDatos.exists() ){
+            System.out.println("La extension no es correcta o el archivo no existe");
             return null;
         }
             
@@ -598,7 +598,7 @@ public class Dato implements Estado, Serializable {
             lector = new FileInputStream(archivoDatos);
             escritor = new FileOutputStream(archivoEscritura);
         }catch(FileNotFoundException e){
-            System.out.println("No se encontró el archivo de entrada");
+            System.out.println("Ocurrio un error al crear el lector o escritor");
             return null;
         }
         try{

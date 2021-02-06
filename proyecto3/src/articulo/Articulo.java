@@ -32,7 +32,6 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
     private String estado;
     private String folio; //Clave alfanumerica de 8 digitos
     private File referenciaArticulo;
-    
     private ArrayList<PeticionesArticulo> peticionesNecesarias;  //lista para hacer las peticiones de forma automática
     
     /**
