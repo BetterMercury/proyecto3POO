@@ -33,7 +33,7 @@ public class Suscriptor extends Persona{
     }
     
     //formateador para la fecha ingresada
-    DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
+    static DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");	//se crea un objeto de la clase formateador para localDate
     LocalDate fechaSuscripcion;
     int numeroSuscriptor;
 

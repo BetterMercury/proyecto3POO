@@ -46,7 +46,7 @@ public class DevolverEmpleadoPorNumero extends Operacion {
             if(empleado == null){
                 System.out.println("No se encontro al empleado");
             }else{
-                empleado.toString();
+                System.out.println(empleado.toString());
             }
             
         }

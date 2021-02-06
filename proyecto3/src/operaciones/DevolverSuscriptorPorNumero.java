@@ -45,7 +45,7 @@ public class DevolverSuscriptorPorNumero extends Operacion {
             if(suscriptor == null){
                 System.out.println("No se encontro al suscriptor");
             }else{
-                suscriptor.toString();
+                System.out.println(suscriptor.toString());
             }
             
         }

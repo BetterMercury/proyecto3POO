@@ -53,7 +53,7 @@ public class pedirAutores extends PeticionesArticulo {
                     System.out.println("Ingrese un numero correctamente, intente nuevamente");
                 }
             }
-            System.out.println("LLEGAR HASTA ACA");
+        
             
             if(op == 1){                           
                 if(datosGenerales.getSetDeAutores().isEmpty()){

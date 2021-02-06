@@ -46,6 +46,7 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
     public Persona(){
         operacionesDisponible = new ArrayList<>();
         peticonesNecesarias = new ArrayList<>();
+        novedades = new ArrayList<>();
         operacionesDisponible.add(new regresarMenuAnterior());
         operacionesDisponible.add(new DevolverArticuloFolio());
         peticonesNecesarias.add(new PedirNombre());
@@ -244,6 +245,7 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
      * @param novedad La novedad en cadena que se le pondrá al objeto.
      */
     public void setNovedades(String novedad){
+        
         this.novedades.add(novedad);
     }
 
@@ -276,7 +278,5 @@ public abstract class Persona implements Serializable, Comparable<Persona> {
     public int compareTo(Persona arg0) {
         return this.getCadenaTodoJunto().compareTo(arg0.getCadenaTodoJunto()) ; //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+        
 }

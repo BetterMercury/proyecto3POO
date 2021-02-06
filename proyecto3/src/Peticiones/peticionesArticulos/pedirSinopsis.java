@@ -27,7 +27,7 @@ public class pedirSinopsis extends PeticionesArticulo{
         Scanner sc = new Scanner(System.in);
         
         while(true){        
-            System.out.print("Sinopsis del artículo(160 caracteres minimo): ");
+            System.out.print("Sinopsis del artículo (50 caracteres minimo 160 maximo): ");
             try{
                 sinopsis = sc.nextLine();
                 if(sinopsis.length()>160 || sinopsis.length()<50)

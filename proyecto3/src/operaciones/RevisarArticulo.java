@@ -90,6 +90,7 @@ public class RevisarArticulo extends Operacion implements Estado{
                             while(true){    
                                 try{
                                     calif = sc.nextInt();
+                                    sc.nextLine(); //Solo para limpiar el buffer
                                     if(calif<0 || calif>10){
                                         throw new IllegalArgumentException();
                                     }
@@ -125,10 +126,11 @@ public class RevisarArticulo extends Operacion implements Estado{
                 while(true){
                     try{
                         op = sc.nextInt();
-
+                        sc.nextLine(); //Solo para limpiar el buffer
                     }catch(IllegalArgumentException | InputMismatchException ia){
                         System.out.println(" ");
                         System.out.println("Ingrese un numero correctamente, intente nuevamente");
+                        sc.nextLine(); //Solo para limpiar el buffer
                         continue;
                     }
                     break;

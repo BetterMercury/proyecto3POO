@@ -7,6 +7,7 @@ import Peticiones.peticionesRevista.PeticionesRevista;
 import Peticiones.peticionesRevista.pedirTitulo;
 import Usuarios.empleados.Editor;
 import articulo.Articulo;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.LinkedList;
  * @author Dante
  */
 
-public class Revista implements Estado, Comparable<Revista>{
+public class Revista implements Estado, Comparable<Revista>, Serializable{
     /*
     ArrayList<Operacion> operacionesDisponible;
     ArrayList<PeticionRevista> peticionesNecesarias;    

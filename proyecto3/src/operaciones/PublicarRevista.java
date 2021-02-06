@@ -65,9 +65,11 @@ public class PublicarRevista extends Operacion{
                 while(true){
                     try{
                         num = sc.nextInt();
+                        sc.nextLine(); //Solo para limpiar el buffer
                     }catch(IllegalArgumentException | InputMismatchException e){
                         System.out.println(" ");
                         System.out.println("Formato incorrecto, ingrese un numero");
+                        sc.nextLine();
                         continue;
                     }   
                     break;
