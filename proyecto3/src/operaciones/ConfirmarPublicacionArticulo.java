@@ -10,6 +10,8 @@ import datos.Dato;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import Estado.Estado;
+import Excepciones.ErrorDeDatoException;
+import Impresiones.imprimirRevistasNoP;
 
 import java.awt.Desktop;
 import java.awt.desktop.*;
@@ -38,6 +40,7 @@ public class ConfirmarPublicacionArticulo extends Operacion implements Estado{
         try{
             Editor editor = (Editor) operador;   
             int op = 0;
+            int numRev = 0;
             String folio;
             Scanner sc = new Scanner(System.in);
             Dato datosGenerales = Dato.getInstance();
@@ -106,6 +109,46 @@ public class ConfirmarPublicacionArticulo extends Operacion implements Estado{
                                 articulo.setEstado(Estado.STATER5); //cambio de estado del aticulo
                             }
                             datosGenerales.actualizarEstadoArticulo(articulo);             
+                        }
+                        
+                        if(articulo.getEstado().equals(Estado.STATER3)){
+                            imprimirRevistasNoP irevnop = new imprimirRevistasNoP();
+                            System.out.println("Se muestran las Revistas No Publicadas : ");
+                            irevnop.realizarImpresion(datosGenerales);
+                            
+                            if(!datosGenerales.getSetRevistasNoPublicadas().isEmpty()){
+
+                                System.out.println("Ingrese el numero de revista al cual desea asociar el articulo");
+                                do{
+                                    try{
+                                        numRev = sc.nextInt();
+                                    
+                                        //Verificación para ingresar un Articulo en una revista existente No Publicada
+                                        if(datosGenerales.existsFolioNumeroRevista(numRev) && datosGenerales.buscarFolioNumeroRevista(numRev).getEstado().equals(Estado.STATER2)){
+                                             datosGenerales.buscarFolioNumeroRevista(numRev).setArticulo(articulo);
+                                         } else{
+                                            throw new ErrorDeDatoException("La revista seleccionada no existe o no esta disponible");
+                                         }         
+
+                                    }catch (InputMismatchException | IllegalArgumentException e){
+                                        System.out.println("");
+                                        System.out.println("Ingrese un dato correcto");
+                                        sc.nextLine();
+                                        continue;
+                                    } catch (ErrorDeDatoException e){
+                                        System.out.println("");
+                                        System.out.println(e.getMessage());
+                                        continue;
+                                    }
+                                    break;
+                                }while(true);                                            
+                                
+                            }else{
+                                System.out.println("");
+                                System.out.println("No existen revistas para publicar");
+                                System.out.println("Asi que el articulo nuevamente quedara Pendiente");
+                                articulo.setEstado(Estado.STATER4);
+                            }
                         }
 
                     }else{
