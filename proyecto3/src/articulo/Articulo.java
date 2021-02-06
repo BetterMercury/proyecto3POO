@@ -43,8 +43,9 @@ public class Articulo implements Estado, Categoria, Serializable, Comparable<Art
      * arreglos de objetos y polimorfismo).
      **/
     public Articulo(){
-        autores = new ArrayList<>();
-        peticionesNecesarias = new ArrayList<>();
+        this.autores = new ArrayList<>();
+        this.revisoresCalificaciones = new HashMap<>();
+        this.peticionesNecesarias = new ArrayList<>();
         peticionesNecesarias.add(new pedirTitulo());
         peticionesNecesarias.add(new pedirSinopsis());
         peticionesNecesarias.add(new pedirCategoria());

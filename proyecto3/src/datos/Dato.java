@@ -578,13 +578,13 @@ public class Dato implements Estado, Serializable {
                 return null;
             }
         }
-        archivoEscritura = new File (directorioPDFs.toString()+archivoDatos.getName());
+        archivoEscritura = new File (directorioPDFs.toString()+"/"+archivoDatos.getName());
         
         if(!archivoEscritura.exists()){
             try{
                 archivoEscritura.createNewFile();
             }catch(IOException e){
-                System.out.println("Ocurrio un error al crear el archivo de texto");
+                System.out.println("Ocurrio un error al crear el archivo de escritura");
                 return null;
             }
         }else{

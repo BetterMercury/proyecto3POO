@@ -41,9 +41,11 @@ public class pedirAutores extends PeticionesArticulo {
                     
                     op = sc.nextInt();
                     
+                    
                     ok = false;
 
                 }catch(InputMismatchException im){
+                    sc.nextLine();
                     System.out.println("");
                     System.out.println("Necesita ingresar un dato numérico, intente nuevamente");
                 }catch(IllegalArgumentException ia){
